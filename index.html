@@ -402,7 +402,7 @@
   <div class="hdr-top">
     <div class="hdr-left">
       <div>
-        <div class="hdr-dest">Hokkaido · Furano · Tokyo · 2026</div>
+        <div class="hdr-dest">Hokkaido &amp; Tokyo · 2026</div>
         <div class="hdr-hc">Happy Camper × The Extended</div>
       </div>
     </div>
@@ -794,8 +794,8 @@
     { name:"Victor",          tag:"adult", status:"pending" },
     { name:"Audrey",          tag:"child", status:"pending" },
     { name:"Oliver",          tag:"child", status:"pending" },
-    { name:"Sam Ruan",        tag:"adult", status:"pending" },
-    { name:"Shirley Ruan",    tag:"adult", status:"pending" }
+    { name:"Sam",             tag:"adult", status:"pending" },
+    { name:"Shirley",         tag:"adult", status:"pending" }
   ];
   var DIET_JP = [];
   var DIET_URL = "https://diet.happycamper.food";
@@ -1010,20 +1010,26 @@
   function renderDiscover(){
     var el=document.getElementById("tab-discover");
     if(!el) return;
-    var html='<div class="wishlist-banner" style="background:linear-gradient(135deg,#123A2E 0%,#08211A 100%)"><h2>Discover</h2>';
-    html+='<p>A little more on the places along your route — and a few worth knowing if a day flexes.</p></div>';
-    DISCOVER.forEach(function(region){
-      html+='<div class="section-label" style="display:flex;align-items:center;gap:8px"><span class="day-city-badge '+esc(region.cls)+'">'+esc(region.city)+'</span></div>';
-      html+='<div class="day-note-bar" style="margin-bottom:8px">'+esc(region.intro)+'</div>';
-      html+='<div class="wish-card">';
+    function card(region){
+      var h='<div class="section-label" style="display:flex;align-items:center;gap:8px"><span class="day-city-badge '+esc(region.cls)+'">'+esc(region.city)+'</span></div>';
+      h+='<div class="day-note-bar" style="margin-bottom:8px">'+esc(region.intro)+'</div>';
+      h+='<div class="wish-card">';
       region.spots.forEach(function(s,i){
-        if(i>0) html+='<div class="wish-border"></div>';
-        html+='<div class="wish-row"><div class="wish-num">'+(i+1)+'</div>';
-        html+='<div class="wish-info"><div class="wish-name">'+esc(s.name)+'</div><div class="wish-style">'+esc(s.note)+'</div></div>';
-        html+='<div class="wish-actions"><a class="wish-map-btn" href="'+gm(s.q)+'" target="_blank" rel="noopener">📍 Map</a></div></div>';
+        if(i>0) h+='<div class="wish-border"></div>';
+        h+='<div class="wish-row"><div class="wish-num">'+(i+1)+'</div>';
+        h+='<div class="wish-info"><div class="wish-name">'+esc(s.name)+'</div><div class="wish-style">'+esc(s.note)+'</div></div>';
+        h+='<div class="wish-actions"><a class="wish-map-btn" href="'+gm(s.q)+'" target="_blank" rel="noopener">📍 Map</a></div></div>';
       });
-      html+='</div>';
-    });
+      h+='</div>'; return h;
+    }
+    var lists=DISCOVER.filter(function(r){ return r.city==="Coffee"||r.city==="Shopping"; });
+    var regions=DISCOVER.filter(function(r){ return r.city!=="Coffee"&&r.city!=="Shopping"; });
+    var html='<div class="wishlist-banner" style="background:linear-gradient(135deg,#123A2E 0%,#08211A 100%)"><h2>Discover</h2>';
+    html+='<p>Coffee and shopping picks for the Tokyo finale, plus a guide to the places along your route.</p></div>';
+    html+='<div class="section-label" style="letter-spacing:1.4px">Coffee &amp; Shopping</div>';
+    lists.forEach(function(r){ html+=card(r); });
+    html+='<div class="section-label" style="letter-spacing:1.4px">By region</div>';
+    regions.forEach(function(r){ html+=card(r); });
     el.innerHTML=html;
   }
 
@@ -1108,9 +1114,9 @@
     var html = '';
     html += '<div class="util-card"><div class="util-card-title">Currency</div>';
     html += '<div class="fx-row">';
-    html += '<div class="fx-group"><div class="fx-label">USD</div><input class="fx-input" id="fx-usd" type="number" inputmode="decimal" value="100"></div>';
+    html += '<div class="fx-group"><div class="fx-label">USD</div><input class="fx-input" id="fx-usd" type="text" inputmode="decimal" value="100"></div>';
     html += '<button class="fx-swap-btn" id="fx-swap" aria-label="swap">⇄</button>';
-    html += '<div class="fx-group"><div class="fx-label">JPY (¥)</div><input class="fx-input" id="fx-jpy" type="number" inputmode="decimal"></div>';
+    html += '<div class="fx-group"><div class="fx-label">JPY (¥)</div><input class="fx-input" id="fx-jpy" type="text" inputmode="decimal"></div>';
     html += '</div>';
     html += '<div class="fx-rate-note">≈ ¥'+FX_RATE+' to $1 · approximate planning rate, not a live quote</div>';
     html += '</div>';
@@ -1138,9 +1144,11 @@
   function wireFx(){
     var usd=document.getElementById("fx-usd"), jpy=document.getElementById("fx-jpy"), swap=document.getElementById("fx-swap");
     var mode="usd";
+    function num(v){ return parseFloat(String(v).replace(/[^0-9.]/g,""))||0; }
+    function grp(n,dec){ return n.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:dec||0}); }
     function recalc(){
-      if(mode==="usd"){ var v=parseFloat(usd.value||"0"); jpy.value=Math.round(v*FX_RATE); }
-      else { var j=parseFloat(jpy.value||"0"); usd.value=(j/FX_RATE).toFixed(2); }
+      if(mode==="usd"){ jpy.value=grp(Math.round(num(usd.value)*FX_RATE)); }
+      else { usd.value=grp(num(jpy.value)/FX_RATE,2); }
     }
     usd.addEventListener("input",function(){ mode="usd"; recalc(); });
     jpy.addEventListener("input",function(){ mode="jpy"; recalc(); });
@@ -1173,17 +1181,18 @@
     html += contactRow("ci-n","👤","Gerhard Huber","Happy Camper — call or WhatsApp","cn","Call","tel:+818069892107");
     html += contactRow("ci-n","👤","Jordyn Friedman","The Extended — advisory partner","cn","Call","tel:+18185683217");
     html += contactRow("ci-n","🌿","Tomoko Morikawa","Programme Director · WhatsApp","cn","Call","tel:+819061589006");
+    html += contactRow("ci-n","🗼","Iko · Tamura","Tokyo — your private guide (22 Jul)","cn","Call","tel:+818034270884");
     html += contactRow("ci-n","✉️","Email Happy Camper","cfo@happycamper.food","co","Email","mailto:cfo@happycamper.food");
     html += '</div>';
     html += '<div class="section-label">Where You Stay</div>';
     html += '<div class="contact-card">';
-    html += stayRow("KIKI Shiretoko Resort","Utoro · 13–16 Jul · confirmed","Kiki Shiretoko Natural Resort Utoro", null);
-    html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed","Akan Yuku no Sato Tsuruga Akanko Onsen", null);
-    html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul · confirmed","La Vista Daisetsuzan Asahidake", null);
+    html += stayRow("KIKI Shiretoko Resort","Utoro · 13–16 Jul · confirmed","Kiki Shiretoko Natural Resort Utoro", "+81152242104");
+    html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed","Akan Yuku no Sato Tsuruga Akanko Onsen", "+81154674000");
+    html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul · confirmed","La Vista Daisetsuzan Asahidake", "+81166972323");
     html += stayRow("Furano Lofts · Yama 1 & 2","Furano / Biei · 19–21 Jul · confirmed","Furano Lofts Furano Hokkaido", "+81167567569");
     html += stayRow("Tokyo hotel · to be confirmed","Tokyo · 21–23 Jul · being finalised with George","Tokyo hotels", null);
     html += '</div>';
-    html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Property direct lines are added once bookings are finalised. In the meantime, reach any stay through your Happy Camper host.</div>';
+    html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Every confirmed stay has a direct line above; the Tokyo hotel line follows once George confirms his choice.</div>';
     html += '<div class="section-label">Emergency Numbers</div>';
     html += '<div class="contact-card">';
     html += contactRow("ci-r","🚓","Police","Nationwide","cr","110","tel:110");
@@ -1207,9 +1216,28 @@
     html += phrase("Thank you","ありがとうございます","a-ri-ga-tō go-zai-mas");
     html += phrase("Excuse me / Sorry","すみません","su-mi-ma-sen");
     html += phrase("Please","お願いします","o-ne-gai shi-mas");
+    html += phrase("Yes / No","はい / いいえ","hai / ii-e");
+    html += phrase("Good morning","おはようございます","o-ha-yō go-zai-mas");
+    html += phrase("Hello (daytime)","こんにちは","kon-ni-chi-wa");
+    html += phrase("Good evening","こんばんは","kon-ban-wa");
+    html += phrase("Nice to meet you","はじめまして","ha-ji-me-ma-shi-te");
+    html += phrase("Goodbye","さようなら","sa-yō-na-ra");
     html += phrase("Delicious","美味しい","o-i-shī");
+    html += phrase("Before eating","いただきます","i-ta-da-ki-mas");
+    html += phrase("After eating (thanks)","ごちそうさまでした","go-chi-sō-sa-ma de-shi-ta");
+    html += phrase("Cheers!","乾杯","kan-pai");
+    html += phrase("Water, please","お水をください","o-mizu o ku-da-sai");
+    html += phrase("The bill, please","お会計をお願いします","o-kai-kei o o-ne-gai shi-mas");
+    html += phrase("How much is it?","いくらですか","i-ku-ra des-ka");
+    html += phrase("Where is the toilet?","トイレはどこですか","toi-re wa do-ko des-ka");
     html += phrase("Where is…?","…はどこですか","…wa do-ko des-ka");
-    html += phrase("Help!","助けて","tas-ke-te");
+    html += phrase("Train station","駅","e-ki");
+    html += phrase("Do you speak English?","英語を話せますか","ei-go o ha-na-se-mas-ka");
+    html += phrase("I don't understand","わかりません","wa-ka-ri-ma-sen");
+    html += phrase("I have an allergy","アレルギーがあります","a-re-ru-gī ga a-ri-mas");
+    html += phrase("Without…, please","…抜きでお願いします","…nu-ki de o-ne-gai shi-mas");
+    html += phrase("May I? / Is this OK?","いいですか","ii des-ka");
+    html += phrase("Please help me","助けてください","tas-ke-te ku-da-sai");
     html += '</div>';
     el.innerHTML = html;
   }
@@ -1224,9 +1252,11 @@
     var h = '<div class="contact-row"><div class="contact-left">';
     h += '<div class="contact-icon ci-n">⌂</div>';
     h += '<div><div class="contact-label">'+esc(name)+'</div><div class="contact-sub">'+esc(sub)+'</div></div></div>';
+    h += '<div style="display:flex;gap:6px;flex-shrink:0">';
+    h += '<a class="call-btn co" href="'+gm(q)+'" target="_blank" rel="noopener">Map</a>';
     if(tel) h += '<a class="call-btn cn" href="tel:'+tel+'">Call</a>';
-    else h += '<a class="call-btn co" href="'+gm(q)+'" target="_blank" rel="noopener">Map</a>';
-    h += '</div>';
+    else h += '<span class="call-btn co" style="opacity:.4">Call · TBC</span>';
+    h += '</div></div>';
     return h;
   }
   function phrase(en,jp,ro){

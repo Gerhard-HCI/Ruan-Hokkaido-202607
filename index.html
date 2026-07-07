@@ -1,1 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0D2847">
+  <title>The Ruan Family · Japan 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0D2847; --navy-dk:#071B35; --navy-lt:#EEF4FF;
+      --gold:#B07C22; --gold-lt:#FBF5E6;
+      --sakura:#E8A4B2; --sakura-lt:#FDF2F5;
+      --cream:#FAF8F4; --ink:#0A1A2F; --ink-2:#233D5C; --ink-3:#5A7590; --ink-4:#90A8BE;
+      --border:#D8E4F0; --border-lt:#EBF2FA; --white:#FFFFFF;
+      --shadow:0 2px 12px rgba(13,40,71,.10),0 1px 3px rgba(13,40,71,.06);
+      --radius:18px; --radius-md:12px; --radius-sm:8px;
+      --font-serif:'Cormorant Garamond','Palatino Linotype',Georgia,serif;
+      --font-sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;height:100%}
+    body{font-family:var(--font-sans);background:var(--cream);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;margin:0;padding:0}
+    a{color:inherit;text-decoration:none}
+    button{font-family:var(--font-sans);cursor:pointer;-webkit-tap-highlight-color:transparent}
+    input{font-family:var(--font-sans)}
+    html,body{height:100%;margin:0;padding:0}
+
+    /* HEADER */
+    #app-header{position:fixed;top:0;left:0;right:0;z-index:9999;background-color:#0D2847;background-image:linear-gradient(160deg,#0F3160 0%,#0D2847 55%,#071B35 100%);border-bottom:1px solid rgba(255,255,255,.08)}
+    .hdr-top{display:flex;align-items:center;justify-content:space-between;padding:8px 14px 4px}
+    .hdr-left{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .hdr-flag{font-size:17px;flex-shrink:0}
+    .hdr-dest{font-family:var(--font-serif);font-size:14px;font-weight:300;letter-spacing:.4px;color:#fff;white-space:nowrap}
+    .hdr-hc{font-size:8px;color:rgba(255,255,255,.40);letter-spacing:.8px;text-transform:uppercase;margin-top:1px}
+    .hdr-names{text-align:center;padding:0 14px 7px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .hdr-name{font-family:var(--font-serif);font-size:clamp(22px,5vw,34px);font-weight:300;letter-spacing:.4px;color:#fff;line-height:1.15}
+    .hdr-name2{font-size:clamp(9px,1.8vw,11px);color:rgba(255,255,255,.45);letter-spacing:1.4px;text-transform:uppercase;margin-top:3px}
+    .hdr-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    #jst-clock{font-family:'SF Mono','Menlo',monospace;font-size:14px;font-weight:300;letter-spacing:1px;color:#fff;display:block;text-align:right;white-space:nowrap}
+    #trip-day-label{font-size:8.5px;color:rgba(255,255,255,.38);letter-spacing:.4px;margin-top:1px;display:block;text-align:right;white-space:nowrap}
+
+    /* TAB NAV */
+    .tab-nav{display:flex;border-top:1px solid rgba(255,255,255,.07);overflow-x:auto;scrollbar-width:none}
+    .tab-nav::-webkit-scrollbar{display:none}
+    .tab-btn{flex-shrink:0;background:none;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,.78);font-size:11.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:9px 13px 7px;transition:color .18s,border-color .18s;cursor:pointer;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+    .tab-btn.active{color:var(--sakura);border-bottom-color:var(--sakura)}
+
+    /* MAIN */
+    #main-content{overflow-y:auto;-webkit-overflow-scrolling:touch;height:100vh;}
+    .tab-panel{display:none;padding:14px 14px 80px;animation:panelFade .22s ease both}
+    .tab-panel.active{display:block}
+    @keyframes panelFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+    /* BANNER */
+    .trip-banner{background:linear-gradient(135deg,#0D2847 0%,#0A2040 55%,#04111F 100%);border-radius:var(--radius);padding:22px 20px 20px;margin-bottom:14px;color:#fff;position:relative;overflow:hidden}
+    .trip-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat}
+    .trip-banner-kana{font-family:var(--font-serif);font-size:11px;font-style:italic;opacity:.55;letter-spacing:1px;margin-bottom:4px;position:relative}
+    .trip-banner h2{font-family:var(--font-serif);font-size:28px;font-weight:300;letter-spacing:1px;margin-bottom:4px;position:relative}
+    .trip-banner .banner-dates{font-size:13px;opacity:.72;position:relative}
+    .banner-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;position:relative}
+    .banner-chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 10px;font-size:11px}
+    .banner-chip.confirmed{background:rgba(200,230,201,.25);border-color:rgba(200,230,201,.5)}
+
+    .section-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink-4);padding:8px 2px 6px}
+
+    /* BOOKING LEGEND */
+    .booking-legend{display:flex;flex-wrap:wrap;gap:8px 14px;padding:10px 14px;background:var(--white);border-radius:var(--radius-md);margin-bottom:10px;border:1px solid var(--border-lt)}
+    .bl-item{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--ink-3);font-weight:500}
+    .bl-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+    .bl-dot.confirmed{background:#C8E6C9;border:1px solid rgba(27,94,32,.3)}
+    .bl-dot.requested{background:#80DEEA;border:1px solid rgba(0,77,86,.3)}
+    .bl-dot.self-booked{background:#FADADD;border:1px solid rgba(123,26,26,.3)}
+    .bl-dot.suggestion{background:#BBDEFB;border:1px solid rgba(13,60,110,.3)}
+    .bl-dot.walk-in{background:#FFF9E6;border:1px solid rgba(107,80,0,.3)}
+
+    /* DAY CARDS */
+    .day-card{background:var(--white);border-radius:var(--radius);margin-bottom:10px;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--border-lt);animation:cardIn .28s ease both}
+    @keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .day-card.is-today{border-color:var(--navy);box-shadow:0 0 0 1.5px var(--navy),var(--shadow)}
+    .day-card.is-past{opacity:.58}
+    .day-header{display:flex;align-items:center;gap:12px;padding:15px 16px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+    .day-num{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;background:var(--border-lt);color:var(--ink-3)}
+    .day-card.is-today .day-num{background:var(--navy);color:#fff}
+    .day-header-info{flex:1;min-width:0}
+    .day-name{font-size:15px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .day-sub{font-size:11px;color:var(--ink-4);margin-top:2px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .day-city-badge{font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:5px;background:#EBF3FF;color:#1A5FAA}
+    .day-city-badge.kyoto{background:#F1EBE0;color:#7A5C1F}
+    .day-city-badge.fuji{background:#EAF1FB;color:#3A5C8A}
+    .day-city-badge.hiroshima{background:#EAF5EE;color:#2E6B4F}
+    .day-city-badge.fukuoka{background:#FBEEF0;color:#9A3B52}
+    .banner-chip.pending{background:rgba(236,239,241,.22);border-color:rgba(255,255,255,.24)}
+    .today-pill{font-size:10px;font-weight:700;background:var(--navy);color:#fff;padding:2px 8px;border-radius:20px}
+    .host-pill{font-size:10px;font-weight:600;background:rgba(176,124,34,.15);color:var(--gold);padding:2px 8px;border-radius:20px;border:1px solid rgba(176,124,34,.25)}
+    .day-chevron{color:var(--ink-4);font-size:14px;flex-shrink:0;transition:transform .25s cubic-bezier(.4,0,.2,1)}
+    .day-card.open .day-chevron{transform:rotate(180deg)}
+    .day-body{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
+    .day-card.open .day-body{max-height:5000px}
+    .day-body-inner{padding:0 16px 16px}
+
+    .hotel-bar{display:flex;align-items:center;gap:10px;border-radius:var(--radius-md);padding:10px 13px;margin-bottom:12px;background:#EBF4FF;border-left:3px solid #0D2847}
+    .hb-name{font-size:12px;font-weight:600;color:#0D2847}
+    .hb-detail{font-size:11px;color:#1A3F6F;margin-top:1px}
+    .hb-link{margin-left:auto;font-size:11px;font-weight:500;flex-shrink:0;color:#0D2847}
+
+    .day-note-bar{background:var(--navy-lt);border-radius:var(--radius-md);border-left:3px solid #4A80C0;padding:10px 13px;font-size:12px;color:var(--ink-2);line-height:1.55;margin-bottom:12px}
+
+    .weather-widget{display:flex;align-items:center;gap:10px;background:var(--gold-lt);border-radius:var(--radius-md);border:1px solid rgba(176,124,34,.15);padding:10px 13px;margin-bottom:14px}
+    .wx-icon{font-size:26px}.wx-info{flex:1}.wx-temp{font-size:14px;font-weight:600}.wx-desc{font-size:11px;color:var(--ink-3);margin-top:2px}.wx-rain{font-size:12px;font-weight:500;color:#1D6FAD;flex-shrink:0}
+    .wx-loading{font-size:12px;color:var(--ink-4);animation:pulse 1.5s ease infinite}
+    @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+    /* TIMELINE */
+    .timeline{position:relative;padding-left:75px}
+    .stop-item{position:relative;margin-bottom:14px}
+    .stop-item::after{content:'';position:absolute;left:-16px;top:29px;bottom:-14px;width:2px;background:var(--border);z-index:1}
+    .stop-item:last-child::after{display:none}
+    .stop-time{position:absolute;left:-70px;top:11px;width:42px;text-align:right;font-size:10px;font-weight:600;color:var(--ink-4);line-height:1.4}
+    .stop-dot{position:absolute;left:-25px;top:9px;width:18px;height:18px;border-radius:50%;border:2.5px solid #ccc;background:#fff;z-index:2}
+    .stop-dot.t-restaurant{border-color:#8B1A1A;background:#F8EDED}
+    .stop-dot.t-activity{border-color:#6650CC;background:#EEE8FF}
+    .stop-dot.t-transport{border-color:#0D2847;background:#EEF4FF}
+    .stop-dot.t-hotel{border-color:#2E7D32;background:#E8F5E9}
+    .stop-dot.t-flight{border-color:#0277BD;background:#E1F5FE}
+    .stop-dot.t-suggestion{border-color:#1565C0;background:#E3F2FD}
+    .stop-dot.t-pending{border-color:#607D8B;background:#ECEFF1}
+    .stop-card{background:var(--cream);border-radius:var(--radius-md);border:1px solid var(--border-lt);padding:11px 13px}
+    .stop-card.is-suggestion{background:#F0F7FF;border-color:rgba(21,101,192,.15)}
+    .stop-card.is-pending{background:#F5F5F5;border-color:rgba(96,125,139,.15)}
+    .stop-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+    .stop-title-wrap{flex:1;min-width:0}
+    .stop-icon{font-size:13px;margin-right:5px}
+    .stop-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3}
+    .stop-subtitle{font-size:11px;color:var(--ink-3);margin-top:2px}
+
+    /* BOOKING STATUS BADGES */
+    .stop-badge{font-size:9.5px;font-weight:600;padding:3px 9px;border-radius:5px;flex-shrink:0;white-space:nowrap;letter-spacing:.1px}
+    .stop-badge.confirmed  {background:#C8E6C9;color:#1B5E20;border:1px solid rgba(27,94,32,.18)}
+    .stop-badge.requested  {background:#80DEEA;color:#004D56;border:1px solid rgba(0,77,86,.18)}
+    .stop-badge.self-booked{background:#FADADD;color:#7B1A1A;border:1px solid rgba(123,26,26,.18)}
+    .stop-badge.suggestion {background:#BBDEFB;color:#0D3C6E;border:1px solid rgba(13,60,110,.18)}
+    .stop-badge.walk-in    {background:#FFF9E6;color:#6B5000;border:1px solid rgba(107,80,0,.18)}
+    .stop-badge.pending    {background:#ECEFF1;color:#546E7A;border:1px solid rgba(84,110,122,.2)}
+    .stop-badge.logistics  {background:#FFE0B2;color:#BF360C;border:1px solid rgba(191,54,12,.18)}
+
+    .stop-notes{font-size:12px;color:var(--ink-2);line-height:1.55;margin-top:8px;padding-top:8px;border-top:1px solid var(--border-lt)}
+    .stop-alert{display:flex;align-items:flex-start;gap:6px;margin-top:8px;padding:7px 10px;background:#FFFBEB;border-radius:var(--radius-sm);border-left:3px solid #F59E0B;font-size:11px;color:#92400E;font-weight:500;line-height:1.4}
+    .diet-alert{display:flex;align-items:flex-start;gap:8px;margin-top:8px;padding:8px 11px;background:#FDF2F5;border-radius:var(--radius-sm);border-left:3px solid var(--sakura);font-size:11.5px;color:#7B1A1A;line-height:1.5}
+    .diet-alert .di{font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#7B1A1A;padding:2px 6px;background:#fff;border:1px solid var(--sakura);border-radius:3px;flex-shrink:0;margin-top:1px;white-space:nowrap}
+    .diet-alert strong{color:var(--ink)}
+    .map-actions{display:flex;gap:5px;margin-top:10px}
+    .ticket-cap{font-size:11px;font-weight:600;color:#7a6a4a;margin-top:11px;margin-bottom:6px}
+    .ticket-row{display:flex;flex-wrap:wrap;gap:6px}
+    .ticket-btn{flex:1 1 44%;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 8px;border-radius:var(--radius-sm);font-size:12px;font-weight:600;min-height:38px;border:1px solid #c9a96a;background:#faf6ef;color:#1f3a5f;text-decoration:none}
+    .ticket-btn:active{background:#f1e7d2}
+    .map-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:8px 5px;border-radius:var(--radius-sm);font-size:11px;font-weight:500;min-height:34px;border:1px solid var(--border);background:var(--white);color:var(--ink-2);cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .map-btn:active{transform:scale(.96)}
+    .map-btn.map-disabled{color:var(--border);cursor:default;background:var(--border-lt);border-color:var(--border-lt);pointer-events:none;opacity:.4}
+    .map-btn.mp{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600}
+
+    /* UTILITIES */
+    .util-card{background:var(--white);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid var(--border-lt);margin-bottom:12px}
+    .util-card-title{font-family:var(--font-serif);font-size:18px;font-weight:400;color:var(--ink);margin-bottom:14px;letter-spacing:.3px}
+    .fx-row{display:flex;gap:8px;align-items:flex-end}
+    .fx-group{flex:1}
+    .fx-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ink-4);margin-bottom:5px}
+    .fx-input{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:18px;font-weight:500;color:var(--ink);background:var(--cream);outline:none;-webkit-appearance:none}
+    .fx-input:focus{border-color:var(--navy)}
+    .fx-swap-btn{width:38px;height:38px;border-radius:50%;background:var(--navy-lt);border:none;color:var(--navy);font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:1px;cursor:pointer}
+    .fx-rate-note{font-size:11px;color:var(--ink-4);text-align:center;margin-top:10px;line-height:1.5}
+    .info-list{list-style:none}
+    .info-list li{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-bottom:1px solid var(--border-lt);font-size:13px;line-height:1.55}
+    .info-list li:last-child{border-bottom:none;padding-bottom:0}
+    .info-emoji{font-size:17px;flex-shrink:0;margin-top:1px}
+    .info-text{color:var(--ink-2)}
+    .info-text strong{color:var(--ink);display:block;margin-bottom:1px}
+    .rule-item{padding:9px 0;border-bottom:1px solid var(--border-lt);display:flex;gap:10px;font-size:12.5px;line-height:1.5}
+    .rule-item:last-child{border-bottom:none}
+    .rule-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+    .rule-text strong{color:var(--ink)}
+
+    /* WISH / DINING LIST */
+    .wishlist-banner{background:linear-gradient(135deg,#4A1942 0%,#2D0F27 100%);border-radius:var(--radius);padding:22px 20px 18px;margin-bottom:14px;color:#fff;position:relative;overflow:hidden}
+    .wishlist-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat}
+    .wishlist-banner h2{font-family:var(--font-serif);font-size:26px;font-weight:300;letter-spacing:.8px;margin-bottom:4px;position:relative}
+    .wishlist-banner p{font-size:12px;opacity:.65;position:relative}
+    .wish-card{background:var(--white);border-radius:var(--radius);margin-bottom:10px;box-shadow:var(--shadow);border:1px solid var(--border-lt);overflow:hidden}
+    .wish-row{display:flex;align-items:center;gap:14px;padding:14px 16px}
+    .wish-num{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#4A1942,#2D0F27);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .wish-info{flex:1;min-width:0}
+    .wish-name{font-size:14px;font-weight:600;color:var(--ink);line-height:1.2}
+    .wish-style{font-size:10.5px;color:var(--ink-4);margin-top:2px}
+    .wish-actions{display:flex;gap:6px;flex-shrink:0}
+    .wish-map-btn{padding:7px 11px;border-radius:var(--radius-sm);font-size:11px;font-weight:500;border:1px solid var(--border);background:var(--white);color:var(--ink-2);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:3px}
+    .wish-divider{height:1px;background:var(--border-lt);margin:0}
+    .wish-border{border-top:1px solid var(--border-lt)}
+
+    /* DIET TAB */
+    .diet-banner{background:linear-gradient(135deg,#7C1D3A 0%,#4A0F22 100%);border-radius:var(--radius);padding:22px 20px 18px;margin-bottom:14px;color:#fff;position:relative;overflow:hidden}
+    .diet-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat}
+    .diet-banner h2{font-family:var(--font-serif);font-size:26px;font-weight:300;letter-spacing:.8px;margin-bottom:4px;position:relative}
+    .diet-banner p{font-size:12px;opacity:.7;position:relative}
+    .diet-cta{background:linear-gradient(135deg,#0D2847,#142647);color:#fff;border-radius:var(--radius);padding:18px 18px 16px;margin-bottom:14px;display:flex;align-items:center;gap:14px;cursor:pointer;border:1px solid rgba(176,124,34,.25);box-shadow:var(--shadow)}
+    .diet-cta:active{transform:scale(.99)}
+    .diet-cta-icon{font-size:30px;flex-shrink:0}
+    .diet-cta-text{flex:1;min-width:0}
+    .diet-cta-title{font-family:var(--font-serif);font-size:18px;font-weight:400;letter-spacing:.3px;color:#fff;margin-bottom:2px}
+    .diet-cta-sub{font-size:11.5px;opacity:.7;line-height:1.45}
+    .diet-cta-arrow{font-size:18px;color:var(--gold);flex-shrink:0}
+    .diet-track-head{display:flex;align-items:center;justify-content:space-between;padding:12px 2px 6px}
+    .diet-track-head .lbl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6E655A}
+    .diet-track-head .cnt{font-size:11.5px;color:#6E655A}
+    .diet-track{background:#fff;border:1px solid #E7E0D5;border-radius:var(--radius);padding:2px 16px;margin-bottom:14px;box-shadow:var(--shadow)}
+    .diet-track-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid #EFEAE0}
+    .diet-track-row:first-child{border-top:0}
+    .diet-track-name{font-size:14px;color:#2A2A2A;font-weight:500}
+    .diet-track-status{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+    .dts-done{background:#E7F3EC;color:#2E6B4F}
+    .dts-wait{background:#FBE7D9;color:#9A5B15}
+    .diet-empty-note{text-align:center;color:#6E655A;font-size:12.5px;font-style:italic;line-height:1.6;padding:18px 14px}
+    .diet-person-card{background:var(--white);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow);border:1px solid var(--border-lt)}
+    .diet-person-card.severe{border:2px solid var(--sakura);background:var(--sakura-lt)}
+    .diet-person-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+    .diet-person-name{font-family:var(--font-serif);font-size:20px;font-weight:500;color:var(--ink)}
+    .diet-tag{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:99px}
+    .diet-tag.severe{background:var(--sakura);color:#fff}
+    .diet-tag.adult{background:var(--navy-lt);color:var(--ink)}
+    .diet-tag.child{background:#FFF3E0;color:#BF360C}
+    .diet-section-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:14px 0 8px;color:var(--ink-3)}
+    .diet-section-label.severe{color:#7B1A1A}
+    .diet-section-label.avoid{color:#BF360C}
+    .diet-chips{display:flex;flex-wrap:wrap;gap:6px}
+    .diet-chip{display:inline-block;font-size:11.5px;font-weight:500;padding:5px 11px;border-radius:99px;background:var(--cream);color:var(--ink-2);border:1px solid var(--border-lt)}
+    .diet-chip.severe{background:var(--sakura);color:#fff;border-color:var(--sakura);font-weight:600}
+    .diet-chip.avoid{background:#FFEDD5;color:#9A3412;border-color:#FED7AA}
+
+    /* DIET MODAL */
+    .modal-overlay{position:fixed;inset:0;background:rgba(7,27,53,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:10000;display:none;align-items:flex-end;justify-content:center;animation:overlayIn .25s ease}
+    .modal-overlay.active{display:flex}
+    @keyframes overlayIn{from{opacity:0}to{opacity:1}}
+    .modal{background:var(--cream);width:100%;max-width:620px;max-height:92dvh;border-radius:22px 22px 0 0;overflow-y:auto;padding:18px 22px calc(28px + env(safe-area-inset-bottom));animation:modalUp .35s cubic-bezier(.16,1,.3,1)}
+    @keyframes modalUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+    .modal-grabber{width:38px;height:4px;background:var(--ink-4);border-radius:99px;margin:0 auto 16px;opacity:.45}
+    .modal-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px}
+    .modal-title{font-family:var(--font-serif);font-size:24px;font-weight:500;color:var(--ink);line-height:1.2}
+    .modal-title-jp{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:16px;color:var(--ink-2);margin-top:3px}
+    .modal-close{font-size:24px;color:var(--ink-3);background:var(--white);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;line-height:1;border:1px solid var(--border-lt)}
+    .modal-intro{font-size:12.5px;color:var(--ink-3);line-height:1.55;margin-bottom:16px;font-style:italic}
+    .jp-card{background:#fff;border:1px solid var(--border-lt);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow)}
+    .jp-card.severe{border:2px solid var(--sakura);background:linear-gradient(180deg,#fff,#FDF6F8)}
+    .jp-card-name{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP','Cormorant Garamond',serif;font-size:19px;font-weight:500;color:#0A1A2F;margin-bottom:2px}
+    .jp-card-name-en{font-size:11.5px;color:#5A7590;letter-spacing:.02em;margin-bottom:10px}
+    .jp-card-label{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:10px;margin-bottom:6px;color:#5A7590}
+    .jp-card-label.severe{color:#7B1A1A}
+    .jp-card-label.avoid{color:#BF360C}
+    .jp-text{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:15.5px;color:#0A1A2F;line-height:1.7}
+    .jp-text strong{color:#7B1A1A;font-weight:700}
+    .jp-text-list{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:14.5px;color:#233D5C;line-height:1.75}
+    .modal-footer-note{font-size:11.5px;color:var(--ink-3);text-align:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--border-lt);line-height:1.6}
+    .modal-footer-note em{color:var(--ink-4)}
+
+    /* HOST BIO CARDS */
+    .host-card{padding:0;overflow:hidden}
+    .host-bio{padding:16px 18px 14px;border-bottom:1px solid var(--border-lt)}
+    .host-bio:last-child{border-bottom:none}
+    .host-bio-head{margin-bottom:8px}
+    .host-bio-name{font-family:var(--font-serif);font-size:18px;font-weight:500;color:var(--ink);letter-spacing:.2px}
+    .host-bio-meta{font-size:11px;color:var(--ink-3);font-style:italic;margin-top:2px;font-family:var(--font-serif)}
+    .host-bio-text{font-size:13px;color:var(--ink-2);line-height:1.6;margin:0}
+
+    /* EMERGENCY */
+    .emergency-banner{background:var(--navy);border-radius:var(--radius);padding:18px 20px;color:#fff;margin-bottom:14px;text-align:center}
+    .emergency-banner h2{font-family:var(--font-serif);font-size:22px;font-weight:300;letter-spacing:.5px;margin-bottom:4px}
+    .emergency-banner p{font-size:12px;opacity:.75}
+    .contact-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border-lt);margin-bottom:12px}
+    .contact-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--border-lt);gap:10px}
+    .contact-row:last-child{border-bottom:none}
+    .contact-left{display:flex;align-items:center;gap:12px}
+    .contact-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+    .ci-r{background:#FFEBEE}.ci-g{background:#E8F5E9}.ci-b{background:#E3F2FD}.ci-n{background:var(--navy-lt)}.ci-o{background:#FFF3E0}
+    .contact-label{font-size:13px;font-weight:600;color:var(--ink)}
+    .contact-sub{font-size:11.5px;color:var(--ink-3);margin-top:1px}
+    .call-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;white-space:nowrap;border:none;cursor:pointer}
+    .cn{background:var(--navy);color:#fff}.cr{background:#C62828;color:#fff}
+    .cb{background:#0277BD;color:#fff}.co{background:var(--cream);color:var(--ink);border:1.5px solid var(--border)!important}
+
+    #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background:rgba(13,40,71,.92);color:#fff;padding:9px 18px;border-radius:20px;font-size:13px;font-weight:500;pointer-events:none;opacity:0;transition:all .22s cubic-bezier(.4,0,.2,1);z-index:999;white-space:nowrap;max-width:90vw}
+    #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    @media(min-width:700px){
+      .tab-nav{padding:0 30px}
+      .tab-btn{font-size:12.5px;padding:10px 18px}
+      .tab-panel{max-width:900px;margin-left:auto;margin-right:auto;padding:24px 32px 60px}
+    }
+    @media(prefers-color-scheme:dark){
+      :root{--cream:#0E1824;--white:#141F2E;--border:#1E3248;--border-lt:#182840;--ink:#E8F2FF;--ink-2:#A8C0DC;--ink-3:#607A94;--ink-4:#3A5470;--navy-lt:#101E30;--gold-lt:#1A1508;--sakura-lt:#2A1A20}
+    }
+
+    /* HCI · Statement tab styles */
+    #tab-statement .card{background:#FFFFFF;border:1px solid #E8E1D5;border-radius:16px;box-shadow:0 1px 2px rgba(31,26,20,.04),0 10px 26px rgba(31,26,20,.05);margin-bottom:14px;overflow:hidden;}
+    .lock-wrap{text-align:center;padding:34px 22px 30px;}
+    .lock-ico{font-size:30px;}
+    .lock-h{font-family:"Cormorant Garamond",serif;font-size:25px;font-weight:500;margin:12px 0 4px;color:#211C17;}
+    .lock-p{font-size:13px;color:#6E655A;max-width:330px;margin:0 auto 20px;}
+    .pw-row{display:flex;gap:9px;max-width:340px;margin:0 auto;}
+    .pw-input{flex:1;font-family:inherit;font-size:16px;letter-spacing:.06em;color:#211C17;background:#F8F4EC;border:1px solid #E8E1D5;border-radius:11px;padding:12px 14px;min-height:48px;text-align:center;}
+    .pw-input:focus{outline:none;border-color:#2E4257;background:#FFFFFF;}
+    #tab-statement .btn{appearance:none;border:0;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;background:#2E4257;color:#fff;border-radius:11px;padding:0 18px;min-height:48px;min-width:48px;}
+    #tab-statement .btn:active{background:#243648;}
+    .lock-err{color:#B5474F;font-size:12.5px;margin-top:13px;min-height:16px;}
+    .lock-hint{font-size:11px;color:#6E655A;margin-top:18px;}
+    .stmt-head{padding:18px 16px 4px;}
+    .stmt-as{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6E655A;}
+    .stmt-balance{font-family:"Cormorant Garamond",serif;font-size:40px;font-weight:600;line-height:1;margin:8px 0 2px;color:#211C17;}
+    .stmt-balance.zero{color:#2E4257;}
+    .stmt-blabel{font-size:12.5px;color:#6E655A;}
+    .stmt-sec{padding:6px 16px 4px;}
+    .stmt-sec-h{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #E8E1D5;padding:14px 0 6px;}
+    .stmt-sec-h .n{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6E655A;}
+    .stmt-sec-h .v{font-variant-numeric:tabular-nums;font-size:14px;font-weight:600;color:#211C17;}
+    .stmt-sec-note{font-size:12px;color:#6E655A;font-style:italic;margin:-2px 0 4px;}
+    .stmt-li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;}
+    .stmt-li .li-l{font-size:14px;color:#211C17;}
+    .stmt-li .li-n{font-size:11.5px;color:#6E655A;margin-top:1px;}
+    .stmt-li .li-v{font-variant-numeric:tabular-nums;font-size:14px;flex-shrink:0;color:#211C17;}
+    .stmt-li .li-v.incl{color:#6E655A;font-style:italic;font-size:12px;}
+    .stmt-total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid #211C17;margin-top:8px;padding:13px 16px;}
+    .stmt-total .n{font-family:"Cormorant Garamond",serif;font-size:19px;color:#211C17;}
+    .stmt-total .v{font-variant-numeric:tabular-nums;font-size:19px;font-weight:600;color:#211C17;}
+    .stmt-pay{padding:4px 16px 2px;}
+    .stmt-pay .empty{font-size:12.5px;color:#6E655A;font-style:italic;padding:4px 0;}
+    .stmt-fx{font-size:11px;color:#6E655A;padding:14px 16px 18px;line-height:1.5;}
+    .stmt-lockbtn{font-size:13px;color:#2E4257;background:#F6F1E8;border:1px solid #E8E1D5;cursor:pointer;font-family:inherit;display:block;margin:6px auto 22px;padding:11px 22px;border-radius:11px;min-height:44px;}
+    .stmt-lockbtn:active{background:#EDE6D8;}
+    #console{display:none;position:fixed;inset:0;z-index:90;background:#1F1A14;color:#EDE7DB;overflow:auto;padding:22px 18px 40px;}
+    #console.show{display:block;}
+    .con-w{max-width:600px;margin:0 auto;position:relative;}
+    .con-h{font-family:"Cormorant Garamond",serif;font-size:24px;margin:4px 0 2px;color:#EDE7DB;}
+    .con-sub{font-size:12.5px;color:#A99F8E;margin-bottom:18px;}
+    .con-l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#A99F8E;margin:16px 0 6px;}
+    .con-in,.con-ta{width:100%;font-family:"DM Mono",ui-monospace,monospace;font-size:13px;color:#F4EFE6;background:#2a241c;border:1px solid #3a3328;border-radius:10px;padding:11px 12px;}
+    .con-ta{min-height:200px;resize:vertical;line-height:1.45;white-space:pre;}
+    .con-out{min-height:120px;word-break:break-all;white-space:normal;}
+    .con-btns{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px;}
+    .con-btn{appearance:none;border:1px solid #4a4234;background:#2E4257;color:#fff;border-radius:10px;font-family:inherit;font-size:13px;padding:11px 15px;min-height:44px;cursor:pointer;}
+    .con-btn.sec{background:#2a241c;color:#EDE7DB;}
+    .con-msg{font-size:12px;margin-top:10px;min-height:15px;color:#C9A86A;}
+    .con-close{position:absolute;top:-4px;right:0;background:none;border:0;color:#A99F8E;font-size:24px;cursor:pointer;}
+    .stmt-internal-banner{background:#3A2E22;color:#E9C887;font-size:11.5px;letter-spacing:.03em;text-align:center;padding:9px 14px;border-radius:11px;margin-bottom:12px;}
+    .li-int{font-size:11px;color:#9A8F7E;font-variant-numeric:tabular-nums;margin-top:3px;}
+    .stmt-pl{margin:8px 16px 4px;background:#F3ECE0;border:1px solid #E8E1D5;border-radius:12px;padding:4px 14px;}
+    .pl-row{display:flex;justify-content:space-between;padding:8px 0;font-variant-numeric:tabular-nums;font-size:13.5px;border-bottom:1px solid #E7DECF;color:#211C17;}
+    .pl-row:last-child{border-bottom:0;}
+    .pl-row.profit{font-weight:600;color:#2E4257;}
+    .stmt-pay-cta{padding:4px 16px 12px;}
+    .paybtn{display:block;text-align:center;text-decoration:none;font-family:inherit;font-weight:600;font-size:15px;color:#fff;background:#2E4257;border-radius:13px;padding:15px 18px;min-height:52px;box-shadow:0 6px 16px rgba(46,66,87,.22);}
+    .paybtn:active{background:#243648;}
+    .paybtn.disabled{background:#ECE5D8;color:#9A8F7E;box-shadow:none;cursor:default;font-weight:500;}
+    .con-pay-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px;}
+    .con-pay-row .con-in{flex:1 1 110px;min-width:0;}
+    .con-pay-row .con-btn{flex:1 1 100%;}
+    .paybtn-sub{text-align:center;font-size:11px;color:#6E655A;margin-top:7px;}
+    .tab-btn .lk{font-size:11px;margin-right:3px;opacity:.85;}
+  </style>
+  <style>
+    /* Ruan · Hokkaido city badge colours */
+    .day-city-badge.shiretoko{background:#E4F1F4;color:#1E6B7A}
+    .day-city-badge.akan{background:#E7F3EC;color:#2E6B4F}
+    .day-city-badge.daisetsuzan{background:#ECEFF4;color:#3A4A6B}
+    .day-city-badge.furano{background:#F1EAF7;color:#6A3D8A}
+  </style>
+</head>
+<body>
+
+<header id="app-header">
+  <div class="hdr-top">
+    <div class="hdr-left">
+      <span class="hdr-flag">🗾</span>
+      <div>
+        <div class="hdr-dest">Hokkaido · Furano · Tokyo · 2026</div>
+        <div class="hdr-hc">Happy Camper</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div>
+        <span id="jst-clock">--:--</span>
+        <span id="trip-day-label">Japan Standard Time</span>
+      </div>
+      <img id="hc-logo" alt="Happy Camper" src="data:image/png;base64,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" height="40" style="display:block;height:40px;width:auto;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5));">
+    </div>
+  </div>
+  <div class="hdr-names">
+    <div class="hdr-name">The Ruan Family</div>
+    <div class="hdr-name2">George &amp; Pani · Seven Guests · Three Generations</div>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="itinerary">Itinerary</button>
+    <button class="tab-btn" data-tab="dining">Dining</button>
+    <button class="tab-btn" data-tab="diet">Diet</button>
+    <button class="tab-btn" data-tab="utilities">Utilities</button>
+    <button class="tab-btn" data-tab="statement"><span class="lk">🔒</span> Statement</button>
+    <button class="tab-btn" data-tab="emergency">Contacts &amp; Emergency</button>
+  </nav>
+</header>
+
+<div id="main-content">
+  <div id="tab-itinerary" class="tab-panel active"></div>
+  <div id="tab-dining"    class="tab-panel"></div>
+  <div id="tab-diet"      class="tab-panel"></div>
+  <div id="tab-utilities" class="tab-panel"></div>
+  <div id="tab-statement" class="tab-panel">
+    <div class="card" id="stmt-lock">
+      <div class="lock-wrap">
+        <div class="lock-ico">🔒</div>
+        <div class="lock-h">Your programme statement</div>
+        <p class="lock-p">Enter the access code shared with you to view the itemised programme estimate.</p>
+        <div class="pw-row">
+          <input class="pw-input" id="stmt-pw" type="password" inputmode="text"
+                 autocomplete="off" placeholder="Access code" aria-label="Access code">
+          <button class="btn" id="stmt-unlock">Open</button>
+        </div>
+        <div class="lock-err" id="stmt-err"></div>
+        <div class="lock-hint">Private to the lead guest · figures in USD</div>
+      </div>
+    </div>
+    <div id="stmt-view"></div>
+  </div>
+  <div id="tab-emergency" class="tab-panel"></div>
+</div>
+
+<div class="modal-overlay" id="diet-modal" onclick="if(event.target===this)closeDietModal()">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-grabber"></div>
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">For the Chef</div>
+        <div class="modal-title-jp">シェフへのご案内</div>
+      </div>
+      <button class="modal-close" onclick="closeDietModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-intro">Show this card at the counter on arrival. Please bring any avoidances to the chef's attention before service begins.</div>
+    <div id="modal-jp-content"></div>
+    <div class="modal-footer-note">ご親切に対応していただき、誠にありがとうございます。<br><em>Thank you sincerely for your kind accommodation.</em></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<div id="console">
+  <div class="con-w">
+    <button class="con-close" id="con-close" aria-label="Close">×</button>
+    <div class="con-h">Statement · encrypt console</div>
+    <div class="con-sub">One master sheet &rarr; two encrypted blobs. Cost fields are auto-removed from the guest blob.</div>
+    <div class="con-l">1 · Access codes</div>
+    <input class="con-in" id="con-pw-guest" type="text" placeholder="Guest code" autocomplete="off" style="margin-bottom:8px">
+    <input class="con-in" id="con-pw-internal" type="text" placeholder="Internal / staff code" autocomplete="off">
+    <div class="con-btns">
+      <button class="con-btn sec" id="con-load">↓ Load current (internal code)</button>
+      <button class="con-btn sec" id="con-template">＋ Blank template</button>
+    </div>
+    <div class="con-l">2 · Master statement — add &quot;cost&quot; per item (internal only)</div>
+    <textarea class="con-ta" id="con-json" spellcheck="false"></textarea>
+    <div class="con-l" style="margin-top:16px">2b · Record a payment (tap-only — appends to the sheet above)</div>
+    <div class="con-pay-row">
+      <input class="con-in" id="con-pay-date" type="date" aria-label="Payment date">
+      <input class="con-in" id="con-pay-amt" type="number" inputmode="decimal" placeholder="Amount (USD)" aria-label="Payment amount">
+      <input class="con-in" id="con-pay-label" type="text" placeholder="Label (e.g. Stripe invoice)" aria-label="Payment label">
+      <button class="con-btn sec" id="con-pay-add">＋ Add payment to sheet</button>
+    </div>
+    <div class="con-btns" style="margin-top:16px">
+      <button class="con-btn" id="con-encrypt">🔒 Encrypt &amp; generate both blobs</button>
+    </div>
+    <div class="con-l">3a · Guest blob — paste into ENC_GUEST</div>
+    <textarea class="con-ta con-out" id="con-out-guest" readonly spellcheck="false"></textarea>
+    <div class="con-btns"><button class="con-btn sec" id="con-copy-guest">⧉ Copy guest blob</button></div>
+    <div class="con-l">3b · Internal blob — paste into ENC_INTERNAL</div>
+    <textarea class="con-ta con-out" id="con-out-internal" readonly spellcheck="false"></textarea>
+    <div class="con-btns"><button class="con-btn sec" id="con-copy-internal">⧉ Copy internal blob</button></div>
+    <div class="con-msg" id="con-msg"></div>
+  </div>
+</div>
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- CONFIG ---------- */
+  var FX_RATE = 158; // JPY per 1 USD — approximate planning rate
+  var START_DATE = "2026-07-13";
+  var END_DATE   = "2026-07-23";
+  var TOTAL_DAYS = 11;
+
+  /* ---------- HELPERS ---------- */
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function gm(q){ return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q); }
+  function showToast(msg){
+    var t=document.getElementById("toast"); if(!t)return;
+    t.textContent=msg; t.classList.add("show");
+    clearTimeout(t._h); t._h=setTimeout(function(){ t.classList.remove("show"); },1900);
+  }
+  function copyAddr(addr){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(function(){ showToast("Address copied"); },
+        function(){ showToast(addr); });
+    } else { showToast(addr); }
+  }
+  window.copyAddr = copyAddr;
+
+  /* ---------- TRIP DATA ---------- */
+  var TRIP = {
+    days: [
+      { n:1, date:"2026-07-13", weekday:"Monday", name:"Arrival into Hokkaido",
+        city:"Shiretoko", cityClass:"shiretoko",
+        hotel:{ name:"KIKI Shiretoko Natural Resort", detail:"Utoro · nights 1–3", q:"Kiki Shiretoko Natural Resort Utoro" },
+        note:"Paris → Haneda → Memanbetsu → Shiretoko. A long travel day that ends softly on the wild eastern coast — nothing is asked of anyone after check-in.",
+        stops:[
+          { time:"05:55", type:"flight", badge:"Self-arranged", badgeType:"self-booked",
+            title:"Arrive Tokyo · Haneda (HND)", sub:"Overnight from Paris", q:"Haneda Airport Tokyo",
+            notes:"Overnight Air France from Paris CDG (departed 12 Jul, 09:40). Immigration and customs, then an easy connection to the domestic terminal. International flights are arranged by the family." },
+          { time:"12:25", type:"transport", badge:"Flight", badgeType:"logistics",
+            title:"Domestic flight · Haneda → Memanbetsu", sub:"dep 12:25 / arr 14:10", q:"Memanbetsu Airport",
+            notes:"A comfortable connection with no pressure — the long leg is behind you." },
+          { time:"14:30", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Private transfer to Utoro", sub:"Two private vehicles · optional Oshinkoshin Falls", q:"Oshinkoshin Falls Shari",
+            notes:"Vehicles meet the family at Memanbetsu. A short stop at Oshinkoshin Falls only if energy is good — otherwise straight to the coast." },
+          { time:"15:30", type:"hotel", badge:"Proposed · 3 nts", badgeType:"requested",
+            title:"Check in · KIKI Shiretoko", sub:"Onsen base at Utoro", q:"Kiki Shiretoko Natural Resort Utoro",
+            notes:"Three nights here so the coast, wildlife and Five Lakes days stay unhurried." },
+          { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Onsen & easy hotel dinner", sub:"Dinner in-house",
+            notes:"An early, gentle evening to reset after the journey." }
+        ]},
+
+      { n:2, date:"2026-07-14", weekday:"Tuesday", name:"Shiretoko · the Hero Day",
+        city:"Shiretoko", cityClass:"shiretoko",
+        hotel:{ name:"KIKI Shiretoko Natural Resort", detail:"Utoro · night 2 of 3", q:"Kiki Shiretoko Natural Resort Utoro" },
+        note:"Wild coast, wildlife and the Five Lakes — the strongest nature day of the journey. Weather-dependent, and split so the grandparents can take the lighter track.",
+        stops:[
+          { time:"08:15", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Shiretoko coast boat & wildlife cruise", sub:"~09:00–12:00 · cliffs, waterfalls, wildlife", q:"Shiretoko Nature Cruise Utoro",
+            alert:"Weather-dependent · brown bears are possible along the shore but never guaranteed.",
+            notes:"Lunch in Utoro afterwards." },
+          { time:"13:00", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Shiretoko Five Lakes", sub:"Ground pathway (active) or elevated boardwalk (lighter)", q:"Shiretoko Five Lakes",
+            notes:"The elevated boardwalk is flat and easy; the ground trail is the fuller walk. Back to the hotel around 17:00." },
+          { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Onsen, dinner & rest at KIKI", sub:"Dinner in-house",
+            notes:"An early night after a full day outdoors." }
+        ]},
+
+      { n:3, date:"2026-07-15", weekday:"Wednesday", name:"A Flexible Shiretoko Day",
+        city:"Shiretoko", cityClass:"shiretoko",
+        hotel:{ name:"KIKI Shiretoko Natural Resort", detail:"Utoro · night 3 of 3", q:"Kiki Shiretoko Natural Resort Utoro" },
+        note:"Forest, waterfalls and viewpoints — and the built-in weather backup. If the coast boat can't run on the 14th, it moves to today.",
+        stops:[
+          { time:"Morning", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Nature Center & Furepe Falls", sub:"Full walk (active) or shorter version (gentler)", q:"Shiretoko Nature Center",
+            notes:"An easy forest walk to the 'tears of the cliff' waterfall." },
+          { time:"Afternoon", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Shiretoko Pass viewpoint & Oronko Rock", sub:"Weather permitting · or a rest block at the hotel", q:"Shiretoko Pass",
+            notes:"Kept optional so the day can flex around the weather and everyone's energy." },
+          { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Onsen & early dinner", sub:"Dinner in-house",
+            notes:"A calm close before the transfer to Lake Akan." }
+        ]},
+
+      { n:4, date:"2026-07-16", weekday:"Thursday", name:"Shiretoko to Lake Akan",
+        city:"Lake Akan", cityClass:"akan",
+        hotel:{ name:"Akan Yuku no Sato Tsuruga", detail:"Ryokan · nights 1–2", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
+        note:"A scenic transfer through volcanic lake country, where the drive itself is the experience. Short walks and viewpoints keep it easy.",
+        stops:[
+          { time:"09:00", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Depart KIKI · Shiretoko Pass viewpoint", sub:"Weather permitting", q:"Shiretoko Pass",
+            notes:"A last look at the peninsula, then a scenic drive inland toward Teshikaga." },
+          { time:"Midday", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Lake Mashu viewpoint", sub:"One of Japan's clearest caldera lakes", q:"Lake Mashu Observation Deck" },
+          { time:"Afternoon", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Mt. Iō & Lake Kussharo · Sunayu", sub:"Sulphur vents · hot-sand shore", q:"Sunayu Lake Kussharo",
+            notes:"Steaming vents at Mt. Iō, then the hot-sand shore where the children can dig their own onsen." },
+          { time:"16:15", type:"hotel", badge:"Proposed · 2 nts", badgeType:"requested",
+            title:"Check in · Akan Yuku no Sato", sub:"Onsen, lake & Ainu-culture heart of the trip", q:"Akan Yuku no Sato Tsuruga Akanko Onsen",
+            notes:"A warm, family-friendly ryokan that welcomes the youngest guest." },
+          { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Onsen & ryokan dinner", sub:"Kaiseki in-house",
+            notes:"No outside programme — the ryokan evening is the point." }
+        ]},
+
+      { n:5, date:"2026-07-17", weekday:"Friday", name:"Lake Akan & Ainu Culture",
+        city:"Lake Akan", cityClass:"akan",
+        hotel:{ name:"Akan Yuku no Sato Tsuruga", detail:"Ryokan · night 2 of 2", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
+        note:"Lake, Ainu culture, forest and ryokan recovery — deliberately the slowest, most restorative day. The ryokan time is part of the value.",
+        stops:[
+          { time:"Morning", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Bokke trail & lakeside forest walk", sub:"Full trail (active) or short version (gentler)", q:"Bokke Mud Volcano Lake Akan",
+            notes:"Bubbling mud pools and quiet forest right by the water." },
+          { time:"Midday", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Ainu Kotan · private artist visit", sub:"Woodcarving · with an Ainu-style lunch", q:"Akan Ainu Kotan",
+            notes:"The most personal cultural encounter of the journey — time with an Ainu artist, then lunch." },
+          { time:"Afternoon", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Ryokan rest, onsen & massage", sub:"Early dinner in-house",
+            notes:"An intentionally soft afternoon." },
+          { time:"Evening", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Kamuy Lumina night walk", sub:"After sunset · for those with energy", q:"Kamuy Lumina Akan",
+            notes:"An illuminated forest walk — optional, for whoever's up for it." }
+        ]},
+
+      { n:6, date:"2026-07-18", weekday:"Saturday", name:"Into the Mountains",
+        city:"Daisetsuzan", cityClass:"daisetsuzan",
+        hotel:{ name:"La Vista Daisetsuzan", detail:"Mountain onsen · 1 night", q:"La Vista Daisetsuzan Asahidake" },
+        note:"An inland transfer via Lake Onneto to a mountain onsen. The alpine activity is saved for tomorrow morning — the drive itself, with Onneto, is the day.",
+        stops:[
+          { time:"09:00", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Depart Akan · Lake Onneto stop", sub:"Short walk (active) or viewpoint (lighter)", q:"Lake Onneto",
+            notes:"One of Hokkaido's most colour-shifting lakes, tucked below Mt. Meakan." },
+          { time:"Afternoon", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Drive to Asahidake · lunch en route", sub:"Gentle driving day", q:"Daisetsuzan National Park" },
+          { time:"16:30", type:"hotel", badge:"Proposed · 1 nt", badgeType:"requested",
+            title:"Check in · La Vista Daisetsuzan", sub:"Bridges Akan and Furano", q:"La Vista Daisetsuzan Asahidake",
+            notes:"A short walk nearby for anyone with energy; otherwise, straight to the onsen." },
+          { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Onsen & mountain dinner", sub:"Dinner in-house",
+            notes:"An early night before the alpine morning." }
+        ]},
+
+      { n:7, date:"2026-07-19", weekday:"Sunday", name:"Asahidake to Furano & Biei",
+        city:"Furano / Biei", cityClass:"furano",
+        hotel:{ name:"Two Yama Duplex Lofts, Furano", detail:"Two residences · nights 1–2", q:"Furano Hokkaido" },
+        note:"An alpine morning, then Hokkaido's most photographed landscapes into lavender country. Split-track so everyone can pick their pace.",
+        stops:[
+          { time:"08:45", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Asahidake ropeway & Sugatami Pond", sub:"~08:45–11:00 · alpine loop or ropeway up-and-down", q:"Asahidake Ropeway",
+            notes:"Steam vents and alpine ponds beneath Hokkaido's highest peak. Early lunch near Higashikawa." },
+          { time:"Afternoon", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Shirogane Blue Pond & Shirahige Falls", sub:"Biei's famous cobalt water", q:"Shirogane Blue Pond Biei" },
+          { time:"Afternoon", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Biei scenic drive · Patchwork & Panorama Roads", sub:"Rolling farmland vistas", q:"Biei Patchwork Road",
+            notes:"Arriving the lofts around 16:30." },
+          { time:"16:30", type:"hotel", badge:"Proposed · 2 nts", badgeType:"requested",
+            title:"Check in · Two Yama Duplex Lofts", sub:"Grandparents in one · family in the other", q:"Furano Hokkaido",
+            notes:"Two two-level residences — each with two king bedrooms, a full kitchen, private balconies and laundry, four guests apiece." },
+          { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Settle in · easy first dinner", sub:"Private chef in the loft kitchens, or a relaxed local table",
+            notes:"A low-key first night in the lofts." }
+        ]},
+
+      { n:8, date:"2026-07-20", weekday:"Monday", name:"Furano & Biei · Full Day",
+        city:"Furano / Biei", cityClass:"furano",
+        hotel:{ name:"Two Yama Duplex Lofts, Furano", detail:"Two residences · night 2 of 2", q:"Furano Hokkaido" },
+        note:"Lavender, farms and open countryside — the softest, most relaxed day of Hokkaido, with a proper rest block built in.",
+        stops:[
+          { time:"08:30", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Farm Tomita & Lavender East", sub:"Fields at their peak · farm lunch to follow", q:"Farm Tomita Nakafurano",
+            notes:"Mid-July is prime lavender — go early, before the crowds." },
+          { time:"Afternoon", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Biei e-bikes / Shikisai-no-oka", sub:"e-bikes with van support (active) or scenic van & café (gentler)", q:"Shikisai no Oka Biei",
+            notes:"A melon and ice-cream stop, then a rest block back at the lofts." },
+          { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
+            title:"Private Hokkaido harvest dinner", sub:"In the loft, or a good local table · optional Ningle Terrace after", q:"Ningle Terrace Furano",
+            notes:"The signature Furano evening — a harvest dinner at home, with the option of the lantern-lit Ningle Terrace afterwards." }
+        ]},
+
+      { n:9, date:"2026-07-21", weekday:"Tuesday", name:"Furano to Tokyo",
+        city:"Tokyo", cityClass:"",
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 1–2", q:"Aman Tokyo" },
+        note:"A clean, unhurried travel day. The goal is simply to arrive in Tokyo fresh, with nothing demanding in the evening.",
+        stops:[
+          { time:"Morning", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Breakfast, check out & transfer", sub:"Optional Ningle Terrace / cheese / melon en route", q:"Asahikawa Airport",
+            notes:"An easy morning, then transfer to Asahikawa Airport with a comfortable check-in and lunch buffer." },
+          { time:"14:30", type:"transport", badge:"Flight", badgeType:"logistics",
+            title:"Fly Asahikawa → Haneda", sub:"dep 14:30 / arr 16:15", q:"Asahikawa Airport" },
+          { time:"16:15", type:"hotel", badge:"Proposed · 2 nts", badgeType:"requested",
+            title:"Private transfer & check in · Aman Tokyo", sub:"A serene sanctuary above Otemachi", q:"Aman Tokyo",
+            notes:"Calm, spacious and high above the city — the right place to land after Hokkaido." },
+          { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
+            title:"Easy Tokyo dinner", sub:"Nothing demanding",
+            notes:"Kept relaxed, in keeping with a travel day." }
+        ]},
+
+      { n:10, date:"2026-07-22", weekday:"Wednesday", name:"Tokyo Finale",
+        city:"Tokyo", cityClass:"",
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 2 of 2", q:"Aman Tokyo" },
+        note:"One guided Tokyo day — culture, shopping and the strongest dinner of the trip, with a private guide and vehicle throughout.",
+        stops:[
+          { time:"09:30", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Guided Tokyo day with Iko · Meiji Jingu", sub:"Private guide & vehicle · Omotesandō / Harajuku · lunch", q:"Meiji Jingu",
+            notes:"Iko is a Japanese host and former Emirates First Class cabin crew member — private VIP guiding with genuine hospitality." },
+          { time:"Afternoon", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Split programme", sub:"Harajuku / teamLab for the children · Nezu Museum / Ginza / Imperial Palace for a lighter pace", q:"teamLab Borderless Tokyo",
+            notes:"Two tracks running in parallel, then rest and packing back at the Aman." },
+          { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
+            title:"The strongest dinner of the trip", sub:"Sushi, kaiseki, Sazenka-style Chinese or a private room",
+            notes:"A fitting close to the journey — the final selection confirmed with the family's tastes in mind." }
+        ]},
+
+      { n:11, date:"2026-07-23", weekday:"Thursday", name:"Departure",
+        city:"Tokyo → home", cityClass:"",
+        hotel:null,
+        note:"A slow morning and a clean departure home.",
+        stops:[
+          { time:"Morning", type:"activity", badge:"Included", badgeType:"confirmed",
+            title:"Breakfast at the Aman", sub:"Final packing · last shopping", q:"Aman Tokyo" },
+          { time:"~14:00", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Private transfer to Haneda", sub:"Generous airport buffer", q:"Haneda Airport Tokyo",
+            notes:"An optional depachika bento run for the flight." },
+          { time:"Departure", type:"flight", badge:"Self-arranged", badgeType:"self-booked",
+            title:"Depart Haneda (HND) → Los Angeles (LAX)", sub:"Arrives LA the same calendar day", q:"Haneda Airport Tokyo",
+            notes:"Safe travels home. International flights are arranged by the family." }
+        ]}
+    ]
+  };
+
+  /* ---------- DINING (repurposed Wish List) ---------- */
+  var WL_INCLUDED = [
+    { name:"KIKI Shiretoko · in-house dinners", style:"Utoro · nights 1–3 · onsen evenings, whole family together", q:"Kiki Shiretoko Natural Resort Utoro" },
+    { name:"Akan Yuku no Sato · ryokan kaiseki", style:"Lake Akan · nights 4–5 · seasonal, served alongside the onsen", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
+    { name:"La Vista Daisetsuzan · mountain dinner", style:"Asahidake · night 6 · warming and regional", q:"La Vista Daisetsuzan Asahidake" }
+  ];
+  var WL_CURATED = [
+    { name:"Furano · private chef harvest dinners", style:"Nights 7–8 · Hokkaido produce cooked in the loft kitchens, or a good local table", q:"Furano Hokkaido restaurants" },
+    { name:"Tokyo · easy arrival dinner", style:"Night 9 · relaxed, in keeping with the travel day", q:"Otemachi Tokyo restaurants" },
+    { name:"Tokyo · the finale dinner", style:"Night 10 · sushi, kaiseki, Sazenka-style Chinese or a private room", q:"Tokyo private room kaiseki sushi" }
+  ];
+
+  /* ---------- DIET GUESTS ---------- */
+  var DIET_GUESTS = [
+    { name:"George",            tag:"adult",  status:"pending" },
+    { name:"Pani",              tag:"adult",  status:"pending" },
+    { name:"Victor",            tag:"adult",  status:"pending" },
+    { name:"Child · 13",        tag:"child",  status:"pending" },
+    { name:"Child · 10",        tag:"child",  status:"pending" },
+    { name:"George's father",   tag:"adult",  status:"pending" },
+    { name:"George's mother",   tag:"adult",  status:"pending" }
+  ];
+  var DIET_JP = []; // "Show the Chef" cards populate once questionnaires are returned
+  var DIET_URL = "https://diet.happycamper.food";
+
+  /* ---------- WEATHER (real forecast where available) ---------- */
+  var WX_POINTS = {
+    shiretoko:{ lat:44.074, lon:144.974 },
+    akan:{ lat:43.450, lon:144.097 },
+    furano:{ lat:43.342, lon:142.383 },
+    tokyo:{ lat:35.681, lon:139.650 }
+  };
+  function cityToWx(city){
+    if(city==="Shiretoko") return "shiretoko";
+    if(city==="Lake Akan") return "akan";
+    if(city==="Daisetsuzan"||city==="Furano / Biei") return "furano";
+    return "tokyo"; // Tokyo + departure
+  }
+  function wxIcon(code){
+    if(code===0) return "☀️";
+    if(code<=2) return "🌤️";
+    if(code===3) return "☁️";
+    if(code>=45&&code<=48) return "🌫️";
+    if(code>=51&&code<=67) return "🌧️";
+    if(code>=71&&code<=77) return "🌨️";
+    if(code>=80&&code<=82) return "🌦️";
+    if(code>=95) return "⛈️";
+    return "🌥️";
+  }
+
+  /* ---------- ICONS ---------- */
+  var ICONS = { restaurant:"🍽", activity:"◇", transport:"⤳", hotel:"⌂", flight:"✈", suggestion:"✦", pending:"⋯" };
+
+  /* ---------- RENDER: ITINERARY ---------- */
+  function renderStop(stop){
+    var dot = "stop-dot t-"+esc(stop.type);
+    var hasLoc = !!stop.q;
+    var card = "stop-card";
+    if(stop.badgeType==="walk-in") card += " is-suggestion";
+    if(stop.badgeType==="pending") card += " is-pending";
+    var icon = ICONS[stop.type]||"◇";
+
+    var html = '<div class="stop-item">';
+    html += '<div class="stop-time">'+esc(stop.time||"")+'</div>';
+    html += '<div class="'+dot+'"></div>';
+    html += '<div class="'+card+'">';
+    html += '<div class="stop-top"><div class="stop-title-wrap">';
+    html += '<div class="stop-title"><span class="stop-icon">'+icon+'</span>'+esc(stop.title)+'</div>';
+    if(stop.sub) html += '<div class="stop-subtitle">'+esc(stop.sub)+'</div>';
+    html += '</div>';
+    if(stop.badge) html += '<span class="stop-badge '+esc(stop.badgeType)+'">'+esc(stop.badge)+'</span>';
+    html += '</div>';
+    if(stop.notes) html += '<div class="stop-notes">'+esc(stop.notes)+'</div>';
+    if(stop.alert) html += '<div class="stop-alert"><span>⚠️</span><span>'+esc(stop.alert)+'</span></div>';
+    if(hasLoc){
+      html += '<div class="map-actions">';
+      html += '<a class="map-btn mp" href="'+gm(stop.q)+'" target="_blank" rel="noopener">📍 Open in Maps</a>';
+      html += '</div>';
+    }
+    html += '</div></div>';
+    return html;
+  }
+
+  function renderItinerary(){
+    var el = document.getElementById("tab-itinerary");
+    var today = isoToday();
+
+    var html = '';
+    html += '<div class="trip-banner">';
+    html += '<div class="trip-banner-kana">Hokkaido Forest Loop &amp; Tokyo Finale · Happy Camper Private Travel</div>';
+    html += '<h2>Japan</h2>';
+    html += '<div class="banner-dates">13 – 23 July 2026 · 7 guests · 10 nights</div>';
+    html += '<div class="banner-chips">';
+    html += '<span class="banner-chip pending">✎ Proposed concept · not yet booked</span>';
+    html += '<span class="banner-chip">🐻 Shiretoko coast &amp; wildlife</span>';
+    html += '<span class="banner-chip">⛩ Lake Akan · Ainu culture</span>';
+    html += '<span class="banner-chip">🏔 Asahidake &amp; Daisetsuzan</span>';
+    html += '<span class="banner-chip">💜 Furano lavender</span>';
+    html += '<span class="banner-chip">🏙 Aman Tokyo finale</span>';
+    html += '</div></div>';
+
+    html += '<div class="booking-legend">';
+    html += '<span class="bl-item"><span class="bl-dot confirmed"></span>Included in a stay</span>';
+    html += '<span class="bl-item"><span class="bl-dot requested"></span>Proposed programme</span>';
+    html += '<span class="bl-item"><span class="bl-dot walk-in"></span>Optional</span>';
+    html += '<span class="bl-item"><span class="bl-dot self-booked"></span>Self-arranged (flights)</span>';
+    html += '</div>';
+
+    html += '<div class="section-label">Daily Itinerary</div>';
+
+    TRIP.days.forEach(function(day){
+      var isToday = day.date===today;
+      var isPast = day.date<today;
+      var cls = "day-card"+(isToday?" is-today open":"")+(isPast?" is-past":"");
+
+      html += '<div class="'+cls+'" id="day-'+day.n+'">';
+      html += '<div class="day-header" onclick="toggleDay('+day.n+')">';
+      html += '<div class="day-num">'+day.n+'</div>';
+      html += '<div class="day-header-info">';
+      html += '<div class="day-name">'+esc(day.name)+'</div>';
+      html += '<div class="day-sub">';
+      html += '<span class="day-city-badge '+esc(day.cityClass)+'">'+esc(day.city)+'</span>';
+      html += '<span>'+esc(day.weekday)+' · '+fmtDate(day.date)+'</span>';
+      if(isToday) html += '<span class="today-pill">TODAY</span>';
+      html += '</div></div>';
+      html += '<div class="day-chevron">▾</div>';
+      html += '</div>';
+
+      html += '<div class="day-body"><div class="day-body-inner">';
+      if(day.hotel){
+        html += '<div class="hotel-bar"><div><div class="hb-name">⌂ '+esc(day.hotel.name)+'</div>';
+        html += '<div class="hb-detail">'+esc(day.hotel.detail)+'</div></div>';
+        html += '<a class="hb-link" href="'+gm(day.hotel.q)+'" target="_blank" rel="noopener">Map ↗</a></div>';
+      }
+      if(day.note) html += '<div class="day-note-bar">'+esc(day.note)+'</div>';
+      html += '<div class="weather-widget" id="wx-'+day.date+'"><span class="wx-loading">Loading forecast…</span></div>';
+      html += '<div class="timeline">';
+      day.stops.forEach(function(s){ html += renderStop(s); });
+      html += '</div>';
+      html += '</div></div></div>';
+    });
+
+    el.innerHTML = html;
+  }
+
+  /* ---------- RENDER: DINING ---------- */
+  function diningRows(list){
+    var h = '';
+    list.forEach(function(item, i){
+      if(i>0) h += '<div class="wish-border"></div>';
+      h += '<div class="wish-row">';
+      h += '<div class="wish-num">'+(i+1)+'</div>';
+      h += '<div class="wish-info"><div class="wish-name">'+esc(item.name)+'</div>';
+      h += '<div class="wish-style">'+esc(item.style)+'</div></div>';
+      if(item.q){
+        h += '<div class="wish-actions"><a class="wish-map-btn" href="'+gm(item.q)+'" target="_blank" rel="noopener">📍 Map</a></div>';
+      }
+      h += '</div>';
+    });
+    return h;
+  }
+  function renderDining(){
+    var el = document.getElementById("tab-dining");
+    var html = '';
+    html += '<div class="wishlist-banner"><h2>Dining</h2>';
+    html += '<p>Most evenings are held inside your stays; a few are curated by Happy Camper. Menus are shaped once dietary preferences are in.</p></div>';
+
+    html += '<div class="section-label">Included in your stays</div>';
+    html += '<div class="wish-card">'+diningRows(WL_INCLUDED)+'</div>';
+
+    html += '<div class="section-label">Curated by Happy Camper</div>';
+    html += '<div class="wish-card">'+diningRows(WL_CURATED)+'</div>';
+
+    html += '<div class="day-note-bar" style="margin-top:12px">Dining costs on this trip are handled directly by the family rather than through the programme budget. The finale in Tokyo — private-room sushi, kaiseki, teppanyaki or a wagyu specialist — is confirmed nearer the date around the family\u2019s tastes.</div>';
+    el.innerHTML = html;
+  }
+
+  /* ---------- RENDER: DIET ---------- */
+  function renderDiet(){
+    var el = document.getElementById("tab-diet");
+    var done = DIET_GUESTS.filter(function(g){return g.status==="done";}).length;
+    var total = DIET_GUESTS.length;
+
+    var html = '';
+    html += '<div class="diet-banner"><h2>Dietary Preferences</h2>';
+    html += '<p>So every table — from the ryokan kaiseki to the Tokyo finale — fits your family. Please complete one short questionnaire per guest.</p></div>';
+
+    html += '<div class="diet-cta" onclick="window.open(\''+DIET_URL+'\',\'_blank\')">';
+    html += '<div class="diet-cta-icon">📝</div>';
+    html += '<div class="diet-cta-text"><div class="diet-cta-title">Open the questionnaire</div>';
+    html += '<div class="diet-cta-sub">Allergies, avoidances and preferences — about a minute per guest.</div></div>';
+    html += '<div class="diet-cta-arrow">↗</div></div>';
+
+    html += '<div class="diet-track-head"><span class="lbl">Questionnaire status</span><span class="cnt">'+done+' of '+total+' returned</span></div>';
+    html += '<div class="diet-track">';
+    DIET_GUESTS.forEach(function(g){
+      var s = g.status==="done";
+      html += '<div class="diet-track-row"><span class="diet-track-name">'+esc(g.name)+'</span>';
+      html += '<span class="diet-track-status '+(s?"dts-done":"dts-wait")+'">'+(s?"Received":"Awaiting")+'</span></div>';
+    });
+    html += '</div>';
+
+    if(DIET_JP.length){
+      html += '<div class="section-label">For the Chef</div>';
+      html += '<div class="diet-cta" onclick="openDietModal()"><div class="diet-cta-icon">🍽</div>';
+      html += '<div class="diet-cta-text"><div class="diet-cta-title">Show the Chef</div>';
+      html += '<div class="diet-cta-sub">A Japanese-language summary card to show at the counter.</div></div>';
+      html += '<div class="diet-cta-arrow">↗</div></div>';
+    } else {
+      html += '<div class="diet-empty-note">Once questionnaires are returned, a Japanese-language &ldquo;For the Chef&rdquo; card will appear here to show at each counter.</div>';
+    }
+    el.innerHTML = html;
+  }
+
+  window.openDietModal = function(){
+    var box = document.getElementById("modal-jp-content");
+    var h = '';
+    DIET_JP.forEach(function(p){
+      h += '<div class="jp-card'+(p.severe?" severe":"")+'"><div class="jp-card-name">'+esc(p.nameJp||p.name)+'</div>';
+      h += '<div class="jp-card-name-en">'+esc(p.name)+'</div>';
+      if(p.avoidJp) h += '<div class="jp-card-label avoid">避けるもの</div><div class="jp-text">'+esc(p.avoidJp)+'</div>';
+      h += '</div>';
+    });
+    box.innerHTML = h;
+    document.getElementById("diet-modal").classList.add("active");
+  };
+  window.closeDietModal = function(){ document.getElementById("diet-modal").classList.remove("active"); };
+
+  /* ---------- RENDER: UTILITIES ---------- */
+  function renderUtilities(){
+    var el = document.getElementById("tab-utilities");
+    var html = '';
+
+    html += '<div class="util-card"><div class="util-card-title">Currency</div>';
+    html += '<div class="fx-row">';
+    html += '<div class="fx-group"><div class="fx-label">USD</div><input class="fx-input" id="fx-usd" type="number" inputmode="decimal" value="100"></div>';
+    html += '<button class="fx-swap-btn" id="fx-swap" aria-label="swap">⇄</button>';
+    html += '<div class="fx-group"><div class="fx-label">JPY (¥)</div><input class="fx-input" id="fx-jpy" type="number" inputmode="decimal"></div>';
+    html += '</div>';
+    html += '<div class="fx-rate-note">≈ ¥'+FX_RATE+' to $1 · approximate planning rate, not a live quote</div>';
+    html += '</div>';
+
+    html += '<div class="util-card"><div class="util-card-title">Good to Know · Hokkaido in July</div><ul class="info-list">';
+    html += infoRow("🌤️","Mild summer weather","Hokkaido is cooler and less humid than mainland Japan — roughly 18–26°C by day. Comfortable for walking.");
+    html += infoRow("🧥","Layers for the mountains","Mornings at Daisetsuzan / Asahidake can be 5–15°C. Bring a light jacket and a warmer layer for the ropeway.");
+    html += infoRow("💜","Lavender season","Mid-July is peak bloom around Furano and Biei — best in the early morning light.");
+    html += infoRow("💴","Carry some cash","Rural Hokkaido is less card-friendly than the cities. 7-Eleven and Japan Post ATMs reliably take foreign cards.");
+    html += infoRow("📱","Suica / mobile transit","A Suica card in Apple/Google Wallet covers Tokyo trains, buses and convenience stores by tap.");
+    html += infoRow("🕘","Time zone","Japan is UTC+9 — 16 hours ahead of Los Angeles.");
+    html += infoRow("🔌","Power","100V, Type A/B plugs (same shape as the US). US devices work; simple travellers rarely need an adapter.");
+    html += '</ul></div>';
+
+    html += '<div class="util-card"><div class="util-card-title">Dining Etiquette</div>';
+    html += ruleRow("🌸","Go fragrance-free","At the counter, perfume and cologne compete with the food. Skip it on dinner days.");
+    html += ruleRow("⏱️","Arrive on time","Kaiseki and sushi counters are choreographed. Even a few minutes late disrupts the sequence.");
+    html += ruleRow("🍣","Protect the counter","No phones on the wood, no elbows on the counter, and eat sushi promptly once served.");
+    html += ruleRow("🙏","No tipping","Tipping isn't customary and can cause confusion. A sincere thank-you is the right gesture.");
+    html += ruleRow("📅","Reservations are firm","High-end tables hold your slot tightly. Any change goes through your Happy Camper host.");
+    html += '</div>';
+
+    el.innerHTML = html;
+    wireFx();
+  }
+  function infoRow(e,t,d){ return '<li><span class="info-emoji">'+e+'</span><span class="info-text"><strong>'+esc(t)+'</strong>'+esc(d)+'</span></li>'; }
+  function ruleRow(e,t,d){ return '<div class="rule-item"><span class="rule-icon">'+e+'</span><span class="rule-text"><strong>'+esc(t)+'</strong> — '+esc(d)+'</span></div>'; }
+  function wireFx(){
+    var usd=document.getElementById("fx-usd"), jpy=document.getElementById("fx-jpy"), swap=document.getElementById("fx-swap");
+    var mode="usd";
+    function recalc(){
+      if(mode==="usd"){ var v=parseFloat(usd.value||"0"); jpy.value=Math.round(v*FX_RATE); }
+      else { var j=parseFloat(jpy.value||"0"); usd.value=(j/FX_RATE).toFixed(2); }
+    }
+    usd.addEventListener("input",function(){ mode="usd"; recalc(); });
+    jpy.addEventListener("input",function(){ mode="jpy"; recalc(); });
+    swap.addEventListener("click",function(){ mode=(mode==="usd"?"jpy":"usd"); showToast(mode==="usd"?"Enter USD →":"Enter JPY →"); });
+    recalc();
+  }
+
+  /* ---------- RENDER: EMERGENCY / CONTACTS ---------- */
+  function renderEmergency(){
+    var el = document.getElementById("tab-emergency");
+    var html = '';
+    html += '<div class="emergency-banner"><h2>Contacts &amp; Emergency</h2><p>Your people, your stays and the numbers that matter — in one place.</p></div>';
+
+    // Hosts
+    html += '<div class="section-label">Your Hosts</div>';
+    html += '<div class="contact-card host-card">';
+    html += '<div class="host-bio"><div class="host-bio-head"><div class="host-bio-name">Gerhard Huber</div>';
+    html += '<div class="host-bio-meta">Happy Camper · trip lead</div></div>';
+    html += '<p class="host-bio-text">Your point of contact for anything before and during the journey — from the day-to-day plan to any changes on the ground.</p></div>';
+    html += '<div class="host-bio"><div class="host-bio-head"><div class="host-bio-name">Iko</div>';
+    html += '<div class="host-bio-meta">Tokyo · private guide (day 10)</div></div>';
+    html += '<p class="host-bio-text">A Japanese host and former Emirates First Class cabin crew member, guiding your guided Tokyo finale day. Reachable via Happy Camper.</p></div>';
+    html += '</div>';
+
+    // Direct contact
+    html += '<div class="section-label">Direct Line</div>';
+    html += '<div class="contact-card">';
+    html += contactRow("ci-n","👤","Gerhard Huber","Happy Camper — call or WhatsApp","cn","Call","tel:+818069892107");
+    html += contactRow("ci-n","✉️","Email Happy Camper","cfo@happycamper.food","co","Email","mailto:cfo@happycamper.food");
+    html += '</div>';
+
+    // Stays
+    html += '<div class="section-label">Where You Stay</div>';
+    html += '<div class="contact-card">';
+    html += stayRow("KIKI Shiretoko Natural Resort","Utoro · 13–16 Jul","Kiki Shiretoko Natural Resort Utoro", null);
+    html += stayRow("Akan Yuku no Sato Tsuruga","Akanko Onsen · 16–18 Jul","Akan Yuku no Sato Tsuruga Akanko Onsen", null);
+    html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul","La Vista Daisetsuzan Asahidake", null);
+    html += stayRow("Two Yama Duplex Lofts","Furano · 19–21 Jul","Furano Hokkaido", null);
+    html += stayRow("Aman Tokyo","Otemachi · 21–23 Jul","Aman Tokyo", "+81352243333");
+    html += '</div>';
+    html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Property direct lines are added once bookings are confirmed. In the meantime, reach any stay through your Happy Camper host.</div>';
+
+    // Emergency numbers
+    html += '<div class="section-label">Emergency Numbers</div>';
+    html += '<div class="contact-card">';
+    html += contactRow("ci-r","🚓","Police","Nationwide","cr","110","tel:110");
+    html += contactRow("ci-r","🚑","Ambulance & Fire","Nationwide","cr","119","tel:119");
+    html += contactRow("ci-b","⚓","Coast Guard","Sea emergencies","cb","118","tel:118");
+    html += '</div>';
+
+    // Medical
+    html += '<div class="section-label">Medical · English-speaking</div>';
+    html += '<div class="contact-card">';
+    html += contactRow("ci-g","🏥","Hokkaido","Ask your host or hotel concierge for the nearest English-speaking clinic","co","Host","tel:+818069892107");
+    html += contactRow("ci-g","🏥","Tokyo Midtown Clinic","Roppongi · English-speaking","cb","Call","tel:+81354137911");
+    html += contactRow("ci-g","🏥","St. Luke's International","Tokyo · 24h emergency","cb","Call","tel:+81335415151");
+    html += '</div>';
+
+    // Embassy
+    html += '<div class="section-label">Consular · US Citizens</div>';
+    html += '<div class="contact-card">';
+    html += contactRow("ci-n","🇺🇸","U.S. Consulate Sapporo","Nearest to the Hokkaido leg","cn","Call","tel:+81116411115");
+    html += contactRow("ci-n","🇺🇸","U.S. Embassy Tokyo","Minato-ku","cn","Call","tel:+81332245000");
+    html += '</div>';
+    html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Consular and medical numbers are provided for convenience — please confirm the current line before relying on it.</div>';
+
+    // Phrases
+    html += '<div class="section-label">Essential Japanese</div>';
+    html += '<div class="util-card">';
+    html += phrase("Thank you","ありがとうございます","a-ri-ga-tō go-zai-mas");
+    html += phrase("Excuse me / Sorry","すみません","su-mi-ma-sen");
+    html += phrase("Please","お願いします","o-ne-gai shi-mas");
+    html += phrase("Delicious","美味しい","o-i-shī");
+    html += phrase("Where is…?","…はどこですか","…wa do-ko des-ka");
+    html += phrase("Help!","助けて","tas-ke-te");
+    html += '</div>';
+
+    el.innerHTML = html;
+  }
+  function contactRow(iconCls,emoji,label,sub,btnCls,btnTxt,href){
+    var h = '<div class="contact-row"><div class="contact-left">';
+    h += '<div class="contact-icon '+iconCls+'">'+emoji+'</div>';
+    h += '<div><div class="contact-label">'+esc(label)+'</div><div class="contact-sub">'+esc(sub)+'</div></div></div>';
+    h += '<a class="call-btn '+btnCls+'" href="'+href+'">'+esc(btnTxt)+'</a></div>';
+    return h;
+  }
+  function stayRow(name,sub,q,tel){
+    var h = '<div class="contact-row"><div class="contact-left">';
+    h += '<div class="contact-icon ci-n">⌂</div>';
+    h += '<div><div class="contact-label">'+esc(name)+'</div><div class="contact-sub">'+esc(sub)+'</div></div></div>';
+    if(tel) h += '<a class="call-btn cn" href="tel:'+tel+'">Call</a>';
+    else h += '<a class="call-btn co" href="'+gm(q)+'" target="_blank" rel="noopener">Map</a>';
+    h += '</div>';
+    return h;
+  }
+  function phrase(en,jp,ro){
+    return '<div class="rule-item"><span class="rule-text"><strong>'+esc(en)+'</strong><br>'+esc(jp)+' · <em>'+esc(ro)+'</em></span></div>';
+  }
+
+  /* ---------- DATES / CLOCK ---------- */
+  function isoToday(){
+    var now = new Date();
+    var jstMs = now.getTime() + (now.getTimezoneOffset()*60000) + (9*3600000);
+    var j = new Date(jstMs);
+    return j.getFullYear()+"-"+String(j.getMonth()+1).padStart(2,"0")+"-"+String(j.getDate()).padStart(2,"0");
+  }
+  function fmtDate(iso){
+    var p=iso.split("-"); var mo=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return parseInt(p[2],10)+" "+mo[parseInt(p[1],10)-1];
+  }
+  function tickClock(){
+    var now = new Date();
+    var jstMs = now.getTime() + (now.getTimezoneOffset()*60000) + (9*3600000);
+    var j = new Date(jstMs);
+    var hh=String(j.getHours()).padStart(2,"0"), mm=String(j.getMinutes()).padStart(2,"0");
+    var clk=document.getElementById("jst-clock"); if(clk) clk.textContent=hh+":"+mm;
+
+    var today=isoToday();
+    var label="Japan Standard Time";
+    if(today<START_DATE){
+      var d1=new Date(today+"T00:00:00Z"), d2=new Date(START_DATE+"T00:00:00Z");
+      var days=Math.round((d2-d1)/86400000);
+      label = days===1 ? "Tomorrow · Hokkaido" : days+"d to Hokkaido";
+    } else if(today>END_DATE){
+      label="Journey complete";
+    } else {
+      var idx=-1;
+      for(var i=0;i<TRIP.days.length;i++){ if(TRIP.days[i].date===today){ idx=i; break; } }
+      if(idx>=0) label="Day "+(idx+1)+" of "+TOTAL_DAYS+" · "+TRIP.days[idx].city;
+    }
+    var lab=document.getElementById("trip-day-label"); if(lab) lab.textContent=label;
+  }
+
+  /* ---------- WEATHER FETCH ---------- */
+  function loadWeather(){
+    var keys=Object.keys(WX_POINTS);
+    keys.forEach(function(k){
+      var p=WX_POINTS[k];
+      var url="https://api.open-meteo.com/v1/forecast?latitude="+p.lat+"&longitude="+p.lon
+        +"&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max"
+        +"&timezone=Asia%2FTokyo&forecast_days=16";
+      fetch(url).then(function(r){ return r.json(); }).then(function(data){
+        if(!data||!data.daily) return;
+        WX_POINTS[k]._data=data.daily;
+        paintWeather();
+      }).catch(function(){});
+    });
+  }
+  function paintWeather(){
+    TRIP.days.forEach(function(day){
+      var el=document.getElementById("wx-"+day.date);
+      if(!el) return;
+      var k=cityToWx(day.city);
+      var d=WX_POINTS[k]._data;
+      if(!d){ return; }
+      var idx=d.time?d.time.indexOf(day.date):-1;
+      if(idx===-1){
+        el.innerHTML='<span class="wx-icon">🗓️</span><div class="wx-info"><div class="wx-temp">Forecast nearer the day</div><div class="wx-desc">'+esc(day.city)+' · Hokkaido summer</div></div>';
+        return;
+      }
+      var code=d.weather_code[idx], hi=Math.round(d.temperature_2m_max[idx]), lo=Math.round(d.temperature_2m_min[idx]);
+      var pop=d.precipitation_probability_max?d.precipitation_probability_max[idx]:null;
+      var loc=(day.city==="Tokyo"||day.city==="Tokyo → home")?"Tokyo · summer":esc(day.city)+" · Hokkaido summer";
+      var h='<span class="wx-icon">'+wxIcon(code)+'</span>';
+      h+='<div class="wx-info"><div class="wx-temp">'+hi+'° / '+lo+'°C</div><div class="wx-desc">'+loc+'</div></div>';
+      if(pop!=null&&pop>=20) h+='<span class="wx-rain">💧 '+pop+'%</span>';
+      el.innerHTML=h;
+    });
+  }
+
+  /* ---------- NAV ---------- */
+  window.toggleDay=function(n){ var c=document.getElementById("day-"+n); if(c) c.classList.toggle("open"); };
+  function wireTabs(){
+    var btns=document.querySelectorAll(".tab-btn");
+    btns.forEach(function(b){
+      b.addEventListener("click",function(){
+        var tab=b.getAttribute("data-tab");
+        btns.forEach(function(x){ x.classList.remove("active"); });
+        b.classList.add("active");
+        document.querySelectorAll(".tab-panel").forEach(function(p){ p.classList.remove("active"); });
+        var panel=document.getElementById("tab-"+tab);
+        if(panel) panel.classList.add("active");
+        var mc=document.getElementById("main-content"); if(mc) mc.scrollTop=0;
+      });
+    });
+  }
+  function fixHeaderOffset(){
+    var h=document.getElementById("app-header");
+    var mc=document.getElementById("main-content");
+    if(!h||!mc) return;
+    var pad=h.offsetHeight;
+    mc.style.paddingTop=pad+"px";
+    mc.style.height="100vh";
+    mc.style.boxSizing="border-box";
+  }
+
+  /* ---------- INIT ---------- */
+  function init(){
+    renderItinerary();
+    renderDining();
+    renderDiet();
+    renderUtilities();
+    renderEmergency();
+    wireTabs();
+    fixHeaderOffset();
+    tickClock(); setInterval(tickClock,15000);
+    loadWeather();
+    window.addEventListener("resize",fixHeaderOffset);
+    setTimeout(fixHeaderOffset,300);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init);
+  else init();
+})();
+</script>
+<!-- HCI Statement library -->
+<script>
+(function(){
+  "use strict";
+
+  /* Encrypted statement blobs (generated with the two access codes). */
+  var ENC_GUEST    = "SU9FWqlkJWm1Jo25WA/hlQ+xpC9fsb4W9gZZYhy+Vj76UksqMHau0GWUfcL28ZibSnLnb97PYuhJIrv6T+/62yHk6qmOMVodBJr9CbdyVB548mKOHYygvHvZk4u5v0I10oi08bFGVCVb8IB6ob6M5W7rjvDkY77Otv89fpYxjzJpmchP+nUugc33r00A4oQdAT3/bPGZrChimnTlKo8uSAjTnLLhW/fpT2qNj5kKRznMyCAbuZVRUBOl5zVLLCM+woAzpkG6qcB607PF3wkj3uS6ICatTvxAB9Ug/QLvRfaa5Igmm7hS2F5Uv/w0+7UfBANLd0mc9hEB9BexzIWl5/BPaxIfR8XKXGtr0gma8xtL9kZ1VnwiteVp0+pUAh54KdHEfSj+UFgdqrC2gzT0uc2gRgBn+VT5oK0f9SSPcL+S/ibBeAiKHweuRq0vWySroVcDw3uNtRXI5eWhIcp1CWW611WYxq+W//8HcpxQeJVerrWZVl5PFNETEcM/TAA76bpuLVfX/I5IpE7iM6y3h2PImpZugWnSNQC4ZIRrhhCzAxu5VBMhWT1d55Feg1yqYf4cOazxmcBAFheOKXPAD/xwKaPCcN3vg3MpGuqq9GVW4jg6JpYjDGuwQscFKb7NsYXzo8WggoHtWk/3+VS4LqHPzgCXCdXmyfWKypJqnqeFLoznklBSWHHTraf1fgv2UPlLJm7kMnwpoU2p2k60DtNCXSMHr7UpQ9elbSsUmfw8m/h4GYX2IrJH9QizVETkzzPE6HBikd0/PtbC59yo2UoLr1HB7rjbi4kV/eecqhrwOQ5mPEVEXOjCXcytgqn5hTyKqAssVZJ+TgoMlANC304j5H1RaDWuQCRFrgU78kl8YCt6rV8G8Uh5PSI1fGl+Ud+1puDepkPfX3xMPNqcfA0HiFNi7154hNB6Z4hJ9aJG3uPIPQNT9LKW/ea96RJ3XPflOMfoAoDVgVaDXcOzTALuNwyTkVLd+3fNQ7BfUEHiHc3h2r1MN0PTGS1EaBD0328O1On/kdeaQjsndd+AQ6xWS/pkx/WXTuYyBlebBTdcdQAZ+On5dep9/nyKokYtKOIx8A917E7OxypSZiR8Wyw5gWAeMI0uMuO4SnOO5vDx/5kLwTD2jidyPby/A1+oLBL8Eg7NsWDvqjP+DzcIa6lBcH1JdqfBPBPKp9E+qRLCSZC1If1lJjOOhnOE0Y0OhUHcTL4YTbVEdavUh9rQyNLynXF+ZU0MpRIEJfF4M8GwP7nf853EbydbF9zvXTwdL8PnH0GCx67UXhxYEnzpsO2QQv5KUxD9UnBv8mnbFSE+7kto2tkUf+m3i0gY0lqDUBE2dysCIZDWlHw9V8vsp1+3EUCXNMeOYemafmtfY+CZ2+3H78t5ogWTRVOMAXBGY7MvIvjeINXHiUKNaa2kH7cmWTcuRNsE0DaSi5WIDmSYSfGU/KMRE1ORmBLo7puNHF2DJppBW1aWfFX5f3PCNAwY7Q+eViOA+TFn170EoUk3srLIQDpiTq676Xl8LMjMYJwCsrO9co7X7cNk//dmibgZQDsRGn9E1vWj0Jy+B3g9JxEMPw1WnxmbE55ShyhSHcIIXjsAlYne+eu/nvBE8hXGq+/RqAzDSWSti4rzhMHXaowWchUEgfyrF5S0FEUCDJmnKHnDucuUokqjpg==";
+  var ENC_INTERNAL = "78YuztMOF4G1QokNCQLC+l+sxMha0W2bMMnqBKHUHpV5vlllCbBJe99up6BV986v/VwYYQNly8vEKVP8Lrurr3ER+Eq8NQYSyzMgbN01TT2A+2XBLmwPDjvNTubYzGQYtq4FY+du0avX8+CnYnQ449So49FJpRJoAkdreRhTNoT9fSck2GBob+enPnYnAvVpB3sXdfZj9tb0ddXzyVUlpvd0Wkd30qq7tXgUPSHhlt5IUJjY6cLuzzdtDHODZ/fzuQxvBbW31b8DgqogkXDbKriOIKbhaFEFxBQcG3jW5/ewmFL0dAxlYjuA+KsYx4g5uKX7I11SHWFqpI568Q1SOnUzkULRmikf4lsjmuN9XwYv/diI/beU3PcYRR6IMWbPlZUEhWDDwZhJufBqdrGRokQusNwhy4yJG9CIrj+SVL9qglxVzCcvez3sXew0kH0tePygdql5s71hRbpX+LA7X31BrKJJnnLQW0iEDl3oSWZfdqg4X4cxih5Xcsfo+SLsvt+yrH66kBwzzBe6MzQ7Knal0WxDPaMBAad9b9HPUfHZJSNjvMniX8QRFuO0IjugKBl7wumAQOWDrOxmboZDiGC1L2DgO2NKerb4sIRvYurkjWrh86RN3Nt0u/dgyy98wbNL1/Ath3OWDKE87TiySExyjEmxBqoEqNJmiZKmO/2hHcjcV/hhnGUsnuXFxxVyks1yxYllVBytjKtRJ25xxx94m0lktFOZCU7VHHZBqSndj/v+aZNhj5N8W/yvOMScgAKNrJ7fGsuoFSeg82Wx/ggIJ8tAEJgZQT80sK5hZ1fCjs/AdGakrMfn8zFtlnSsCXH6hIIHgS17ZUj8sfBVGo0XEM3k2Dijs6y3M7OnfbWh00kRq8oZy2YzuflLlfBm3PC6ACnAQ1I5WC/Wt9w5c8eWHVOTpxZcfgXX7WV1GPfTVq3t9usviaHNTBXavU2WrjrrzTsjk79HIDqtn3NjUGAmlgkq+klsxV4SSoFIkD2Trge8obR4T62RDRLIzD82AzjO/I8hNUtJd2cfNJ7Xf6uh9iB/pnc3ZVMyuoYWp+oAM0Bf5AyqJmnAsPrBQORx80UNqHtgclXzerwDZn2mXJVO3P/tRHGazzPmPc+LLJxMvP/Rpzr6Qe5UsFTiEB4yWi/GaaVMjAmhG+QA3pl8HEQ0LizdvjGDn/ani1e80BOecwYmK8qnC3iUS4vTnDbNzQCjvEwhI7HXO+NwmUJJW5VOn+QEO31nJo6FZ+n/1oJHa/pZWJMu/cmHUnVgLRdr/jwAfKIziV93OQb8yT0Hj4rEGqFa/p9Tk7vRdRJ6JKiEmbkvWubbSNQs96S1N7LA9JxkK84a++wJE6zrgi6L5kMleF7+rPS7SzievxvkDN1eYdG3bDzgcSBZD70g3pLSfKznwmtKXLz831Xt9fauOpcviuMZwklquGLN+ukH9t9Z0SWlmPSxFzc6scyhrcbrRLnIwjqcvlHXDNf3ZWuEn2bu1jKq+MKamRPMEVhCLu5yVockh0WnmcfdKL0cuul2KsXC9UJFI1LTcIbLeH4DXUztCjvu6ijUpdVWa21fWwWyPhKr6VTRBtKMYPXCARYxtfKF6x2C6m6WhP2rMRTXFjXFBgr3tl/JQKvb65qYeURIBr6MmbkQBR7J1gpnfdprJxeV5epAJCycjFJvQQ==";
+
+  var PBKDF2_ITERATIONS = 250000, SALT_LEN = 16, IV_LEN = 12;
+  var TIMEOUT_SEC = 120;
+
+  var relockTimer = null;
+
+  /* ---------- crypto ---------- */
+  function b64ToBytes(b64){
+    var bin = atob(b64), len = bin.length, bytes = new Uint8Array(len);
+    for(var i=0;i<len;i++) bytes[i] = bin.charCodeAt(i);
+    return bytes;
+  }
+  function bytesToB64(bytes){
+    var bin = "", i, len = bytes.length;
+    for(i=0;i<len;i++) bin += String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+  function deriveKey(password, salt){
+    var enc = new TextEncoder();
+    return crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"])
+      .then(function(base){
+        return crypto.subtle.deriveKey(
+          { name:"PBKDF2", salt:salt, iterations:PBKDF2_ITERATIONS, hash:"SHA-256" },
+          base, { name:"AES-GCM", length:256 }, false, ["encrypt","decrypt"]
+        );
+      });
+  }
+  function decryptText(password, blob){
+    var data = b64ToBytes(blob);
+    var salt = data.slice(0, SALT_LEN);
+    var iv   = data.slice(SALT_LEN, SALT_LEN+IV_LEN);
+    var ct   = data.slice(SALT_LEN+IV_LEN);
+    return deriveKey(password, salt).then(function(key){
+      return crypto.subtle.decrypt({ name:"AES-GCM", iv:iv }, key, ct);
+    }).then(function(buf){
+      return new TextDecoder().decode(buf);
+    });
+  }
+  function encryptText(password, plaintext){
+    var enc = new TextEncoder();
+    var salt = crypto.getRandomValues(new Uint8Array(SALT_LEN));
+    var iv   = crypto.getRandomValues(new Uint8Array(IV_LEN));
+    return deriveKey(password, salt).then(function(key){
+      return crypto.subtle.encrypt({ name:"AES-GCM", iv:iv }, key, enc.encode(plaintext));
+    }).then(function(ctBuf){
+      var ct = new Uint8Array(ctBuf);
+      var out = new Uint8Array(salt.length + iv.length + ct.length);
+      out.set(salt,0); out.set(iv,SALT_LEN); out.set(ct,SALT_LEN+IV_LEN);
+      return bytesToB64(out);
+    });
+  }
+
+  /* ---------- helpers ---------- */
+  function usd(n){
+    try { return new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(n); }
+    catch(e){ return "$"+Math.round(n).toLocaleString(); }
+  }
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+  function sectionTotal(sec){
+    return (sec.items||[]).reduce(function(a,it){ return a + (typeof it.amount==="number"?it.amount:0); }, 0);
+  }
+  function grandTotal(st){
+    var t = (st.sections||[]).reduce(function(a,s){ return a + sectionTotal(s); }, 0);
+    if(typeof st.arrangementFee==="number") t += st.arrangementFee;
+    return t;
+  }
+  function paidTotal(st){
+    return (st.payments||[]).reduce(function(a,p){ return a + (typeof p.amount==="number"?p.amount:0); }, 0);
+  }
+  function costTotal(st){
+    return (st.sections||[]).reduce(function(a,s){
+      return a + (s.items||[]).reduce(function(b,it){ return b + (typeof it.cost==="number"?it.cost:0); }, 0);
+    }, 0);
+  }
+
+  /* ---------- render ---------- */
+  function renderStatement(st, internal){
+    var view = document.getElementById("stmt-view");
+    var lock = document.getElementById("stmt-lock");
+    if(lock) lock.style.display = "none";
+
+    var total = grandTotal(st);
+    var paid = paidTotal(st);
+    var outstanding = total - paid;
+    var isEstimate = !!st.estimate;
+    var balance = isEstimate ? total : outstanding;
+
+    var html = '<div class="card">';
+
+    if(internal){
+      html += '<div class="stmt-internal-banner">Internal view · cost &amp; margin visible — do not show to guests</div>';
+    }
+
+    html += '<div class="stmt-head">';
+    html += '<div class="stmt-as">'+esc(st.tripTitle||"Statement")+' · as of '+esc(st.asOf||"")+'</div>';
+    html += '<div class="stmt-balance'+(balance<=0?" zero":"")+'">'+usd(balance)+'</div>';
+    var blabel = isEstimate ? "Estimated programme cost — not yet invoiced"
+                : (outstanding<=0 ? "Balance settled — thank you" : "Remaining outstanding balance");
+    html += '<div class="stmt-blabel">'+esc(blabel)+' · '+esc(st.guest||"")+'</div>';
+    html += '</div>';
+
+    (st.sections||[]).forEach(function(sec){
+      html += '<div class="stmt-sec">';
+      html += '<div class="stmt-sec-h"><span class="n">'+esc(sec.name)+'</span><span class="v">'+usd(sectionTotal(sec))+'</span></div>';
+      if(sec.note) html += '<div class="stmt-sec-note">'+esc(sec.note)+'</div>';
+      (sec.items||[]).forEach(function(it){
+        html += '<div class="stmt-li"><div><div class="li-l">'+esc(it.label)+'</div>';
+        if(it.note) html += '<div class="li-n">'+esc(it.note)+'</div>';
+        if(internal && typeof it.cost==="number"){
+          var margin = it.amount ? Math.round((1 - it.cost/it.amount)*100) : 0;
+          html += '<div class="li-int">cost '+usd(it.cost)+' · margin '+margin+'%</div>';
+        }
+        html += '</div>';
+        html += '<div class="li-v">'+usd(it.amount)+'</div></div>';
+      });
+      html += '</div>';
+    });
+
+    if(typeof st.arrangementFee==="number" && st.arrangementFee>0){
+      html += '<div class="stmt-sec"><div class="stmt-li"><div class="li-l">Arrangement fee</div>'
+            + '<div class="li-v">'+usd(st.arrangementFee)+'</div></div></div>';
+    }
+
+    html += '<div class="stmt-total"><span class="n">Total</span><span class="v">'+usd(total)+'</span></div>';
+
+    /* payments */
+    html += '<div class="stmt-pay">';
+    if((st.payments||[]).length){
+      st.payments.forEach(function(p){
+        html += '<div class="stmt-li"><div><div class="li-l">'+esc(p.label||"Payment")+'</div>';
+        if(p.date) html += '<div class="li-n">'+esc(p.date)+'</div>';
+        html += '</div><div class="li-v">-'+usd(p.amount)+'</div></div>';
+      });
+    } else if(!isEstimate){
+      html += '<div class="empty">No payments recorded yet.</div>';
+    }
+    html += '</div>';
+
+    /* internal P&L */
+    if(internal){
+      var cost = costTotal(st);
+      var profit = total - cost;
+      var margin = total ? Math.round((profit/total)*100) : 0;
+      html += '<div class="stmt-pl">';
+      html += '<div class="pl-row"><span>Revenue</span><span>'+usd(total)+'</span></div>';
+      html += '<div class="pl-row"><span>Cost</span><span>'+usd(cost)+'</span></div>';
+      html += '<div class="pl-row profit"><span>Profit · margin</span><span>'+usd(profit)+' · '+margin+'%</span></div>';
+      html += '</div>';
+      if(cost===0){
+        html += '<div class="stmt-fx">Costs not yet entered — margin reads 100% until per-item <em>cost</em> values are added via the encrypt console.</div>';
+      }
+    }
+
+    /* pay CTA (never for an estimate) */
+    if(!isEstimate && outstanding>0){
+      html += '<div class="stmt-pay-cta">';
+      if(st.payLink){
+        html += '<a class="paybtn" href="'+esc(st.payLink)+'" target="_blank" rel="noopener">Pay '+usd(outstanding)+'</a>';
+      } else {
+        html += '<span class="paybtn disabled">Payment link not yet available</span>';
+      }
+      html += '</div>';
+      if(st.payRef) html += '<div class="paybtn-sub">Reference: '+esc(st.payRef)+'</div>';
+    }
+
+    if(st.fxNote) html += '<div class="stmt-fx">'+esc(st.fxNote)+'</div>';
+    html += '</div>';
+
+    html += '<button class="stmt-lockbtn" id="stmt-relock">🔒 Lock statement</button>';
+
+    view.innerHTML = html;
+    var rb = document.getElementById("stmt-relock");
+    if(rb) rb.addEventListener("click", lockStatement);
+
+    if(relockTimer) clearTimeout(relockTimer);
+    relockTimer = setTimeout(lockStatement, TIMEOUT_SEC*1000);
+  }
+
+  function lockStatement(){
+    if(relockTimer){ clearTimeout(relockTimer); relockTimer = null; }
+    var view = document.getElementById("stmt-view");
+    var lock = document.getElementById("stmt-lock");
+    if(view) view.innerHTML = "";
+    if(lock) lock.style.display = "";
+    var pw = document.getElementById("stmt-pw");
+    if(pw) pw.value = "";
+    var err = document.getElementById("stmt-err");
+    if(err) err.textContent = "";
+  }
+
+  function attemptUnlock(){
+    var pw = document.getElementById("stmt-pw");
+    var err = document.getElementById("stmt-err");
+    if(!pw) return;
+    var code = pw.value || "";
+    if(err) err.textContent = "";
+    if(!code){ if(err) err.textContent = "Enter your access code."; return; }
+
+    // Try the guest blob first, then the internal blob.
+    decryptText(code, ENC_GUEST).then(function(txt){
+      renderStatement(JSON.parse(txt), false);
+    }).catch(function(){
+      decryptText(code, ENC_INTERNAL).then(function(txt){
+        renderStatement(JSON.parse(txt), true);
+      }).catch(function(){
+        if(err) err.textContent = "That code didn't work. Please check and try again.";
+      });
+    });
+  }
+
+  /* ---------- encrypt console ---------- */
+  var TEMPLATE = {
+    estimate:true,
+    tripTitle:"Japan · Hokkaido & Tokyo",
+    guest:"The Ruan Family",
+    asOf:"2026-07-07",
+    currency:"USD",
+    fxNote:"Indicative estimate — not an invoice.",
+    arrangementFee:0,
+    payLink:"",
+    payRef:"RUAN-JAPAN-2026",
+    sections:[
+      { name:"Land services", note:"", items:[ { label:"Land programme", amount:0, cost:0, note:"" } ] }
+    ],
+    payments:[]
+  };
+
+  function stripInternal(master){
+    var g = JSON.parse(JSON.stringify(master));
+    (g.sections||[]).forEach(function(s){ (s.items||[]).forEach(function(it){ delete it.cost; }); });
+    return g;
+  }
+
+  function conMsg(m){ var el=document.getElementById("con-msg"); if(el) el.textContent=m||""; }
+
+  function openConsole(){ var c=document.getElementById("console"); if(c) c.classList.add("show"); }
+  function closeConsole(){ var c=document.getElementById("console"); if(c) c.classList.remove("show"); }
+
+  function wireConsole(){
+    var loadBtn = document.getElementById("con-load");
+    var tmplBtn = document.getElementById("con-template");
+    var encBtn  = document.getElementById("con-encrypt");
+    var payBtn  = document.getElementById("con-pay-add");
+    var closeBtn= document.getElementById("con-close");
+    var jsonTa  = document.getElementById("con-json");
+
+    if(closeBtn) closeBtn.addEventListener("click", closeConsole);
+
+    if(tmplBtn) tmplBtn.addEventListener("click", function(){
+      jsonTa.value = JSON.stringify(TEMPLATE, null, 2); conMsg("Blank template loaded.");
+    });
+
+    if(loadBtn) loadBtn.addEventListener("click", function(){
+      var code = (document.getElementById("con-pw-internal")||{}).value || "";
+      if(!code){ conMsg("Enter the internal/staff code first."); return; }
+      decryptText(code, ENC_INTERNAL).then(function(txt){
+        jsonTa.value = JSON.stringify(JSON.parse(txt), null, 2);
+        conMsg("Current internal statement loaded.");
+      }).catch(function(){ conMsg("Couldn't decrypt with that internal code."); });
+    });
+
+    if(payBtn) payBtn.addEventListener("click", function(){
+      var d = (document.getElementById("con-pay-date")||{}).value || "";
+      var a = parseFloat((document.getElementById("con-pay-amt")||{}).value || "");
+      var l = (document.getElementById("con-pay-label")||{}).value || "Payment";
+      if(!a){ conMsg("Enter a payment amount."); return; }
+      var obj;
+      try { obj = JSON.parse(jsonTa.value); } catch(e){ conMsg("Load or paste a valid statement first."); return; }
+      obj.payments = obj.payments || [];
+      obj.payments.push({ date:d, amount:a, label:l });
+      jsonTa.value = JSON.stringify(obj, null, 2);
+      conMsg("Payment added to the sheet — now encrypt to regenerate the blobs.");
+    });
+
+    if(encBtn) encBtn.addEventListener("click", function(){
+      var gCode = (document.getElementById("con-pw-guest")||{}).value || "";
+      var iCode = (document.getElementById("con-pw-internal")||{}).value || "";
+      if(!gCode || !iCode){ conMsg("Enter both the guest and internal codes."); return; }
+      var master;
+      try { master = JSON.parse(jsonTa.value); } catch(e){ conMsg("The statement JSON is invalid."); return; }
+      var guest = stripInternal(master);
+      Promise.all([
+        encryptText(gCode, JSON.stringify(guest)),
+        encryptText(iCode, JSON.stringify(master))
+      ]).then(function(res){
+        document.getElementById("con-out-guest").value = res[0];
+        document.getElementById("con-out-internal").value = res[1];
+        conMsg("Encrypted. Paste each blob into ENC_GUEST / ENC_INTERNAL in the file, then re-upload.");
+      }).catch(function(){ conMsg("Encryption failed."); });
+    });
+
+    function copyFrom(id){
+      var ta=document.getElementById(id); if(!ta||!ta.value){ conMsg("Nothing to copy yet."); return; }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(ta.value).then(function(){ conMsg("Copied."); },
+          function(){ ta.select(); conMsg("Select and copy manually."); });
+      } else { ta.select(); conMsg("Select and copy manually."); }
+    }
+    var cg=document.getElementById("con-copy-guest"); if(cg) cg.addEventListener("click", function(){ copyFrom("con-out-guest"); });
+    var ci=document.getElementById("con-copy-internal"); if(ci) ci.addEventListener("click", function(){ copyFrom("con-out-internal"); });
+  }
+
+  function checkHash(){
+    if((location.hash||"").toLowerCase()==="#encrypt") openConsole();
+  }
+
+  /* ---------- init ---------- */
+  function initStatement(){
+    var btn = document.getElementById("stmt-unlock");
+    var pw  = document.getElementById("stmt-pw");
+    if(btn) btn.addEventListener("click", attemptUnlock);
+    if(pw) pw.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); attemptUnlock(); } });
+    wireConsole();
+    checkHash();
+    window.addEventListener("hashchange", checkHash);
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", initStatement);
+  else initStatement();
+})();
+</script>
+</body>
+</html>
 

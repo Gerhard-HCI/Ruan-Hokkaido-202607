@@ -542,7 +542,7 @@
 
   /* ---------- TRIP DATA ----------
      Booking status: KIKI, Akan, La Vista confirmed · Furano property being finalised ·
-     Tokyo hotel to be confirmed with George · international flights self-arranged. */
+     Aman Tokyo confirmed (three rooms) · international flights self-arranged. */
   var TRIP = {
     days: [
       { n:1, date:"2026-07-13", weekday:"Monday", name:"Arrival into Hokkaido",
@@ -719,8 +719,8 @@
 
       { n:9, date:"2026-07-21", weekday:"Tuesday", name:"Furano to Tokyo",
         city:"Tokyo", cityClass:"",
-        hotel:{ name:"Tokyo hotel · to be confirmed", detail:"Nights 9–10 · being finalised with George", q:"Tokyo hotels" },
-        note:"A clean, unhurried travel day. The goal is simply to arrive in Tokyo fresh enough to enjoy the final full day.",
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 9–10 · confirmed · three rooms", q:"Aman Tokyo" },
+        note:"A clean, unhurried travel day — the goal is simply to arrive in Tokyo fresh. From here George's parents conclude their journey in Hokkaido; George, Pani, Victor and the children continue to Tokyo — five guests. Victor has commitments on the 21st and rejoins the family for the Tokyo touring and meals.",
         stops:[
           { time:"09:00", type:"transport", badge:"Confirmed", badgeType:"confirmed",
             title:"Breakfast & check out", sub:"Optional final stop: Ningle Terrace / cheese / melon", q:"Furano" },
@@ -728,16 +728,16 @@
             title:"Transfer to Asahikawa Airport", sub:"Approx. 45 min drive · comfortable check-in and lunch buffer", q:"Asahikawa Airport" },
           { time:"14:30", type:"transport", badge:"Flight", badgeType:"logistics",
             title:"Fly Asahikawa → Haneda", sub:"dep 14:30 / arr 16:15 · ticketing to be finalised", q:"Asahikawa Airport" },
-          { time:"17:15", type:"hotel", badge:"To be confirmed", badgeType:"approval",
-            title:"Private transfer & check in · Tokyo hotel", sub:"Hotel being finalised with George", q:"Tokyo hotels",
-            notes:"The Tokyo hotel is being finalised — George will confirm his preference and we'll lock it in." },
+          { time:"17:15", type:"hotel", badge:"Confirmed · 2 nts", badgeType:"confirmed",
+            title:"Private transfer & check in · Aman Tokyo", sub:"A serene sanctuary above Otemachi · three rooms", q:"Aman Tokyo",
+            notes:"Calm and spacious high above the Otemachi skyline — the right place to land after Hokkaido. Three rooms confirmed for the five of you." },
           { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
             title:"Easy Tokyo dinner", sub:"Nothing demanding, in keeping with a travel day" }
         ]},
 
       { n:10, date:"2026-07-22", weekday:"Wednesday", name:"Tokyo Finale",
         city:"Tokyo", cityClass:"",
-        hotel:{ name:"Tokyo hotel · to be confirmed", detail:"Night 10 · being finalised with George", q:"Tokyo hotels" },
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 10 · confirmed · three rooms", q:"Aman Tokyo" },
         note:"One guided Tokyo day — culture, shopping and the strongest dinner of the trip, with a private guide and vehicle throughout.",
         stops:[
           { time:"09:30", type:"activity", badge:"Proposed", badgeType:"requested",
@@ -748,7 +748,7 @@
           { time:"12:30", type:"restaurant", title:"Lunch", sub:"~12:30–13:30" },
           { time:"14:00", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Split programme", sub:"~14:00–16:00 · Harajuku / teamLab, or Nezu Museum / Ginza / Imperial Palace", q:"teamLab Borderless Tokyo",
-            notes:"Then rest and packing back at your Tokyo hotel." },
+            notes:"Then rest and packing back at the Aman." },
           { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
             title:"The finale dinner", sub:"Sushi, kaiseki, Sazenka-style Chinese or a private room",
             notes:"The strongest Tokyo meal of the trip — final selection confirmed with the family's tastes in mind." }
@@ -756,7 +756,7 @@
         tracks:{
           family:["Meiji Jingu","Omotesandō / Harajuku","Lunch","The finale dinner"],
           kids:["Harajuku","Sneakers and streetwear","Character stores","Optional teamLab or Odaiba"],
-          gentle:["Meiji Jingu only","Nezu Museum / Ginza / Imperial Palace area","Return to your Tokyo hotel earlier","Private-room dinner preferred"]
+          gentle:["Meiji Jingu only","Nezu Museum / Ginza / Imperial Palace area","Return to the Aman earlier","Private-room dinner preferred"]
         }},
 
       { n:11, date:"2026-07-23", weekday:"Thursday", name:"Departure",
@@ -765,7 +765,7 @@
         note:"A slow morning and a clean departure home, with a generous airport buffer.",
         stops:[
           { time:"Morning", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Breakfast at your Tokyo hotel", sub:"Final packing · last shopping if time allows", q:"Tokyo hotels" },
+            title:"Breakfast at the Aman", sub:"Final packing · last shopping if time allows", q:"Aman Tokyo" },
           { time:"Late morning", type:"transport", badge:"Confirmed", badgeType:"confirmed",
             title:"Private transfer to Haneda", sub:"Generous airport buffer · optional depachika bento", q:"Haneda Airport Tokyo" },
           { time:"Departure", type:"flight", badge:"Self-arranged", badgeType:"self-booked",
@@ -893,19 +893,17 @@
     html += '<div class="banner-dates">13 – 23 July 2026 · 7 guests · 10 nights</div>';
     html += '<div class="banner-chips">';
     html += '<span class="banner-chip confirmed">✓ Dates & stays confirmed</span>';
-    html += '<span class="banner-chip approval">⏳ Tokyo hotel · to be confirmed</span>';
     html += '<span class="banner-chip">🐻 Shiretoko coast &amp; wildlife</span>';
     html += '<span class="banner-chip">⛩ Lake Akan · Ainu culture</span>';
     html += '<span class="banner-chip">🏔 Asahidake &amp; Daisetsuzan</span>';
     html += '<span class="banner-chip">💜 Furano lavender</span>';
-    html += '<span class="banner-chip">🏙 Tokyo finale</span>';
+    html += '<span class="banner-chip">🏙 Aman Tokyo finale</span>';
     html += '</div></div>';
 
     html += '<div class="booking-legend">';
     html += '<span class="bl-item"><span class="bl-dot confirmed"></span>Confirmed &amp; included</span>';
     html += '<span class="bl-item"><span class="bl-dot requested"></span>Proposed</span>';
     html += '<span class="bl-item"><span class="bl-dot walk-in"></span>Optional</span>';
-    html += '<span class="bl-item"><span class="bl-dot approval"></span>To be confirmed</span>';
     html += '<span class="bl-item"><span class="bl-dot self-booked"></span>Self-arranged (flights)</span>';
     html += '</div>';
     html += '<div class="day-note-bar" style="margin:0 0 10px">Private driver(s) accompany you throughout Hokkaido; a private guide (Iko) joins for the Tokyo day. Activities are proposed and locked to your pace as the trip nears.</div>';
@@ -1190,9 +1188,9 @@
     html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed","Akan Yuku no Sato Tsuruga Akanko Onsen", "+81154674000");
     html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul · confirmed","La Vista Daisetsuzan Asahidake", "+81166972323");
     html += stayRow("Furano Lofts · Yama 1 & 2","Furano / Biei · 19–21 Jul · confirmed","Furano Lofts Furano Hokkaido", "+81167567569");
-    html += stayRow("Tokyo hotel · to be confirmed","Tokyo · 21–23 Jul · being finalised with George","Tokyo hotels", null);
+    html += stayRow("Aman Tokyo","Otemachi · 21–23 Jul · confirmed · 3 rooms","Aman Tokyo", "+81352243333");
     html += '</div>';
-    html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Every confirmed stay has a direct line above; the Tokyo hotel line follows once George confirms his choice.</div>';
+    html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Every stay above has a direct line — tap Call to reach the front desk.</div>';
     html += '<div class="section-label">Emergency Numbers</div>';
     html += '<div class="contact-card">';
     html += contactRow("ci-r","🚓","Police","Nationwide","cr","110","tel:110");

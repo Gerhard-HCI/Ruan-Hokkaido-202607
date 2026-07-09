@@ -657,16 +657,18 @@
 
       { n:6, date:"2026-07-18", weekday:"Saturday", name:"Into the Mountains",
         city:"Daisetsuzan", cityClass:"daisetsuzan",
-        hotel:{ name:"La Vista Daisetsuzan", detail:"Mountain onsen · confirmed · night 6", q:"La Vista Daisetsuzan Asahidake" },
+        hotel:{ name:"La Vista Daisetsuzan", detail:"Asahidake · confirmed · 1 night · four rooms", q:"La Vista Daisetsuzan Asahidake" },
         note:"A gentle inland transfer via Lake Onneto to a mountain onsen. The alpine activity is saved for tomorrow morning — the drive, with Onneto, is the day.",
         stops:[
           { time:"09:00", type:"transport", badge:"Proposed", badgeType:"requested",
             title:"Depart Akan · Lake Onneto stop", sub:"~09:30–10:15 · ~4h driving via Lake Onneto", q:"Lake Onneto" },
           { time:"12:30", type:"restaurant", title:"Lunch en route", sub:"~12:30–13:30" },
           { time:"16:30", type:"hotel", badge:"Confirmed · 1 nt", badgeType:"confirmed",
-            title:"Check in · La Vista Daisetsuzan", sub:"Bridges Akan and Furano", q:"La Vista Daisetsuzan Asahidake" },
+            title:"Check in · La Vista Daisetsuzan", sub:"Asahidake · check-in from 15:00 · check-out by 11:00", q:"La Vista Daisetsuzan Asahidake",
+            notes:"Four non-smoking Forest View Classic rooms (Japanese-Western style) held for the seven of you, under George Ruan. Dinner and breakfast are included. Onsen bathing tax and any local taxes are settled at the hotel on departure." },
           { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Onsen & mountain dinner", sub:"Early night before the alpine morning" }
+            title:"Onsen & mountain dinner", sub:"A creative French course of seasonal Hokkaido produce",
+            notes:"Dinner and next morning's breakfast are both included in the stay. An early night before the alpine morning." }
         ],
         tracks:{
           family:["Lake Onneto","Scenic inland drive","Mountain-hotel arrival","Onsen evening"],
@@ -782,7 +784,7 @@
   var WL_INCLUDED = [
     { name:"KIKI Shiretoko · in-house dinners", style:"Utoro · nights 1–3 · onsen evenings, whole family together", q:"Kiki Shiretoko Natural Resort Utoro" },
     { name:"Akan Yuku no Sato · ryokan kaiseki", style:"Lake Akan · nights 4–5 · seasonal, served alongside the onsen", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
-    { name:"La Vista Daisetsuzan · mountain dinner", style:"Asahidake · night 6 · warming and regional", q:"La Vista Daisetsuzan Asahidake" }
+    { name:"La Vista Daisetsuzan · French course dinner", style:"Asahidake · night 6 · a creative French course of seasonal Hokkaido produce · dinner & breakfast included", q:"La Vista Daisetsuzan Asahidake" }
   ];
   var WL_CURATED = [
     { name:"Furano Lofts · harvest dinners", style:"Nights 7–8 · a private chef in the Yama loft kitchens, or a good local table", q:"Furano Hokkaido restaurants" },
@@ -1189,7 +1191,7 @@
     html += '<div class="contact-card">';
     html += stayRow("KIKI Shiretoko Resort","Utoro · 13–16 Jul · confirmed","Kiki Shiretoko Natural Resort Utoro", "+81152242104");
     html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed","Akan Yuku no Sato Tsuruga Akanko Onsen", "+81154674000");
-    html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul · confirmed","La Vista Daisetsuzan Asahidake", "+81166972323");
+    html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul · confirmed · 4 rooms","La Vista Daisetsuzan Asahidake", "+81166972323");
     html += stayRow("Furano Lofts · Yama 1 & 2","Furano / Biei · 19–21 Jul · confirmed","Furano Lofts Furano Hokkaido", "+81167567569");
     html += stayRow("Aman Tokyo","Otemachi · 21–23 Jul · confirmed · 3 rooms","Aman Tokyo", "+81352243333");
     html += '</div>';

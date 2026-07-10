@@ -827,15 +827,41 @@
 
   /* ---------- DIET GUESTS ---------- */
   var DIET_GUESTS = [
-    { name:"George",          tag:"adult", status:"pending" },
-    { name:"Pani",            tag:"adult", status:"pending" },
-    { name:"Victor",          tag:"adult", status:"pending" },
+    { name:"George",          tag:"adult", status:"done" },
+    { name:"Pani",            tag:"adult", status:"done" },
+    { name:"Victor",          tag:"adult", status:"done" },
+    { name:"Zhi Shen Huang",  tag:"adult", status:"done" },
     { name:"Audrey",          tag:"child", status:"pending" },
     { name:"Oliver",          tag:"child", status:"pending" },
     { name:"Sam",             tag:"adult", status:"pending" },
     { name:"Shirley",         tag:"adult", status:"pending" }
   ];
-  var DIET_JP = [];
+
+  /* Returned questionnaires */
+  var DIET = [
+    { name:"George & Pani", tag:"adult",
+      avoid:["Organ meats","Anything unusual or out of the ordinary"],
+      note:"No tasting menus or fine-dining formats — there are children in the party." },
+    { name:"Victor Ruan", tag:"adult", severe:true,
+      strict:["Octopus"],
+      note:"Religious restriction — octopus must never be served." },
+    { name:"Zhi Shen Huang", tag:"adult", severe:true,
+      strict:["Octopus"],
+      avoid:["Raw meat — beef, chicken, pork"],
+      note:"Octopus is a religious restriction. Raw meat must be cooked; raw seafood is welcome." }
+  ];
+
+  var DIET_JP = [
+    { name:"George & Pani", nameJp:"ジョージ様・パニ様", severe:false,
+      avoidJp:"内臓肉（レバー・モツ類）はお避けください。また、珍しい食材や変わった料理はお控えください。",
+      noteJp:"お子様がご一緒のため、テイスティングメニューや格式ばったコース形式ではなく、気軽にお召し上がりいただける形でお願いいたします。" },
+    { name:"Victor Ruan", nameJp:"ヴィクター様", severe:true,
+      avoidJp:"宗教上の理由により、タコは絶対に使用しないでください。",
+      noteJp:"" },
+    { name:"Zhi Shen Huang", nameJp:"Zhi Shen Huang 様", severe:true,
+      avoidJp:"宗教上の理由により、タコは絶対に使用しないでください。牛肉・鶏肉・豚肉などの生肉はお避けいただき、必ず加熱してください。",
+      noteJp:"生の魚介類（お刺身・お寿司）は問題ございません。" }
+  ];
   var DIET_URL = "https://diet.happycamper.food";
 
   /* ---------- WEATHER ---------- */
@@ -1119,6 +1145,27 @@
       html += '<span class="diet-track-status '+(s?"dts-done":"dts-wait")+'">'+(s?"Received":"Awaiting")+'</span></div>';
     });
     html += '</div>';
+    if(DIET.length){
+      html += '<div class="section-label">Returned so far</div>';
+      DIET.forEach(function(p){
+        html += '<div class="diet-person-card'+(p.severe?" severe":"")+'">';
+        html += '<div class="diet-person-head"><span class="diet-person-name">'+esc(p.name)+'</span>';
+        if(p.severe) html += '<span class="diet-tag severe">Strict</span>';
+        html += '<span class="diet-tag '+esc(p.tag)+'">'+esc(p.tag==="child"?"Child":"Adult")+'</span></div>';
+        if(p.strict&&p.strict.length){
+          html += '<div class="diet-section-label severe">Must never be served</div><div class="diet-chips">';
+          p.strict.forEach(function(i){ html += '<span class="diet-chip severe">'+esc(i)+'</span>'; });
+          html += '</div>';
+        }
+        if(p.avoid&&p.avoid.length){
+          html += '<div class="diet-section-label avoid">Please avoid</div><div class="diet-chips">';
+          p.avoid.forEach(function(i){ html += '<span class="diet-chip avoid">'+esc(i)+'</span>'; });
+          html += '</div>';
+        }
+        if(p.note) html += '<div class="diet-alert"><span class="di">Note</span><span>'+esc(p.note)+'</span></div>';
+        html += '</div>';
+      });
+    }
     if(DIET_JP.length){
       html += '<div class="section-label">For the Chef</div>';
       html += '<div class="diet-cta" onclick="openDietModal()"><div class="diet-cta-icon">🍽</div>';
@@ -1137,6 +1184,7 @@
       h += '<div class="jp-card'+(p.severe?" severe":"")+'"><div class="jp-card-name">'+esc(p.nameJp||p.name)+'</div>';
       h += '<div class="jp-card-name-en">'+esc(p.name)+'</div>';
       if(p.avoidJp) h += '<div class="jp-card-label avoid">避けるもの</div><div class="jp-text">'+esc(p.avoidJp)+'</div>';
+      if(p.noteJp) h += '<div class="jp-card-label">備考</div><div class="jp-text-list">'+esc(p.noteJp)+'</div>';
       h += '</div>';
     });
     box.innerHTML = h;

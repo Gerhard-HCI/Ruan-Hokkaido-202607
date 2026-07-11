@@ -569,45 +569,66 @@
             notes:"An early, gentle evening to reset after the journey." }
         ]},
 
-      { n:2, date:"2026-07-14", weekday:"Tuesday", name:"Shiretoko · the Hero Day",
+      { n:2, date:"2026-07-14", weekday:"Tuesday", name:"Shiretoko Five Lakes",
         city:"Shiretoko", cityClass:"shiretoko",
         hotel:{ name:"KIKI Shiretoko Resort", detail:"Utoro · confirmed · night 2 of 3", q:"Kiki Shiretoko Natural Resort Utoro" },
-        note:"Wild coast, wildlife and the Five Lakes — the strongest nature day of the journey. Framed as a wild coastal experience rather than a guaranteed bear safari.",
+        note:"A guided walking tour of the Shiretoko Five Lakes — the whole family together, at an easy pace through one of Japan's wildest landscapes.",
         stops:[
-          { time:"09:00", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Shiretoko coast boat & wildlife cruise", sub:"~09:00–12:00 · cliffs, waterfalls, wildlife", q:"Shiretoko Nature Cruise Utoro",
-            alert:"Weather-dependent · brown bears are possible along the shore but never guaranteed." },
-          { time:"12:15", type:"restaurant",
-            title:"Lunch in Utoro", sub:"~12:15–13:15", q:"Utoro Shari" },
+          { time:"07:30", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Breakfast at KIKI", sub:"Dinner in-house" },
+          { time:"09:30", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Pick-up from the hotel", sub:"Full group · private transfer to the trailhead", q:"Kiki Shiretoko Natural Resort Utoro" },
+          { time:"10:30", type:"activity", badge:"Confirmed", badgeType:"confirmed",
+            title:"Shiretoko Five Lakes · guided walking tour", sub:"Tour starts 10:30 · full group · ground path or elevated boardwalk", q:"Shiretoko Five Lakes",
+            notes:"Five forest-ringed lakes below the peaks, with a guide. Back to the hotel in the afternoon." },
+          { time:"12:30", type:"restaurant", title:"Lunch in Utoro", sub:"After the Five Lakes tour", q:"Utoro Shari" },
+          { time:"13:45", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Shiretoko Pass & Rausu scenic drive", sub:"Depart by car · dramatic mountain scenery, little walking", q:"Shiretoko Pass",
+            notes:"The best substantial car excursion here — both sides of the peninsula with barely any compulsory walking." },
           { time:"14:00", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Shiretoko Five Lakes", sub:"~14:00–16:30 · ground pathway or elevated boardwalk", q:"Shiretoko Five Lakes",
-            notes:"Back to the hotel around 17:00." },
+            title:"Cape Puyuni viewpoint", sub:"~14:00 · a brief photo stop", q:"Cape Puyuni Utoro" },
+          { time:"14:30", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Shiretoko Pass photo stop", sub:"~14:30 · close views of Mount Rausu in clear weather", q:"Shiretoko Pass",
+            alert:"Weather-dependent · if the pass is fogged in, swap with the 15th's coastal drive." },
+          { time:"15:00", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Rausu · harbour & Visitor Center", sub:"~15:00–16:00 · the peninsula's wild eastern side", q:"Shiretoko Rausu Visitor Center",
+            notes:"Return across the pass around 16:00." },
+          { time:"17:00", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Back at KIKI", sub:"~17:00–17:30", q:"Kiki Shiretoko Natural Resort Utoro" },
           { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
             title:"Onsen, dinner & rest at KIKI", sub:"Dinner in-house" }
         ],
         tracks:{
-          family:["Shiretoko coast boat with a wildlife focus","Five Lakes nature experience","Early return to the hotel","Onsen and dinner at KIKI"],
-          kids:["Wildlife spotting from the boat","Five Lakes ground pathway, conditions allowing","Photo challenge: bears, deer, eagles, cliffs, forest, lakes"],
-          gentle:["Join the boat only if the sea is comfortable","Five Lakes elevated boardwalk instead of the full trail","Return earlier to the hotel if needed","Hotel onsen and rest"]
+          family:["Guided Five Lakes walking tour","Afternoon drive over Shiretoko Pass to Rausu","Onsen and dinner at KIKI"],
+          kids:["Wildlife and plant spotting with the guide","Mount Rausu and both coasts from the car","Photo stops at Cape Puyuni and the pass"],
+          gentle:["The elevated boardwalk on the Five Lakes","A scenic drive with very little walking","An early return to the onsen"]
         }},
 
-      { n:3, date:"2026-07-15", weekday:"Wednesday", name:"A Flexible Shiretoko Day",
+      { n:3, date:"2026-07-15", weekday:"Wednesday", name:"Shiretoko Bear-Watching Cruise",
         city:"Shiretoko", cityClass:"shiretoko",
         hotel:{ name:"KIKI Shiretoko Resort", detail:"Utoro · confirmed · night 3 of 3", q:"Kiki Shiretoko Natural Resort Utoro" },
-        note:"Forest, waterfalls and viewpoints — kept deliberately flexible. If the coast cruise couldn't run on the 14th, it moves to today, so nothing here is rigid.",
+        note:"A morning coastal drive to Oshinkoshin Falls and the Road to Heaven, then the confirmed afternoon cruise along the wild coast in search of brown bears.",
         stops:[
-          { time:"10:00", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Nature Center & Furepe Falls", sub:"~10:00–11:30", q:"Shiretoko Nature Center" },
-          { time:"12:00", type:"restaurant", title:"Lunch", sub:"~12:00–13:00" },
-          { time:"Afternoon", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Shiretoko Pass · Oronko Rock · or hotel rest", sub:"Weather permitting", q:"Shiretoko Pass" },
+          { time:"08:45", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Depart KIKI · south along the coast", sub:"A morning drive before the afternoon cruise", q:"Kiki Shiretoko Natural Resort Utoro" },
+          { time:"09:05", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Oshinkoshin Falls", sub:"~09:05–09:35 · right by the road, a short staircase", q:"Oshinkoshin Falls Shari" },
+          { time:"09:35", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Road to Heaven viewpoint", sub:"~09:35–10:45 · a 28 km straight road toward the mountains and the Sea of Okhotsk", q:"Tenkaese Road to Heaven Shari",
+            notes:"Coastal and farmland scenery; return towards Utoro around 10:45." },
+          { time:"11:30", type:"restaurant", title:"Early lunch in Utoro", sub:"Before cruise check-in", q:"Utoro Shari" },
+          { time:"13:45", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Pick-up from the hotel", sub:"Private transfer to the port", q:"Kiki Shiretoko Natural Resort Utoro" },
+          { time:"14:30", type:"activity", badge:"Confirmed", badgeType:"confirmed",
+            title:"Shiretoko bear-watching cruise", sub:"Cruise departs the port at 14:30 · cliffs, waterfalls and wildlife", q:"Shiretoko Nature Cruise Utoro",
+            alert:"Brown bears are often seen along the shore in summer, but sightings are never guaranteed." },
           { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Onsen & early dinner", sub:"Dinner in-house" }
+            title:"Onsen & dinner at KIKI", sub:"Dinner in-house · last night on the coast" }
         ],
         tracks:{
-          family:["Shiretoko Nature Center","Furepe Falls walk","Shiretoko Pass viewpoint, weather permitting","Optional Oronko Rock"],
-          kids:["Full Furepe Falls walk","Oronko Rock climb","Wildlife spotting","Short nature walk"],
-          gentle:["Nature Center only","Short version of Furepe Falls","Scenic viewpoints by vehicle","Return to the hotel for rest"]
+          family:["Afternoon bear-watching cruise","Cliffs, waterfalls and coastline","Onsen and dinner at KIKI"],
+          kids:["Wildlife spotting from the boat","Bears, deer and eagles to look for","A gentle forest walk in the morning"],
+          gentle:["The easy coastal drive in the morning","The cruise in the afternoon","An early dinner and onsen"]
         }},
 
       { n:4, date:"2026-07-16", weekday:"Thursday", name:"Shiretoko to Lake Akan",
@@ -721,8 +742,9 @@
             title:"Shirogane Blue Pond", sub:"Biei's famous cobalt water", q:"Shirogane Blue Pond Biei" },
           { time:"14:00", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Shirahige Falls", sub:"~14:00–14:20", q:"Shirahige Falls Biei" },
-          { time:"14:30", type:"transport", badge:"Proposed", badgeType:"requested",
-            title:"Biei scenic drive · Patchwork & Panorama Roads", sub:"~14:30–16:00 · rolling farmland · ~1h30 total driving from Asahidake", q:"Biei Patchwork Road" },
+          { time:"13:00", type:"activity", badge:"Confirmed", badgeType:"confirmed",
+            title:"Private Biei e-bike tour", sub:"13:00–16:30 · Half-Day Cycling Long Tour · BIEIGUIDE / Field North", q:"JR Biei Station",
+            notes:"Private tour for five — three adults and two children; the grandparents sit this one out. Meeting point is behind JR Biei Station, then a scenic ride through Biei's patchwork farmland." },
           { time:"16:30", type:"hotel", badge:"Confirmed · 1 nt", badgeType:"confirmed",
             title:"Check in · Furano Lofts (Yama 1 & 2)", sub:"Two adjacent duplex lofts · private onsen access", q:"Furano Lofts Furano Hokkaido",
             notes:"Two two-level Yama townhouses — each with two king bedrooms, a full kitchen with induction cooktop and combi oven, private balconies and laundry, four guests apiece. Grandparents in one, the family in the other, with private onsen access and a private-chef option in the loft kitchens." },
@@ -730,9 +752,9 @@
             title:"Easy first dinner", sub:"Private chef or a relaxed local table" }
         ],
         tracks:{
-          family:["Asahidake ropeway","Blue Pond","Shirahige Falls","Biei scenic drive","Furano arrival"],
-          kids:["Sugatami Pond alpine loop","Mountain photos","Short walks at Blue Pond and the falls","Optional Ningle Terrace in the evening"],
-          gentle:["Ropeway up and down only","Wait at the station café while the active group walks","Blue Pond and falls as short photo stops","Early hotel arrival if needed"]
+          family:["Asahidake ropeway","Blue Pond","Shirahige Falls","Private Biei e-bike tour","Furano Lofts arrival"],
+          kids:["Sugatami Pond alpine loop","The private Biei e-bike tour (13:00–16:30)","Short walks at Blue Pond and the falls","Optional Ningle Terrace in the evening"],
+          gentle:["Ropeway up and down only","Grandparents rest or a scenic drive while the others cycle Biei","Blue Pond and falls as short photo stops","Early check-in at Furano Lofts"]
         }},
 
       { n:8, date:"2026-07-20", weekday:"Monday", name:"Furano to Tokyo · lavender morning",

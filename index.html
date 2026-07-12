@@ -548,19 +548,23 @@
       { n:1, date:"2026-07-13", weekday:"Monday", name:"Arrival into Hokkaido",
         city:"Shiretoko", cityClass:"shiretoko",
         hotel:{ name:"KIKI Shiretoko Resort", detail:"Utoro · confirmed · nights 1–3", q:"Kiki Shiretoko Natural Resort Utoro" },
-        note:"The family arrives into Memanbetsu on two different flights. Sam, Shirley, Audrey and Oliver land first (13:20); George, Pani and Victor follow at 14:10. Everyone meets airside and travels on to the coast together.",
+        note:"George and Pani spend one night at the Janu Tokyo and join the family in Hokkaido tomorrow. Today, Sam, Shirley, Audrey and Oliver land at Memanbetsu at 13:20 (via New Chitose) and Victor follows at 14:10 from Haneda — five continue to the coast together.",
         stops:[
           { time:"05:55", type:"flight", badge:"Self-arranged", badgeType:"self-booked",
-            title:"Arrive Tokyo · Haneda (HND)", sub:"Overnight from Paris CDG", q:"Haneda Airport Tokyo",
-            notes:"Overnight Air France from Paris CDG (departed 12 Jul, 09:40). Immigration, customs, then on to the domestic connections." },
-          { time:"12:35", type:"transport", badge:"Flight · Party B", badgeType:"logistics",
+            title:"Arrive Tokyo · Haneda (HND)", sub:"Overnight from Paris CDG · George, Pani & Victor", q:"Haneda Airport Tokyo",
+            notes:"Overnight Air France from Paris CDG (departed 12 Jul, 09:40). Immigration and customs at Haneda." },
+          { time:"Midday", type:"hotel", badge:"Confirmed · 1 nt", badgeType:"confirmed",
+            title:"George & Pani · overnight at Janu Tokyo", sub:"Azabudai Hills · a night to rest before Hokkaido", q:"Janu Tokyo Azabudai Hills",
+            notes:"George and Pani break the journey with one night in Tokyo and fly up to join the family on the 14th." },
+          { time:"12:35", type:"transport", badge:"Flight · grandparents & children", badgeType:"logistics",
             title:"JL2715 · New Chitose (CTS) → Memanbetsu", sub:"Sam, Shirley, Audrey & Oliver · dep 12:35 / arr 13:20 · 45m", q:"Memanbetsu Airport",
-            notes:"Arrives first. The driver meets them at Memanbetsu; a short wait in the terminal until the second flight lands." },
-          { time:"12:25", type:"transport", badge:"Flight · Party A", badgeType:"logistics",
-            title:"JAL567 · Haneda (HND) → Memanbetsu", sub:"George, Pani & Victor · dep 12:25 / arr 14:10", q:"Memanbetsu Airport" },
+            notes:"Arrives first; the driver meets them at Memanbetsu." },
+          { time:"14:10", type:"transport", badge:"Flight · Victor", badgeType:"logistics",
+            title:"JAL567 · Haneda (HND) → Memanbetsu", sub:"Victor · dep 12:25 / arr 14:10", q:"Memanbetsu Airport",
+            notes:"Victor connects the same day from Haneda and meets the grandparents and children at Memanbetsu." },
           { time:"14:30", type:"transport", badge:"Confirmed", badgeType:"confirmed",
-            title:"Private transfer to Utoro · all seven", sub:"Two private vehicles · approx. 1h30 drive · optional Oshinkoshin Falls", q:"Oshinkoshin Falls Shari",
-            notes:"Vehicles depart once both parties are together. A short stop at Oshinkoshin Falls only if energy is good — otherwise straight to the coast." },
+            title:"Private transfer to Utoro · five today", sub:"Two private vehicles · approx. 1h30 drive · optional Oshinkoshin Falls", q:"Oshinkoshin Falls Shari",
+            notes:"Grandparents, children and Victor travel on to Shiretoko together. A short stop at Oshinkoshin Falls only if energy is good." },
           { time:"15:30", type:"hotel", badge:"Confirmed · 3 nts", badgeType:"confirmed",
             title:"Check in · KIKI Shiretoko Resort", sub:"Onsen base at Utoro", q:"Kiki Shiretoko Natural Resort Utoro",
             notes:"Three nights here so the coast, wildlife and Five Lakes days stay unhurried." },
@@ -572,7 +576,7 @@
       { n:2, date:"2026-07-14", weekday:"Tuesday", name:"Shiretoko Five Lakes",
         city:"Shiretoko", cityClass:"shiretoko",
         hotel:{ name:"KIKI Shiretoko Resort", detail:"Utoro · confirmed · night 2 of 3", q:"Kiki Shiretoko Natural Resort Utoro" },
-        note:"A guided walking tour of the Shiretoko Five Lakes — the whole family together, at an easy pace through one of Japan's wildest landscapes.",
+        note:"A guided walking tour of the Shiretoko Five Lakes. George and Pani fly up from Tokyo today (arriving Memanbetsu 14:10) and rejoin the family in the late afternoon, so the morning tour is the rest of the group.",
         stops:[
           { time:"07:30", type:"restaurant", badge:"Included", badgeType:"confirmed",
             title:"Breakfast at KIKI", sub:"Dinner in-house" },
@@ -593,10 +597,13 @@
           { time:"15:00", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Rausu · harbour & Visitor Center", sub:"~15:00–16:00 · the peninsula's wild eastern side", q:"Shiretoko Rausu Visitor Center",
             notes:"Return across the pass around 16:00." },
+          { time:"14:10", type:"flight", badge:"Flight", badgeType:"logistics",
+            title:"George & Pani arrive · JAL567 from Tokyo", sub:"arr Memanbetsu 14:10 · private transfer to Shiretoko", q:"Memanbetsu Airport",
+            notes:"After their night at the Janu, George and Pani fly up and rejoin the family at KIKI for the evening." },
           { time:"17:00", type:"transport", badge:"Proposed", badgeType:"requested",
-            title:"Back at KIKI", sub:"~17:00–17:30", q:"Kiki Shiretoko Natural Resort Utoro" },
+            title:"Back at KIKI", sub:"~17:00–17:30 · the family reunites", q:"Kiki Shiretoko Natural Resort Utoro" },
           { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Onsen, dinner & rest at KIKI", sub:"Dinner in-house" }
+            title:"Onsen, dinner & rest at KIKI", sub:"Dinner in-house · all together" }
         ],
         tracks:{
           family:["Guided Five Lakes walking tour","Afternoon drive over Shiretoko Pass to Rausu","Onsen and dinner at KIKI"],
@@ -1292,6 +1299,7 @@
     html += '</div>';
     html += '<div class="section-label">Where You Stay</div>';
     html += '<div class="contact-card">';
+    html += stayRow("Janu Tokyo","Azabudai Hills · 13 Jul · George & Pani · arrival night","Janu Tokyo Azabudai Hills", null);
     html += stayRow("KIKI Shiretoko Resort","Utoro · 13–16 Jul · confirmed","Kiki Shiretoko Natural Resort Utoro", "+81152242104");
     html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed","Akan Yuku no Sato Tsuruga Akanko Onsen", "+81154674000");
     html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul · confirmed · 4 rooms","La Vista Daisetsuzan Asahidake", "+81166972323");

@@ -611,16 +611,16 @@
       { n:3, date:"2026-07-15", weekday:"Wednesday", name:"Shiretoko Bear-Watching Cruise",
         city:"Shiretoko", cityClass:"shiretoko",
         hotel:{ name:"KIKI Shiretoko Resort", detail:"Utoro · confirmed · night 3 of 3", q:"Kiki Shiretoko Natural Resort Utoro" },
-        note:"A morning coastal drive to Oshinkoshin Falls and the Road to Heaven, then the confirmed afternoon cruise along the wild coast in search of brown bears.",
+        note:"An easy, late-morning coastal drive to Oshinkoshin Falls and the Road to Heaven, then the confirmed afternoon bear-watching cruise — nothing before eleven, and just the two things.",
         stops:[
-          { time:"08:45", type:"transport", badge:"Proposed", badgeType:"requested",
+          { time:"11:00", type:"transport", badge:"Proposed", badgeType:"requested",
             title:"Depart KIKI · south along the coast", sub:"A morning drive before the afternoon cruise", q:"Kiki Shiretoko Natural Resort Utoro" },
-          { time:"09:05", type:"activity", badge:"Proposed", badgeType:"requested",
+          { time:"11:20", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Oshinkoshin Falls", sub:"~09:05–09:35 · right by the road, a short staircase", q:"Oshinkoshin Falls Shari" },
-          { time:"09:35", type:"activity", badge:"Proposed", badgeType:"requested",
+          { time:"11:50", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Road to Heaven viewpoint", sub:"~09:35–10:45 · a 28 km straight road toward the mountains and the Sea of Okhotsk", q:"Tenkaese Road to Heaven Shari",
             notes:"Coastal and farmland scenery; return towards Utoro around 10:45." },
-          { time:"11:30", type:"restaurant", title:"Early lunch in Utoro", sub:"Before cruise check-in", q:"Utoro Shari" },
+          { time:"13:00", type:"restaurant", title:"Quick lunch in Utoro", sub:"Before cruise check-in", q:"Utoro Shari" },
           { time:"13:45", type:"transport", badge:"Confirmed", badgeType:"confirmed",
             title:"Pick-up from the hotel", sub:"Private transfer to the port", q:"Kiki Shiretoko Natural Resort Utoro" },
           { time:"14:30", type:"activity", badge:"Confirmed", badgeType:"confirmed",
@@ -638,16 +638,16 @@
       { n:4, date:"2026-07-16", weekday:"Thursday", name:"Shiretoko to Lake Akan",
         city:"Lake Akan", cityClass:"akan",
         hotel:{ name:"Akan Yuku no Sato", detail:"Ryokan · confirmed · nights 4–5", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
-        note:"A scenic transfer through volcanic lake country — the drive itself is the experience, so the day is kept unhurried with an early ryokan arrival.",
+        note:"A scenic transfer through volcanic lake country at an easy pace — a later start, a couple of unhurried stops (Mt. Iō and Lake Mashu), and the rest left optional.",
         stops:[
           { time:"07:30", type:"restaurant", badge:"Included", badgeType:"confirmed",
             title:"Breakfast at KIKI", sub:"Bags loaded and check-out by 08:45" },
-          { time:"09:00", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+          { time:"10:30", type:"transport", badge:"Confirmed", badgeType:"confirmed",
             title:"Depart Shiretoko / Utoro", sub:"Private vehicles · ~2h40 driving across the day", q:"Utoro Shari" },
           { time:"~09:30", type:"activity", badge:"Optional", badgeType:"walk-in",
             title:"Shiretoko Pass viewpoint", sub:"A last look at the peninsula · weather permitting", q:"Shiretoko Pass",
             notes:"Only if the cloud lifts and the timing feels easy — otherwise straight on to Kaminokoike." },
-          { time:"10:20", type:"activity", badge:"Proposed", badgeType:"requested",
+          { time:"~11:15", type:"activity", badge:"Optional", badgeType:"walk-in",
             title:"Kaminokoike Pond", sub:"~10:20–11:00 · short scenic stop, easy walk", q:"Kaminoko Pond Kiyosato",
             notes:"Unpaved parking and basic toilets only — kept as a short scenic stop." },
           { time:"12:10", type:"restaurant", title:"Lunch · Kawayu / Teshikaga", sub:"~12:10–13:10", q:"Kawayu Onsen Teshikaga" },
@@ -676,41 +676,31 @@
       { n:5, date:"2026-07-17", weekday:"Friday", name:"Lake Akan & Ainu Culture",
         city:"Lake Akan", cityClass:"akan",
         hotel:{ name:"Akan Yuku no Sato", detail:"Ryokan · confirmed · night 5 of 5", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
-        note:"Lake, Ainu culture and forest in the morning, then a genuinely soft afternoon. The cruise and the Bokke trail come early so the onsen, the ryokan and the evening are entirely unhurried.",
+        note:"The Ainu wood-sculpture session is the heart of today — a definite — with an afternoon lake cruise and little else. A late, leisurely start and a seafood kaiseki to close.",
         stops:[
-          { time:"07:30", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Breakfast at the ryokan", sub:"Walk to the pier around 08:40" },
-          { time:"09:00", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Lake Akan sightseeing cruise", sub:"~09:00–10:25 · approx. 85 min, including the marimo stop", q:"Lake Akan Sightseeing Cruise",
-            notes:"The July cruise departs at 09:00 and includes marimo (moss ball) viewing." },
-          { time:"10:40", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Bokke Walking Trail", sub:"~10:40–11:30 · easy lakeside forest walk", q:"Bokke Mud Volcano Lake Akan" },
-          { time:"11:30", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Akankohan Eco-museum Center", sub:"~11:30–12:00 · short visit and rest", q:"Akanko Eco Museum Center" },
-          { time:"12:00", type:"restaurant", title:"Lunch", sub:"~12:00–13:15" },
-          { time:"13:30", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Flexible activity block", sub:"~13:30–15:30 · canoe, fishing, a short guided nature activity, or hotel rest", q:"Lake Akan",
-            notes:"Chosen on the day around energy and weather." },
-          { time:"~13:30", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Ainu Kotan · private artist / craft session", sub:"Within the flexible block · woodcarving with an Ainu artist", q:"Akan Ainu Kotan",
-            notes:"The most personal cultural encounter available at Akan — an alternative to the canoe or a rest afternoon." },
+          { time:"Morning", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Slow breakfast at the ryokan", sub:"No rush — the day starts late" },
+          { time:"11:00", type:"activity", badge:"Confirmed", badgeType:"confirmed",
+            title:"Ainu Kotan · private artist & wood sculpture", sub:"~11:00 · a private carving session with an Ainu artist", q:"Akan Ainu Kotan",
+            notes:"The cultural highlight of Akan and a definite for the family — an unhurried, hands-on session, exactly as George asked." },
+          { time:"12:30", type:"restaurant", title:"Ainu-style lunch", sub:"~12:30–13:30", q:"Akan Ainu Kotan" },
+          { time:"13:45", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Lake Akan cruise · marimo viewing", sub:"An afternoon sailing · approx. 85 min", q:"Lake Akan Sightseeing Cruise",
+            notes:"Moved to the afternoon to keep the morning slow; the marimo (moss ball) viewing is included." },
+          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Bokke Trail or Eco-museum Center", sub:"An easy lakeside walk, for anyone with energy", q:"Bokke Mud Volcano Lake Akan" },
           { time:"15:30", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Onsen & downtime", sub:"~15:30–17:30 · an intentionally soft afternoon" },
+            title:"Onsen & downtime", sub:"A soft afternoon before dinner" },
           { time:"18:00", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Dinner at the ryokan", sub:"Kaiseki in-house" },
-          { time:"20:00", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Ainu ancient ceremonial dance · Ikor Theater", sub:"~20:00–20:30", q:"Ikor Theater Akan Ainu Kotan",
-            notes:"Listed May–October, with the ceremonial dance at 20:00 and Lost Kamuy at 21:00." },
-          { time:"21:00", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Lost Kamuy performance", sub:"~21:00–21:30 · at the Ikor Theater", q:"Ikor Theater Akan Ainu Kotan" },
-          { time:"Alternative", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Kamuy Lumina night walk", sub:"Approx. 50 min · instead of the Ikor Theater", q:"Kamuy Lumina Akan",
-            alert:"2026 season runs 26 May – 3 Nov. Entry is by printed departure time, so book ahead." }
+            title:"Kaiseki dinner at the ryokan", sub:"Seasonal Hokkaido kaiseki, seafood-forward" },
+          { time:"Evening", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Ikor Theater or Kamuy Lumina", sub:"Ainu ceremonial dance & Lost Kamuy (20:00 / 21:00), or the ~50 min night walk", q:"Ikor Theater Akan Ainu Kotan",
+            alert:"Kamuy Lumina 2026 runs 26 May – 3 Nov; entry is by printed departure time, so book ahead." }
         ],
         tracks:{
-          family:["Lake Akan cruise with marimo viewing","Bokke Walking Trail","Eco-museum Center","Onsen and ryokan dinner"],
-          kids:["Marimo on the cruise","Full Bokke Trail","Canoe or a guided nature activity","Kamuy Lumina night walk"],
-          gentle:["The cruise, then back to the ryokan","A short section of the Bokke Trail","A seated Ainu artist session, or onsen and rest","Ikor Theater only if energy is good"]
+          family:["The Ainu artist & wood-carving session","An afternoon lake cruise","Onsen and a seafood kaiseki dinner"],
+          kids:["Hands-on carving with the artist","Marimo on the cruise","Ikor Theater or Kamuy Lumina in the evening"],
+          gentle:["The Ainu session, then rest","The cruise, then the onsen","An early seafood kaiseki dinner"]
         }},
 
       { n:6, date:"2026-07-18", weekday:"Saturday", name:"Into the Mountains",
@@ -718,7 +708,7 @@
         hotel:{ name:"La Vista Daisetsuzan", detail:"Asahidake · confirmed · 1 night · four rooms", q:"La Vista Daisetsuzan Asahidake" },
         note:"A gentle inland transfer via Lake Onneto to a mountain onsen. The alpine activity is saved for tomorrow morning — the drive, with Onneto, is the day.",
         stops:[
-          { time:"09:00", type:"transport", badge:"Proposed", badgeType:"requested",
+          { time:"10:30", type:"transport", badge:"Proposed", badgeType:"requested",
             title:"Depart Akan · Lake Onneto stop", sub:"~09:30–10:15 · ~4h driving via Lake Onneto", q:"Lake Onneto" },
           { time:"12:30", type:"restaurant", title:"Lunch en route", sub:"~12:30–13:30" },
           { time:"16:30", type:"hotel", badge:"Confirmed · 1 nt", badgeType:"confirmed",
@@ -737,10 +727,11 @@
       { n:7, date:"2026-07-19", weekday:"Sunday", name:"Asahidake to Furano & Biei",
         city:"Furano / Biei", cityClass:"furano",
         hotel:{ name:"Furano Lofts · Yama 1 & 2", detail:"Two duplex lofts · confirmed · 1 night", q:"Furano Lofts Furano Hokkaido" },
-        note:"An alpine morning, then Hokkaido's most photographed landscapes into lavender country. Split so everyone can pick their pace.",
+        note:"A slow morning — the alpine ropeway is optional for early risers — into Biei's blue pond and falls, with the private afternoon e-bike tour as the one active thing.",
         stops:[
-          { time:"08:45", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Asahidake ropeway & Sugatami Pond", sub:"~08:45–11:00 · alpine loop or ropeway up-and-down", q:"Asahidake Ropeway" },
+          { time:"08:45", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Asahidake ropeway & Sugatami Pond", sub:"Optional early start · for anyone keen on the alpine loop", q:"Asahidake Ropeway",
+            notes:"An earlier, more physical option — skip it for a slower morning and head straight to Biei for the afternoon e-bike tour." },
           { time:"11:15", type:"restaurant", title:"Early lunch near Higashikawa", sub:"~11:15–12:15" },
           { time:"13:15", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Shirogane Blue Pond", sub:"Biei's famous cobalt water", q:"Shirogane Blue Pond Biei" },
@@ -766,9 +757,9 @@
         hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 8–10 · confirmed · three rooms", q:"Aman Tokyo" },
         note:"A lavender morning in Furano before the early-afternoon flight to Tokyo. George's parents conclude their journey in Hokkaido; George, Pani, Victor and the children continue to Tokyo — five guests.",
         stops:[
-          { time:"08:30", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Farm Tomita & Lavender East", sub:"~08:30–10:30 · fields at their peak", q:"Farm Tomita Nakafurano",
-            notes:"An early visit before the crowds, then back to check out." },
+          { time:"09:30", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Farm Tomita & Lavender East", sub:"~09:30–10:45 · lavender at its peak", q:"Farm Tomita Nakafurano",
+            notes:"The one earlier start of the Tokyo stretch, and optional — a chance to catch the lavender before the early-afternoon flight." },
           { time:"11:15", type:"transport", badge:"Confirmed", badgeType:"confirmed",
             title:"Check out & transfer to Asahikawa Airport", sub:"Approx. 45 min drive", q:"Asahikawa Airport" },
           { time:"13:40", type:"transport", badge:"Flight", badgeType:"logistics",
@@ -785,10 +776,10 @@
         hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 9 · confirmed", q:"Aman Tokyo" },
         note:"A full guided Tokyo day with Iko. George has a commitment today, so today's touring is for Pani, Victor and the children.",
         stops:[
-          { time:"09:30", type:"activity", badge:"Proposed", badgeType:"requested",
+          { time:"11:00", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Guided Tokyo day with Iko · Meiji Jingu", sub:"Private guide & vehicle · a forest shrine in the city", q:"Meiji Jingu",
             notes:"Iko — a Japanese host and former Emirates First Class cabin crew member — guides the day." },
-          { time:"11:30", type:"activity", badge:"Proposed", badgeType:"requested",
+          { time:"12:00", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Omotesandō & Harajuku", sub:"Architecture, boutiques and backstreets", q:"Omotesando Tokyo" },
           { time:"12:30", type:"restaurant", title:"Lunch", sub:"~12:30–13:30" },
           { time:"14:00", type:"activity", badge:"Proposed", badgeType:"requested",
@@ -808,14 +799,14 @@
         hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 10 · confirmed", q:"Aman Tokyo" },
         note:"A second guided day with Iko and the strongest dinner of the trip — the finale, with George back and all five together.",
         stops:[
-          { time:"09:30", type:"activity", badge:"Proposed", badgeType:"requested",
+          { time:"11:00", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Second guided day with Iko", sub:"Private guide & vehicle · Imperial Palace, Ginza & shopping", q:"Imperial Palace East Gardens" },
           { time:"12:30", type:"restaurant", title:"Lunch", sub:"~12:30–13:30" },
           { time:"14:00", type:"activity", badge:"Proposed", badgeType:"requested",
             title:"Afternoon · shopping & coffee", sub:"Ginza and Omotesandō, or a Tokyo coffee crawl · then rest & packing", q:"Ginza Tokyo" },
           { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
-            title:"The finale dinner", sub:"Sushi, kaiseki, Sazenka-style Chinese or a private room",
-            notes:"The strongest Tokyo meal of the trip — a fitting close to the journey." }
+            title:"The finale dinner", sub:"A seafood-forward finale · sushi counter or seasonal kaiseki",
+            notes:"Food is the family's priority, so the last night leans into the best seafood and kaiseki in the city — a private room to close the journey." }
         ],
         tracks:{
           family:["Imperial Palace grounds","Ginza & Omotesandō","Lunch together","The finale dinner"],
@@ -841,14 +832,14 @@
 
   /* ---------- DINING ---------- */
   var WL_INCLUDED = [
-    { name:"KIKI Shiretoko · in-house dinners", style:"Utoro · nights 1–3 · onsen evenings, whole family together", q:"Kiki Shiretoko Natural Resort Utoro" },
-    { name:"Akan Yuku no Sato · ryokan kaiseki", style:"Lake Akan · nights 4–5 · seasonal, served alongside the onsen", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
+    { name:"KIKI Shiretoko · in-house dinners", style:"Utoro · nights 1–3 · onsen evenings with Shiretoko seafood", q:"Kiki Shiretoko Natural Resort Utoro" },
+    { name:"Akan Yuku no Sato · ryokan kaiseki", style:"Lake Akan · nights 4–5 · seafood-forward seasonal kaiseki with the onsen", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
     { name:"La Vista Daisetsuzan · French course dinner", style:"Asahidake · night 6 · a creative French course of seasonal Hokkaido produce · dinner & breakfast included", q:"La Vista Daisetsuzan Asahidake" }
   ];
   var WL_CURATED = [
     { name:"Furano Lofts · harvest dinners", style:"Nights 7–8 · a private chef in the Yama loft kitchens, or a good local table", q:"Furano Hokkaido restaurants" },
     { name:"Tokyo · easy arrival dinner", style:"Night 9 · relaxed, in keeping with the travel day", q:"Tokyo restaurants" },
-    { name:"Tokyo · the finale dinner", style:"Night 10 · sushi, kaiseki, Sazenka-style Chinese or a private room", q:"Tokyo private room kaiseki sushi" }
+    { name:"Tokyo · the finale dinner", style:"Night 10 · a seafood-forward finale — sushi counter or seasonal kaiseki, private room", q:"Tokyo sushi kaiseki seafood" }
   ];
 
   /* ---------- DIET GUESTS ---------- */
@@ -1141,7 +1132,7 @@
     var el = document.getElementById("tab-dining");
     var html = '';
     html += '<div class="wishlist-banner"><h2>Dining</h2>';
-    html += '<p>Most evenings are held inside your stays; a few are curated by Happy Camper. Menus are shaped once dietary preferences are in.</p></div>';
+    html += '<p>Food is the family\u2019s top priority — seafood and kaiseki lead. Most evenings are held inside your stays; the Tokyo finale is curated around the best of the city.</p></div>';
     html += '<div class="section-label">Included in your stays</div>';
     html += '<div class="wish-card">'+diningRows(WL_INCLUDED)+'</div>';
     html += '<div class="section-label">Curated by Happy Camper</div>';

@@ -541,7 +541,7 @@
   window.copyAddr = copyAddr;
 
   /* ---------- TRIP DATA ----------
-     Booking status: KIKI, Akan, La Vista confirmed · Furano property being finalised ·
+     Booking status: KIKI, Akan, Furano Lofts and Aman Tokyo confirmed ·
      Aman Tokyo confirmed (three rooms) · international flights self-arranged. */
   var TRIP = {
     days: [
@@ -679,7 +679,7 @@
       { n:5, date:"2026-07-17", weekday:"Friday", name:"Lake Akan & Ainu Culture",
         city:"Lake Akan", cityClass:"akan",
         hotel:{ name:"Akan Yuku no Sato", detail:"Ryokan · confirmed · night 5 of 5", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
-        note:"The Ainu wood-sculpture session is the heart of today — a definite — with an afternoon lake cruise and little else. A late, leisurely start and a seafood kaiseki to close.",
+        note:"The Ainu wood-sculpture session is the heart of today — a definite — with a Canadian canoe on the lake in the afternoon and little else. A late, leisurely start and a seafood kaiseki to close.",
         stops:[
           { time:"Morning", type:"restaurant", badge:"Included", badgeType:"confirmed",
             title:"Slow breakfast at the ryokan", sub:"No rush — the day starts late" },
@@ -687,9 +687,9 @@
             title:"Ainu Kotan · private artist & wood sculpture", sub:"~11:00 · a private carving session with an Ainu artist", q:"Akan Ainu Kotan",
             notes:"The cultural highlight of Akan and a definite for the family — an unhurried, hands-on session, exactly as George asked." },
           { time:"12:30", type:"restaurant", title:"Ainu-style lunch", sub:"~12:30–13:30", q:"Akan Ainu Kotan" },
-          { time:"13:45", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Lake Akan cruise · marimo viewing", sub:"An afternoon sailing · approx. 85 min", q:"Lake Akan Sightseeing Cruise",
-            notes:"Moved to the afternoon to keep the morning slow; the marimo (moss ball) viewing is included." },
+          { time:"13:00", type:"activity", badge:"Confirmed", badgeType:"confirmed",
+            title:"Canadian canoe on Lake Akan", sub:"Briefing 13:00 · back around 15:00 · Akan Nature Center, ~100 m from the hotel", q:"Akan Nature Center Akanko Onsen",
+            notes:"Meet at the Akan Nature Center, a two-minute walk from the ryokan; briefing and safety instructions at 13:00, back on shore around 15:00. Currently confirmed as a shared group activity — we are checking once more whether a private boat is possible." },
           { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
             title:"Bokke Trail or Eco-museum Center", sub:"An easy lakeside walk, for anyone with energy", q:"Bokke Mud Volcano Lake Akan" },
           { time:"15:30", type:"restaurant", badge:"Included", badgeType:"confirmed",
@@ -701,58 +701,61 @@
             alert:"Kamuy Lumina 2026 runs 26 May – 3 Nov; entry is by printed departure time, so book ahead." }
         ],
         tracks:{
-          family:["The Ainu artist & wood-carving session","An afternoon lake cruise","Onsen and a seafood kaiseki dinner"],
-          kids:["Hands-on carving with the artist","Marimo on the cruise","Ikor Theater or Kamuy Lumina in the evening"],
-          gentle:["The Ainu session, then rest","The cruise, then the onsen","An early seafood kaiseki dinner"]
+          family:["The Ainu artist & wood-carving session","A Canadian canoe on Lake Akan","Onsen and a seafood kaiseki dinner"],
+          kids:["Hands-on carving with the artist","Paddling the canoe on the lake","Ikor Theater or Kamuy Lumina in the evening"],
+          gentle:["The Ainu session, then rest","Skip the canoe for the onsen if preferred","An early seafood kaiseki dinner"]
         }},
 
-      { n:6, date:"2026-07-18", weekday:"Saturday", name:"Into the Mountains",
-        city:"Daisetsuzan", cityClass:"daisetsuzan",
-        hotel:{ name:"La Vista Daisetsuzan", detail:"Asahidake · confirmed · 1 night · four rooms", q:"La Vista Daisetsuzan Asahidake" },
-        note:"A gentle inland transfer via Lake Onneto to a mountain onsen. The alpine activity is saved for tomorrow morning — the drive, with Onneto, is the day.",
+      { n:6, date:"2026-07-18", weekday:"Saturday", name:"Lake Akan to Furano",
+        city:"Furano / Biei", cityClass:"furano",
+        hotel:{ name:"Furano Lofts · Yama 1 & 2", detail:"Two duplex lofts · confirmed · nights 6–7", q:"Furano Lofts Furano Hokkaido" },
+        note:"A long, easy transfer west to Furano — roughly four to five hours of driving with stops chosen on the day. Nothing is asked of anyone beyond enjoying the road.",
         stops:[
-          { time:"10:30", type:"transport", badge:"Proposed", badgeType:"requested",
-            title:"Depart Akan · Lake Onneto stop", sub:"~4h driving via Lake Onneto, arriving there ~11:00", q:"Lake Onneto" },
-          { time:"12:30", type:"restaurant", title:"Lunch en route", sub:"~12:30–13:30" },
-          { time:"16:30", type:"hotel", badge:"Confirmed · 1 nt", badgeType:"confirmed",
-            title:"Check in · La Vista Daisetsuzan", sub:"Asahidake · check-in from 15:00 · check-out by 11:00", q:"La Vista Daisetsuzan Asahidake",
-            notes:"Four non-smoking Forest View Classic rooms (Japanese-Western style) held for the seven of you, under George Ruan. Dinner and breakfast are included. Onsen bathing tax and any local taxes are settled at the hotel on departure." },
+          { time:"Morning", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Breakfast & check out", sub:"An unhurried start at the ryokan" },
+          { time:"09:30", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Depart Lake Akan for Furano", sub:"Direct drive · approx. 4–5 hours with stops", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
+          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Lake Onneto", sub:"Weather permitting · a colour-shifting lake below Mt. Meakan", q:"Lake Onneto" },
+          { time:"Midday", type:"restaurant", title:"Lunch around Ashoro", sub:"A relaxed stop along the way", q:"Ashoro Hokkaido" },
+          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Break near Minamifurano or Lake Kanayama", sub:"A short leg-stretch on the final stretch", q:"Lake Kanayama Minamifurano" },
+          { time:"16:00", type:"hotel", badge:"Confirmed · 2 nts", badgeType:"confirmed",
+            title:"Check in · Furano Lofts (Yama 1 & 2)", sub:"Arriving approx. 16:00–17:00 · two adjacent duplex lofts", q:"Furano Lofts Furano Hokkaido",
+            notes:"Two two-level Yama townhouses — each with two king bedrooms, a full kitchen, private balconies and laundry, four guests apiece. Grandparents in one, the family in the other, with private onsen access." },
           { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Onsen & mountain dinner", sub:"A creative French course of seasonal Hokkaido produce",
-            notes:"Dinner and next morning's breakfast are both included in the stay. An early night before the alpine morning." }
+            title:"Easy first dinner at the lofts", sub:"A private chef in the loft kitchens, or a relaxed local table" }
         ],
         tracks:{
-          family:["Lake Onneto","Scenic inland drive","Mountain-hotel arrival","Onsen evening"],
-          kids:["Short walk at Lake Onneto","Landscape and wildlife spotting","Short walk around La Vista after check-in"],
-          gentle:["Lake Onneto viewpoint only","Seated lunch stop","No rough-access detours","Early hotel arrival and rest"]
+          family:["A scenic drive west across Hokkaido","Lake Onneto, weather permitting","Lunch around Ashoro","Settling into the Furano Lofts"],
+          kids:["Lake Onneto and the volcano views","A leg-stretch near Lake Kanayama","Exploring the two-level lofts"],
+          gentle:["A comfortable day in the vehicle","Seated lunch and short breaks only","An early arrival and a quiet evening"]
         }},
 
-      { n:7, date:"2026-07-19", weekday:"Sunday", name:"Asahidake to Furano & Biei",
+      { n:7, date:"2026-07-19", weekday:"Sunday", name:"Furano & Biei",
         city:"Furano / Biei", cityClass:"furano",
-        hotel:{ name:"Furano Lofts · Yama 1 & 2", detail:"Two duplex lofts · confirmed · 1 night", q:"Furano Lofts Furano Hokkaido" },
-        note:"A slow morning — the alpine ropeway is optional for early risers — into Biei's blue pond and falls, with the private afternoon e-bike tour as the one active thing.",
+        hotel:{ name:"Furano Lofts · Yama 1 & 2", detail:"Two duplex lofts · confirmed · night 7 of 7", q:"Furano Lofts Furano Hokkaido" },
+        note:"A Furano-based day: a relaxed drive into Biei, an early lunch, then the private afternoon e-bike tour. The day begins and ends at the lofts — there is no packing and no check-in.",
         stops:[
-          { time:"08:45", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Asahidake ropeway & Sugatami Pond", sub:"Optional early start · for anyone keen on the alpine loop", q:"Asahidake Ropeway",
-            notes:"An earlier, more physical option — skip it for a slower morning and head straight to Biei for the afternoon e-bike tour." },
-          { time:"11:15", type:"restaurant", title:"Early lunch near Higashikawa", sub:"~11:15–12:15" },
-          { time:"13:15", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Shirogane Blue Pond", sub:"Biei's famous cobalt water", q:"Shirogane Blue Pond Biei" },
-          { time:"14:00", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Shirahige Falls", sub:"~14:00–14:20", q:"Shirahige Falls Biei" },
+          { time:"Morning", type:"transport", badge:"Proposed", badgeType:"requested",
+            title:"Relaxed departure toward Biei", sub:"No rush — a slow start from the lofts", q:"Biei Hokkaido" },
+          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Shirogane Blue Pond", sub:"Weather and timing permitting · Biei's cobalt water", q:"Shirogane Blue Pond Biei" },
+          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Shirahige Falls", sub:"A short stop beside the blue river", q:"Shirahige Falls Biei" },
+          { time:"Midday", type:"restaurant", title:"Early lunch in or around Biei", sub:"Before the e-bike tour", q:"Biei Hokkaido restaurants" },
           { time:"13:00", type:"activity", badge:"Confirmed", badgeType:"confirmed",
             title:"Private Biei e-bike tour", sub:"13:00–16:30 · Half-Day Cycling Long Tour · BIEIGUIDE / Field North", q:"JR Biei Station",
             notes:"Private tour for five — three adults and two children; the grandparents sit this one out. Meeting point is behind JR Biei Station, then a scenic ride through Biei's patchwork farmland." },
-          { time:"16:30", type:"hotel", badge:"Confirmed · 1 nt", badgeType:"confirmed",
-            title:"Check in · Furano Lofts (Yama 1 & 2)", sub:"Two adjacent duplex lofts · private onsen access", q:"Furano Lofts Furano Hokkaido",
-            notes:"Two two-level Yama townhouses — each with two king bedrooms, a full kitchen with induction cooktop and combi oven, private balconies and laundry, four guests apiece. Grandparents in one, the family in the other, with private onsen access and a private-chef option in the loft kitchens." },
-          { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
-            title:"Easy first dinner", sub:"Private chef or a relaxed local table" }
+          { time:"16:30", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Return to Furano Lofts", sub:"Directly back after the tour", q:"Furano Lofts Furano Hokkaido" },
+          { time:"Evening", type:"restaurant", badge:"Included", badgeType:"confirmed",
+            title:"Dinner at the lofts", sub:"A private chef harvest dinner, or a good local table · optional Ningle Terrace after", q:"Ningle Terrace Furano" }
         ],
         tracks:{
-          family:["Asahidake ropeway","Blue Pond","Shirahige Falls","Private Biei e-bike tour","Furano Lofts arrival"],
-          kids:["Sugatami Pond alpine loop","The private Biei e-bike tour (13:00–16:30)","Short walks at Blue Pond and the falls","Optional Ningle Terrace in the evening"],
-          gentle:["Ropeway up and down only","Grandparents rest or a scenic drive while the others cycle Biei","Blue Pond and falls as short photo stops","Early check-in at Furano Lofts"]
+          family:["A slow morning drive into Biei","Blue Pond and Shirahige Falls, if the weather suits","Early lunch in Biei","Back to the lofts for dinner"],
+          kids:["The private Biei e-bike tour, 13:00–16:30","Patchwork farmland on two wheels","Optional Ningle Terrace in the evening"],
+          gentle:["The grandparents rest or take a scenic drive while the others cycle","Blue Pond and the falls as short photo stops","A quiet afternoon back at the lofts"]
         }},
 
       { n:8, date:"2026-07-20", weekday:"Monday", name:"Furano to Tokyo · lavender morning",
@@ -764,9 +767,12 @@
             title:"Farm Tomita & Lavender East", sub:"~09:30–10:45 · lavender at its peak", q:"Farm Tomita Nakafurano",
             notes:"The one earlier start of the Tokyo stretch, and optional — a chance to catch the lavender before the early-afternoon flight." },
           { time:"11:15", type:"transport", badge:"Confirmed", badgeType:"confirmed",
-            title:"Check out & transfer to Asahikawa Airport", sub:"Approx. 45 min drive", q:"Asahikawa Airport" },
-          { time:"13:40", type:"transport", badge:"Flight", badgeType:"logistics",
-            title:"Fly Asahikawa (AKJ) → Tokyo Haneda", sub:"JAL · dep 13:40 / arr 15:25 · 1h 45m nonstop · confirmed", q:"Asahikawa Airport" },
+            title:"Check out of Furano Lofts & transfer to Asahikawa Airport", sub:"Approx. 45 min drive", q:"Asahikawa Airport" },
+          { time:"13:40", type:"transport", badge:"Flight · five guests", badgeType:"logistics",
+            title:"JAL · Asahikawa (AKJ) → Tokyo Haneda", sub:"George, Pani, Victor, Audrey & Oliver · dep 13:40 / arr 15:25 · confirmed", q:"Asahikawa Airport" },
+          { time:"Separate", type:"transport", badge:"Flight · grandparents", badgeType:"logistics",
+            title:"Sam & Shirley · separate onward flight", sub:"Own transfer to the airport · met on arrival in Tokyo", q:"Asahikawa Airport",
+            notes:"A separate transfer for their onward flight, with an airport pick-up in Tokyo and a private transfer to the Aman." },
           { time:"16:15", type:"hotel", badge:"Confirmed · 3 nts", badgeType:"confirmed",
             title:"Private transfer & check in · Aman Tokyo", sub:"A serene sanctuary above Otemachi · three rooms", q:"Aman Tokyo",
             notes:"Calm and spacious high above the Otemachi skyline. Three rooms confirmed for the five of you." },
@@ -836,11 +842,10 @@
   /* ---------- DINING ---------- */
   var WL_INCLUDED = [
     { name:"KIKI Shiretoko · in-house dinners", style:"Utoro · nights 1–3 · onsen evenings with Shiretoko seafood", q:"Kiki Shiretoko Natural Resort Utoro" },
-    { name:"Akan Yuku no Sato · ryokan kaiseki", style:"Lake Akan · nights 4–5 · seafood-forward seasonal kaiseki with the onsen", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" },
-    { name:"La Vista Daisetsuzan · French course dinner", style:"Asahidake · night 6 · a creative French course of seasonal Hokkaido produce · dinner & breakfast included", q:"La Vista Daisetsuzan Asahidake" }
+    { name:"Akan Yuku no Sato · ryokan kaiseki", style:"Lake Akan · nights 4–5 · seafood-forward seasonal kaiseki with the onsen", q:"Akan Yuku no Sato Tsuruga Akanko Onsen" }
   ];
   var WL_CURATED = [
-    { name:"Furano Lofts · harvest dinners", style:"Nights 7–8 · a private chef in the Yama loft kitchens, or a good local table", q:"Furano Hokkaido restaurants" },
+    { name:"Furano Lofts · harvest dinners", style:"Nights 6–7 · a private chef in the Yama loft kitchens, or a good local table", q:"Furano Hokkaido restaurants" },
     { name:"Tokyo · easy arrival dinner", style:"Night 9 · relaxed, in keeping with the travel day", q:"Tokyo restaurants" },
     { name:"Tokyo · the finale dinner", style:"Night 10 · a seafood-forward finale — sushi counter or seasonal kaiseki, private room", q:"Tokyo sushi kaiseki seafood" }
   ];
@@ -1301,10 +1306,9 @@
     html += '<div class="contact-card">';
     html += stayRow("Janu Tokyo","Azabudai Hills · 13 Jul · George & Pani · arrival night","Janu Tokyo Azabudai Hills", null);
     html += stayRow("KIKI Shiretoko Resort","Utoro · 13–16 Jul · confirmed","Kiki Shiretoko Natural Resort Utoro", "+81152242104");
-    html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed","Akan Yuku no Sato Tsuruga Akanko Onsen", "+81154674000");
-    html += stayRow("La Vista Daisetsuzan","Asahidake · 18–19 Jul · confirmed · 4 rooms","La Vista Daisetsuzan Asahidake", "+81166972323");
-    html += stayRow("Furano Lofts · Yama 1 & 2","Furano / Biei · 19–21 Jul · confirmed","Furano Lofts Furano Hokkaido", "+81167567569");
-    html += stayRow("Aman Tokyo","Otemachi · 21–23 Jul · confirmed · 3 rooms","Aman Tokyo", "+81352243333");
+    html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed · 2 nights","Akan Yuku no Sato Tsuruga Akanko Onsen", "+81154674000");
+    html += stayRow("Furano Lofts · Yama 1 & 2","Furano / Biei · 18–20 Jul · confirmed","Furano Lofts Furano Hokkaido", "+81167567569");
+    html += stayRow("Aman Tokyo","Otemachi · 20–23 Jul · confirmed · 3 rooms","Aman Tokyo", "+81352243333");
     html += '</div>';
     html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Every stay above has a direct line — tap Call to reach the front desk.</div>';
     html += '<div class="section-label">Emergency Numbers</div>';

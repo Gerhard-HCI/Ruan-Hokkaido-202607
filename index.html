@@ -762,23 +762,25 @@
       { n:8, date:"2026-07-20", weekday:"Monday", name:"Furano to Tokyo · lavender morning",
         city:"Tokyo", cityClass:"",
         hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 8–10 · confirmed · three rooms", q:"Aman Tokyo" },
-        note:"A lavender morning in Furano, then the group splits: George, Pani, Victor and the children fly from Asahikawa to Tokyo, while Sam and Shirley are driven to New Chitose for their flight home to Hong Kong.",
+        note:"A relaxed Furano morning, then the group splits: George, Pani, Victor and the children take the late-afternoon JAL556 from Asahikawa to Tokyo, while Sam and Shirley are driven to New Chitose for their flight home to Hong Kong.",
         stops:[
-          { time:"09:30", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Farm Tomita & Lavender East", sub:"~09:30–10:45 · lavender at its peak", q:"Farm Tomita Nakafurano",
-            notes:"The one earlier start of the Tokyo stretch, and optional — a chance to catch the lavender before the early-afternoon flight." },
-          { time:"11:15", type:"transport", badge:"Confirmed", badgeType:"confirmed",
-            title:"Check out · family transfers to Asahikawa Airport", sub:"George, Pani, Victor, Audrey & Oliver · approx. 50–60 min drive", q:"Asahikawa Airport" },
-          { time:"13:40", type:"transport", badge:"Flight · five guests", badgeType:"logistics",
-            title:"JAL · Asahikawa (AKJ) → Tokyo Haneda", sub:"George, Pani, Victor, Audrey & Oliver · dep 13:40 / arr 15:25 · confirmed", q:"Asahikawa Airport" },
-          { time:"11:00", type:"transport", badge:"Confirmed", badgeType:"confirmed",
-            title:"Sam & Shirley · private transfer to New Chitose", sub:"A separate car to Sapporo · approx. 2–2½ hours (125–130 km)", q:"New Chitose Airport",
-            notes:"Their flight home leaves from New Chitose rather than Asahikawa, so they travel in their own vehicle with a comfortable buffer for the international check-in." },
+          { time:"10:30", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Farm Tomita & Lavender East", sub:"~10:30–12:00 · lavender at its peak", q:"Farm Tomita Nakafurano",
+            notes:"A relaxed late-morning visit — with the later flight there is no need to rush. Lunch in Furano afterwards, then to the airport." },
+          { time:"12:30", type:"restaurant", title:"Lunch in Furano", sub:"Before the transfer to the airport", q:"Furano Hokkaido restaurants" },
+          { time:"14:30", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Check out · family transfers to Asahikawa Airport", sub:"George, Pani, Victor, Audrey & Oliver · approx. 50–60 min drive · in good time for the 16:25 flight", q:"Asahikawa Airport" },
+          { time:"16:25", type:"flight", badge:"Flight · five guests", badgeType:"logistics",
+            title:"JAL556 · Asahikawa (AKJ) → Tokyo Haneda", sub:"George, Pani, Victor, Audrey & Oliver · dep 16:25 / arr 18:15 · confirmed", q:"Asahikawa Airport",
+            notes:"Economy · a later departure than first planned, so the Furano day is unhurried; the family reaches the Aman mid-evening." },
+          { time:"12:00", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Sam & Shirley · private transfer to New Chitose", sub:"A separate car to Sapporo · approx. 2–2½ hours · aim to depart around midday", q:"New Chitose Airport",
+            notes:"Their flight leaves from New Chitose, not Asahikawa. Allowing 2–2½ hours of driving plus international check-in, a departure around midday lands them at the airport with a comfortable buffer for the 15:55 flight." },
           { time:"15:50", type:"flight", badge:"Flight · grandparents", badgeType:"logistics",
-            title:"HX691 · New Chitose (CTS) → Hong Kong", sub:"Sam & Shirley · dep approx. 15:50 / arr Hong Kong approx. 20:40", q:"New Chitose Airport",
+            title:"HX691 · New Chitose (CTS) → Hong Kong", sub:"Sam & Shirley · dep 15:55 / arr Hong Kong approx. 20:45", q:"New Chitose Airport",
             notes:"Hong Kong Airlines, nonstop, about 5h 50m. Sam and Shirley conclude their journey in Hokkaido and fly home from here — they do not continue to Tokyo." },
-          { time:"16:15", type:"hotel", badge:"Confirmed · 3 nts", badgeType:"confirmed",
-            title:"Private transfer & check in · Aman Tokyo", sub:"A serene sanctuary above Otemachi · three rooms", q:"Aman Tokyo",
+          { time:"19:00", type:"hotel", badge:"Confirmed · 3 nts", badgeType:"confirmed",
+            title:"Private transfer & check in · Aman Tokyo", sub:"A serene sanctuary above Otemachi · three rooms · arriving ~19:00", q:"Aman Tokyo",
             notes:"Calm and spacious high above the Otemachi skyline. Three rooms confirmed for the five of you." },
           { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
             title:"Easy Tokyo dinner", sub:"A relaxed first evening in the city" }
@@ -1009,7 +1011,7 @@
     html += '<span class="bl-item"><span class="bl-dot walk-in"></span>Optional</span>';
     html += '<span class="bl-item"><span class="bl-dot self-booked"></span>Self-arranged (flights)</span>';
     html += '</div>';
-    html += '<div class="day-note-bar" style="margin:0 0 10px">Private driver(s) accompany you throughout Hokkaido; a private guide (Iko) joins for the Tokyo day. Activities are proposed and locked to your pace as the trip nears.</div>';
+    html += '<div class="day-note-bar" style="margin:0 0 10px">Private driver(s) accompany you throughout Hokkaido; a private guide (Iko) joins for the Tokyo day. On the 20 July departure the group travels in two vehicles — the family to Asahikawa, the grandparents to New Chitose — with a dedicated luggage vehicle added if needed. Activities are proposed and locked to your pace as the trip nears.</div>';
 
     html += '<div class="section-label">Daily Itinerary</div>';
 

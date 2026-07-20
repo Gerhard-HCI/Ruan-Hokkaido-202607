@@ -761,7 +761,7 @@
 
       { n:8, date:"2026-07-20", weekday:"Monday", name:"Furano to Tokyo · lavender morning",
         city:"Tokyo", cityClass:"",
-        hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 8–11 · confirmed · three rooms", q:"Aman Tokyo" },
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 8–11 · three rooms (one on the final night)", q:"Aman Tokyo" },
         note:"A relaxed Furano morning, then the group splits: George, Pani, Victor and the children take the late-afternoon JAL556 from Asahikawa to Tokyo, while Sam and Shirley are driven to New Chitose for their flight home to Hong Kong.",
         stops:[
           { time:"10:30", type:"activity", badge:"Optional", badgeType:"walk-in",
@@ -812,55 +812,70 @@
       { n:10, date:"2026-07-22", weekday:"Wednesday", name:"Tokyo Finale with Iko",
         city:"Tokyo", cityClass:"",
         hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 10 · confirmed", q:"Aman Tokyo" },
-        note:"A second guided day with Iko and the strongest dinner of the trip — the finale, with George back and all five together.",
+        note:"A late-morning Iko day built around the children — an animal cafe, teamLab, Akihabara arcades, candy stores and Shibuya Sky, with an amazing ramen lunch. George, Pani and the children (four); Victor spends the day on his own and rejoins everyone for the WAGYUMAFIA finale.",
         stops:[
-          { time:"11:00", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Second guided day with Iko", sub:"Private guide & vehicle · Imperial Palace, Ginza & shopping", q:"Imperial Palace East Gardens" },
-          { time:"12:30", type:"restaurant", title:"Lunch", sub:"~12:30–13:30" },
-          { time:"14:00", type:"activity", badge:"Proposed", badgeType:"requested",
-            title:"Afternoon · shopping & coffee", sub:"Ginza and Omotesandō, or a Tokyo coffee crawl · then rest & packing", q:"Ginza Tokyo" },
+          { time:"11:00", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Pick-up from the Aman with Iko", sub:"Late-morning start · George, Pani & the children (four) · Victor on his own today", q:"Aman Tokyo",
+            notes:"A relaxed 11:00 start with Iko. Victor is doing his own thing during the day and rejoins the family for the finale dinner." },
+          { time:"Daytime", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"An animal cafe", sub:"A fun first stop for the children", q:"animal cafe Harajuku Tokyo" },
+          { time:"Daytime", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"teamLab", sub:"Immersive digital-art worlds", q:"teamLab Planets Tokyo" },
+          { time:"Daytime", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Akihabara arcades", sub:"Games and gadgets in the electric town", q:"Akihabara arcades Tokyo" },
+          { time:"Daytime", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Japanese candy stores", sub:"Sweets and souvenirs to take home", q:"Japanese candy store Harajuku Tokyo" },
+          { time:"Daytime", type:"activity", badge:"Proposed", badgeType:"requested",
+            title:"Shibuya Sky", sub:"The open-air rooftop over the crossing", q:"Shibuya Sky" },
+          { time:"Lunch", type:"restaurant", badge:"Proposed", badgeType:"requested",
+            title:"Ramen at a great local spot", sub:"An amazing local ramen, picked on the day", q:"Tokyo ramen",
+            notes:"Iko sets the order and pace across the day around the children's energy — as much or as little as they like." },
           { time:"19:00", type:"restaurant", badge:"Confirmed · 5 guests", badgeType:"confirmed",
             title:"The finale dinner · WAGYUMAFIA", sub:"19:00 · five guests · 5F Lucent Akasaka, Minato-ku", q:"WAGYUMAFIA Akasaka Tokyo",
             notes:"The last night of the journey, at one of Tokyo's most characterful wagyu counters. George, Pani, Victor, Audrey and Oliver — five in total. The kitchen has your dietary notes: no organ meats or unusual ingredients for George and Pani, no octopus for Pani or Victor, and nothing outstanding for the children." }
         ],
         tracks:{
-          family:["Imperial Palace grounds","Ginza & Omotesandō","Lunch together","The finale dinner at WAGYUMAFIA, 19:00"],
-          kids:["More teamLab or character shopping","A coffee-and-cake stop","Packing help back at the Aman"],
-          gentle:["A quieter museum or garden","Unhurried shopping","Rest at the Aman before dinner"]
+          family:["11:00 pick-up from the Aman with Iko","teamLab, Shibuya Sky and an animal cafe","Ramen for lunch","WAGYUMAFIA finale at 19:00 (Victor rejoins)"],
+          kids:["Animal cafe and teamLab","Akihabara arcades and candy stores","Shibuya Sky over the crossing"],
+          gentle:["Pick two or three of the stops, not all","A relaxed ramen lunch","Rest at the Aman before the finale"]
         }},
 
-      { n:11, date:"2026-07-23", weekday:"Thursday", name:"Tokyo · a final day",
+      { n:11, date:"2026-07-23", weekday:"Thursday", name:"Tokyo · last day & first departures",
         city:"Tokyo", cityClass:"",
-        hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 11 · confirmed", q:"Aman Tokyo" },
-        note:"A free day in Tokyo before the early departure tomorrow — entirely at your own pace, with as much or as little as you like.",
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 11 · George & Pani", q:"Aman Tokyo" },
+        note:"A relaxed morning together, then Victor and the children fly home to Los Angeles in the afternoon. George and Pani stay a final night before their own flight to Paris tomorrow.",
         stops:[
           { time:"Morning", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Slow breakfast at the Aman", sub:"No plans until you make them" },
-          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"Shopping, coffee or a last museum", sub:"Ginza, Omotesandō or a Tokyo coffee crawl", q:"Ginza Tokyo" },
-          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
-            title:"teamLab or a final Tokyo walk", sub:"For the children, or a quiet stroll", q:"teamLab Tokyo" },
-          { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
-            title:"A relaxed last dinner", sub:"Something easy and seafood-led before an early night", q:"Tokyo seafood restaurant",
-            notes:"An early night ahead of the 08:50 flight home." }
+            title:"Slow breakfast at the Aman", sub:"A relaxed last morning together" },
+          { time:"Late morning", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Last shopping or coffee", sub:"Ginza, Omotesandō or a Tokyo coffee stop", q:"Ginza Tokyo" },
+          { time:"~13:30", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Victor & the children · transfer to Narita", sub:"Private car to Narita (NRT) · approx. 75–90 min", q:"Narita Airport Tokyo",
+            notes:"Timed to reach Narita with a comfortable buffer for the 16:45 flight." },
+          { time:"16:45", type:"flight", badge:"Confirmed · Victor & children", badgeType:"self-booked",
+            title:"UA33 · Tokyo Narita (NRT) → Los Angeles", sub:"United · dep 16:45 / arr LAX 10:55 same day · 10h 10m", q:"Narita Airport Tokyo",
+            notes:"Victor, Audrey and Oliver fly home to Los Angeles, arriving the same calendar day across the date line." },
+          { time:"19:00", type:"restaurant", badge:"Confirmed · 2 guests", badgeType:"confirmed",
+            title:"Sushi Nakano · George & Pani", sub:"19:00 · an Edomae sushi counter · their last night in Tokyo", q:"Sushi Nakano Tokyo omakase", mapUrl:"https://maps.app.goo.gl/nz6UUpmJkoKTB6vV9",
+            notes:"A confirmed sushi omakase for George and Pani, after Victor and the children have flown home. An early night ahead of the 08:50 flight to Paris." }
         ],
         tracks:{
-          family:["A free day in Tokyo","Last shopping and coffee","An easy seafood dinner","An early night before the flight"],
-          kids:["teamLab or character shopping","A sweet stop in Harajuku","Packing help back at the Aman"],
-          gentle:["A quiet museum or garden","Unhurried shopping","Rest at the Aman"]
+          family:["A relaxed morning together","Last shopping and coffee","Victor & the children fly to LA (UA33, 16:45)","Sushi Nakano for George & Pani (19:00)"],
+          kids:["A final Tokyo treat before the airport","Transfer to Narita after lunch","The flight home to Los Angeles"],
+          gentle:["An unhurried morning","See the others off","Rest at the Aman before dinner"]
         }},
 
       { n:12, date:"2026-07-24", weekday:"Friday", name:"Departure",
         city:"Tokyo \u2192 home", cityClass:"",
         hotel:null,
-        note:"An early departure home for George and Pani, timed around a comfortable buffer for an 08:50 flight from Haneda Terminal 3.",
+        note:"An early departure to Paris for George and Pani (Victor and the children flew to Los Angeles yesterday), timed around a comfortable buffer for the 08:50 flight from Haneda Terminal 3.",
         stops:[
           { time:"05:45", type:"transport", badge:"Confirmed", badgeType:"confirmed",
             title:"Early check out & private transfer to Haneda", sub:"To Terminal 3 · a calm, early run across the city", q:"Haneda Airport Terminal 3",
             notes:"An early start for an 08:50 international departure — timed to reach Terminal 3 with a comfortable check-in buffer." },
           { time:"08:50", type:"flight", badge:"Confirmed · George & Pani", badgeType:"self-booked",
             title:"AF187 · Tokyo Haneda (HND) \u2192 Paris", sub:"Air France · dep 08:50 · Terminal 3 · Business · Airbus A350-900", q:"Haneda Airport Terminal 3",
-            notes:"George and Pani fly home to Paris. Victor and the children travel separately — send their flight details and we will add them here." }
+            notes:"George and Pani fly home to Paris. Victor and the children flew to Los Angeles the previous afternoon on UA33." }
         ]}
     ]
   };
@@ -873,7 +888,8 @@
   var WL_CURATED = [
     { name:"Furano Lofts · harvest dinners", style:"Nights 6–7 · a private chef in the Yama loft kitchens, or a good local table", q:"Furano Hokkaido restaurants" },
     { name:"Tokyo · easy arrival dinner", style:"Night 9 · relaxed, in keeping with the travel day", q:"Tokyo restaurants" },
-    { name:"WAGYUMAFIA · the finale dinner", style:"Wed 22 Jul · 19:00 · five guests · confirmed · Lucent Akasaka, Minato-ku", q:"WAGYUMAFIA Akasaka Tokyo" }
+    { name:"WAGYUMAFIA · the finale dinner", style:"Wed 22 Jul · 19:00 · five guests · confirmed · Lucent Akasaka, Minato-ku", q:"WAGYUMAFIA Akasaka Tokyo" },
+    { name:"Sushi Nakano · George & Pani", style:"Thu 23 Jul · 19:00 · two guests · confirmed · Edomae sushi omakase", q:"Sushi Nakano Tokyo omakase" }
   ];
 
   /* ---------- DIET GUESTS ---------- */
@@ -974,9 +990,11 @@
     if(stop.alert) html += '<div class="stop-alert"><span>⚠️</span><span>'+esc(stop.alert)+'</span></div>';
     html += '<div class="map-actions">';
     if(hasLoc){
-      html += '<a class="map-btn mp" href="'+gm(stop.q)+'" target="_blank" rel="noopener">📍 Maps</a>';
-      html += '<a class="map-btn" href="'+nav(stop.q)+'" target="_blank" rel="noopener">🧭 Nav</a>';
-      html += '<button class="map-btn" type="button" data-link="'+esc(gm(stop.q))+'" onclick="copyLink(this)">⧉ Copy link</button>';
+      var mapHref = stop.mapUrl || gm(stop.q);
+      var navHref = stop.mapUrl || nav(stop.q);
+      html += '<a class="map-btn mp" href="'+mapHref+'" target="_blank" rel="noopener">📍 Maps</a>';
+      html += '<a class="map-btn" href="'+navHref+'" target="_blank" rel="noopener">🧭 Nav</a>';
+      html += '<button class="map-btn" type="button" data-link="'+esc(mapHref)+'" onclick="copyLink(this)">⧉ Copy link</button>';
     } else {
       html += '<span class="map-btn map-disabled">📍 Maps</span>';
       html += '<span class="map-btn map-disabled">🧭 Nav</span>';

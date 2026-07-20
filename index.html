@@ -761,7 +761,7 @@
 
       { n:8, date:"2026-07-20", weekday:"Monday", name:"Furano to Tokyo · lavender morning",
         city:"Tokyo", cityClass:"",
-        hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 8–10 · confirmed · three rooms", q:"Aman Tokyo" },
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · nights 8–11 · confirmed · three rooms", q:"Aman Tokyo" },
         note:"A relaxed Furano morning, then the group splits: George, Pani, Victor and the children take the late-afternoon JAL556 from Asahikawa to Tokyo, while Sam and Shirley are driven to New Chitose for their flight home to Hong Kong.",
         stops:[
           { time:"10:30", type:"activity", badge:"Optional", badgeType:"walk-in",
@@ -829,18 +829,38 @@
           gentle:["A quieter museum or garden","Unhurried shopping","Rest at the Aman before dinner"]
         }},
 
-      { n:11, date:"2026-07-23", weekday:"Thursday", name:"Departure",
-        city:"Tokyo → home", cityClass:"",
-        hotel:null,
-        note:"A slow morning and a clean departure home, with a generous airport buffer.",
+      { n:11, date:"2026-07-23", weekday:"Thursday", name:"Tokyo · a final day",
+        city:"Tokyo", cityClass:"",
+        hotel:{ name:"Aman Tokyo", detail:"Otemachi · night 11 · confirmed", q:"Aman Tokyo" },
+        note:"A free day in Tokyo before the early departure tomorrow — entirely at your own pace, with as much or as little as you like.",
         stops:[
           { time:"Morning", type:"restaurant", badge:"Included", badgeType:"confirmed",
-            title:"Breakfast at the Aman", sub:"Final packing · last shopping if time allows", q:"Aman Tokyo" },
-          { time:"Late morning", type:"transport", badge:"Confirmed", badgeType:"confirmed",
-            title:"Private transfer to Haneda", sub:"Generous airport buffer · optional depachika bento", q:"Haneda Airport Tokyo" },
-          { time:"Departure", type:"flight", badge:"Self-arranged", badgeType:"self-booked",
-            title:"Depart Haneda (HND) → Los Angeles (LAX)", sub:"Arrives LA the same calendar day · time to be confirmed", q:"Haneda Airport Tokyo",
-            notes:"Safe travels home. International flights are arranged by the family." }
+            title:"Slow breakfast at the Aman", sub:"No plans until you make them" },
+          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"Shopping, coffee or a last museum", sub:"Ginza, Omotesandō or a Tokyo coffee crawl", q:"Ginza Tokyo" },
+          { time:"Optional", type:"activity", badge:"Optional", badgeType:"walk-in",
+            title:"teamLab or a final Tokyo walk", sub:"For the children, or a quiet stroll", q:"teamLab Tokyo" },
+          { time:"Evening", type:"restaurant", badge:"Proposed", badgeType:"requested",
+            title:"A relaxed last dinner", sub:"Something easy and seafood-led before an early night", q:"Tokyo seafood restaurant",
+            notes:"An early night ahead of the 08:50 flight home." }
+        ],
+        tracks:{
+          family:["A free day in Tokyo","Last shopping and coffee","An easy seafood dinner","An early night before the flight"],
+          kids:["teamLab or character shopping","A sweet stop in Harajuku","Packing help back at the Aman"],
+          gentle:["A quiet museum or garden","Unhurried shopping","Rest at the Aman"]
+        }},
+
+      { n:12, date:"2026-07-24", weekday:"Friday", name:"Departure",
+        city:"Tokyo \u2192 home", cityClass:"",
+        hotel:null,
+        note:"An early departure home for George and Pani, timed around a comfortable buffer for an 08:50 flight from Haneda Terminal 3.",
+        stops:[
+          { time:"05:45", type:"transport", badge:"Confirmed", badgeType:"confirmed",
+            title:"Early check out & private transfer to Haneda", sub:"To Terminal 3 · a calm, early run across the city", q:"Haneda Airport Terminal 3",
+            notes:"An early start for an 08:50 international departure — timed to reach Terminal 3 with a comfortable check-in buffer." },
+          { time:"08:50", type:"flight", badge:"Confirmed · George & Pani", badgeType:"self-booked",
+            title:"AF187 · Tokyo Haneda (HND) \u2192 Paris", sub:"Air France · dep 08:50 · Terminal 3 · Business · Airbus A350-900", q:"Haneda Airport Terminal 3",
+            notes:"George and Pani fly home to Paris. Victor and the children travel separately — send their flight details and we will add them here." }
         ]}
     ]
   };
@@ -995,7 +1015,7 @@
     html += '<div class="trip-banner">';
     html += '<div class="trip-banner-kana">Hokkaido Forest Loop &amp; Tokyo Finale · Happy Camper × The Extended</div>';
     html += '<h2>Japan</h2>';
-    html += '<div class="banner-dates">13 – 23 July 2026 · 7 guests · 10 nights</div>';
+    html += '<div class="banner-dates">13 – 24 July 2026 · 7 guests · 11 nights</div>';
     html += '<div class="banner-chips">';
     html += '<span class="banner-chip confirmed">✓ Dates & stays confirmed</span>';
     html += '<span class="banner-chip">🐻 Shiretoko coast &amp; wildlife</span>';
@@ -1253,7 +1273,7 @@
     html += infoRow("💜","Lavender season","Mid-July is peak bloom around Furano and Biei — best in the early morning light.");
     html += infoRow("💴","Carry some cash","Rural Hokkaido is less card-friendly than the cities. 7-Eleven and Japan Post ATMs reliably take foreign cards.");
     html += infoRow("📱","Suica / mobile transit","A Suica card in Apple/Google Wallet covers Tokyo trains, buses and convenience stores by tap.");
-    html += infoRow("🕘","Time zone","Japan is UTC+9 — 16 hours ahead of Los Angeles.");
+    html += infoRow("🕘","Time zone","Japan is UTC+9 — 7 hours ahead of Paris in summer.");
     html += infoRow("🔌","Power","100V, Type A/B plugs (same shape as the US). US devices work; simple travellers rarely need an adapter.");
     html += '</ul></div>';
     html += '<div class="util-card"><div class="util-card-title">Dining Etiquette</div>';
@@ -1317,7 +1337,7 @@
     html += stayRow("KIKI Shiretoko Resort","Utoro · 13–16 Jul · confirmed","Kiki Shiretoko Natural Resort Utoro", "+81152242104");
     html += stayRow("Akan Yuku no Sato","Akanko Onsen · 16–18 Jul · confirmed · 2 nights","Akan Yuku no Sato Tsuruga Akanko Onsen", "+81154674000");
     html += stayRow("Furano Lofts · Yama 1 & 2","Furano / Biei · 18–20 Jul · confirmed","Furano Lofts Furano Hokkaido", "+81167567569");
-    html += stayRow("Aman Tokyo","Otemachi · 20–23 Jul · confirmed · 3 rooms","Aman Tokyo", "+81352243333");
+    html += stayRow("Aman Tokyo","Otemachi · 20–24 Jul · confirmed · 3 rooms","Aman Tokyo", "+81352243333");
     html += '</div>';
     html += '<div class="diet-empty-note" style="text-align:left;padding:10px 4px">Every stay above has a direct line — tap Call to reach the front desk.</div>';
     html += '<div class="section-label">Emergency Numbers</div>';
